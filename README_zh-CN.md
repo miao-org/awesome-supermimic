@@ -79,6 +79,8 @@ SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再
 
 ## 社区项目
 
+**Update** 标注新版本或新结果及核查日期；历史结果保留原实验条件和来源。[本轮 41 个项目的核查记录](docs/project-review-2026-11-03.md)。
+
 **41 个项目，按用途分为 7 类。** 每个项目只收录一次，跨方向的能力在介绍中说明。下表保留各方向的推荐入口，⭐ 表示有值得阅读的实验、工具或示例。
 
 各分类内，**所有项目统一按 GitHub Stars 降序排列**（2026-11-03 快照；同数按仓库名排序），⭐ 表示编辑推荐，不影响排序。汇总表仍按分类组织，并在分类内遵循相同顺序。徽章动态更新，排列顺序不会自动变化。Stars 体现仓库关注度；结果与演示为上游报告。
@@ -91,7 +93,7 @@ SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再
 <thead><tr><th align="left" width="32%">方向</th><th align="left" width="40%">项目 · Stars</th><th align="left" width="28%">技术价值 · 实验证据</th></tr></thead>
 <tbody>
 <tr>
-<td rowspan="8" valign="top"><a href="#复现方法与训练框架">🔬&nbsp;复现与训练（18）</a></td>
+<td rowspan="9" valign="top"><a href="#复现方法与训练框架">🔬&nbsp;复现与训练（18）</a></td>
 <td valign="top" nowrap="nowrap"><strong><a href="#supermimic_vibed">supermimic_vibed</a></strong>&nbsp;<a href="https://github.com/zita-ch/supermimic_vibed/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/zita-ch/supermimic_vibed.svg?style=social"></a><br>作者：Chong Zhang</td>
 <td valign="top"><strong>1.47 小时跑通 LAFAN1 全部 40 条动作！</strong> 单张 RTX PRO 6000 Blackwell 的 Isaac Lab G1 复现，配套完整评测与渲染；需注意关闭自碰撞、增加朝向观测。</td>
 </tr>
@@ -109,7 +111,11 @@ SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再
 </tr>
 <tr>
 <td valign="top" nowrap="nowrap"><strong><a href="#instanttrack">InstantTrack</a></strong>&nbsp;<a href="https://github.com/Huy-Quang-Dao/instantTrack/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/Huy-Quang-Dao/instantTrack.svg?style=social"></a><br>作者：Huy-Quang-Dao</td>
-<td valign="top"><strong>15 分钟、3 个种子全部 0/40 失败！</strong> 单张 RTX 5090，结合 EMA、小型世界模型、失败样本重置与接触奖励；耗时不含离线评测，成绩针对训练动作。</td>
+<td valign="top"><strong>Update · v1.2：约 7 分钟达到 0/40 失败。</strong> 单张 RTX 5090，5 个种子平均，回报 ≥ 0.82 且连续三个检查点达标；加入 Muon、CUDA Graph 和更小策略。下方保留原 15 分钟结果。</td>
+</tr>
+<tr>
+<td valign="top" nowrap="nowrap"><strong><a href="#blinkmimic">BlinkMimic</a></strong>&nbsp;<a href="https://github.com/fuyichen0725/blinkmimic/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/fuyichen0725/blinkmimic.svg?style=social"></a><br>作者：Fuyi Chen</td>
+<td valign="top"><strong>约 3.4 分钟，一套策略跟踪全部 40 条动作！</strong> 单张 RTX 4090，3 个种子平均，回报 ≥ 0.82 且连续三个检查点 0/40 失败；附同机 InstantTrack v1.2 对照，仅仿真训练动作。</td>
 </tr>
 <tr>
 <td valign="top" nowrap="nowrap"><strong><a href="#allmimic">allmimic</a></strong>&nbsp;<a href="https://github.com/Shimingyi/allmimic/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/Shimingyi/allmimic.svg?style=social"></a><br>作者：Shimingyi</td>
@@ -139,7 +145,7 @@ SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再
 </tr>
 <tr>
 <td valign="top" nowrap="nowrap"><strong><a href="#supermimic-for-robot-manipulation">supermimic_manipulation</a></strong>&nbsp;<a href="https://github.com/emoPointer/supermimic_manipulation/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/emoPointer/supermimic_manipulation.svg?style=social"></a><br>作者：Zhiqiang Zhou（emoPointer）</td>
-<td valign="top"><strong>三项机械臂任务，留出初态成功率最高 100%！</strong> ARX5 各 256 回合达到 100%／94.9%／96.9%，公开权重；单张 A100 每轮 1.8–2.8 小时。</td>
+<td valign="top"><strong>Update · 扩展到五项机械臂任务。</strong> 新增螺母插装与关抽屉，留出分阶段起点总体成功率 95.0% / 90.2%；完整任务起点为 95% / 81%，新任务权重尚未发布。</td>
 </tr>
 <tr>
 <td valign="top" nowrap="nowrap"><strong><a href="#in-hand-rotation-mjlab">In-Hand Rotation mjlab</a></strong>&nbsp;<a href="https://github.com/Msornerrrr/in-hand-rotation-mjlab/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/Msornerrrr/in-hand-rotation-mjlab.svg?style=social"></a><br>作者：Msornerrrr</td>
@@ -147,12 +153,12 @@ SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再
 </tr>
 <tr>
 <td valign="top" nowrap="nowrap"><strong><a href="#sharpa-supermimic">Sharpa SuperMimic</a></strong>&nbsp;<a href="https://github.com/Mingrui-Yu/sharpa_rl_unilab/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/Mingrui-Yu/sharpa_rl_unilab.svg?style=social"></a><br>作者：Mingrui Yu</td>
-<td valign="top"><strong>把 SuperMimic 用到带触觉的灵巧手上！</strong> 默认教师用 22 自由度 Sharpa Wave 手旋转圆柱体，并加入 HORA 教师到学生蒸馏；可在 UniLab/MJWarp 上与 PPO、APPO、FlashSAC 基线并列运行。当前验证覆盖训练管线，尚无语义完整的策略性能对比。</td>
+<td valign="top"><strong>Update · 单阶段 SuperMimic，无需另做蒸馏。</strong> RTX 4090 训练 686 秒；240 固定场景仿真评测回报 43.59、角速度 0.671 rad/s、掉落率 2.08%，尚非真机验证。</td>
 </tr>
 <tr>
 <td rowspan="1" valign="top"><a href="#肌肉驱动交互与诊断">💪&nbsp;肌肉与交互（3）</a></td>
 <td valign="top" nowrap="nowrap"><strong><a href="#muscle-supermimic">muscle-supermimic</a></strong>&nbsp;<a href="https://github.com/kaibohex/muscle-supermimic/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/kaibohex/muscle-supermimic.svg?style=social"></a><br>作者：Kaibo He（kaibohex）</td>
-<td valign="top"><strong>从关节控制升级到 700 块肌肉驱动！</strong> 单张 RTX 5090 训练 10.1 小时，完成 104/108 条留出 KIT 动作；另支持 354 肌肉模型。</td>
+<td valign="top"><strong>Update · MyoFullBody 完成 108/108 条留出动作。</strong> 单张 RTX 5090，16k 迭代 / 9.6 小时，回报 0.90；另有 700 肌肉 MS-Human-700，两个本体均已发布 10k/16k 权重。</td>
 </tr>
 <tr>
 <td rowspan="1" valign="top"><a href="#机器人移植与重定向">🤖&nbsp;本体移植（7）</a></td>
@@ -191,6 +197,7 @@ SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再
 [仓库](https://github.com/zita-ch/supermimic_vibed) · [安装与使用](https://github.com/zita-ch/supermimic_vibed/blob/8bfc1158bd968f729fcc65d5e897a05b05ea3d36/README.md#setup) · [结果](https://github.com/zita-ch/supermimic_vibed/blob/8bfc1158bd968f729fcc65d5e897a05b05ea3d36/README.md#result-lafan1-40-clips-one-rtx-pro-6000-blackwell)
 
 - **作者：Chong Zhang。** 基于 Isaac Lab 3 独立实现 G1 动作跟踪，提供 kit-less 环境、训练、完整动作评估和渲染工具。
+- **Update（2026-11-03 核查）：** 新增 Pantelis Manouselis 发布的社区训练权重入口：单独一次训练在 40 条 LAFAN1 训练动作上报告回报 **0.8696、0 / 40 失败**，以 Safetensors 提供推理权重并要求兼容 fork。该结果不属于下方原作者的 1.47 小时实验。 [更新来源](https://github.com/zita-ch/supermimic_vibed/blob/0525a23a2dcfa61f8543f98b84c075fe66d9d286/README.md).
 - **上游报告：** 单张 RTX PRO 6000 Blackwell 训练 **1.47 小时**，40 条 LAFAN1 动作的归一化回报为 **0.829**，**0 / 40 失败**。
 - **选择时注意：** 作者将其描述为快速开发、未经充分审查的复现；与论文的差异包括关闭自碰撞、MLP 使用 bf16，以及额外输入参考根部相对朝向。 [核查版本](https://github.com/zita-ch/supermimic_vibed/blob/8bfc1158bd968f729fcc65d5e897a05b05ea3d36/README.md)。
 
@@ -237,6 +244,7 @@ SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再
 [仓库](https://github.com/Motphys/Uni-SuperMimic) · [安装](https://github.com/Motphys/Uni-SuperMimic/blob/05a9772ca09509c50a4cc3fe96f9d6b3c180f3d2/README.md#installation) · [结果](https://github.com/Motphys/Uni-SuperMimic/blob/05a9772ca09509c50a4cc3fe96f9d6b3c180f3d2/README.md#results)
 
 - **团队：Motphys。** 在 UniLab 中实现 G1 全身跟踪，提供 LAFAN1 / BONES-SEED 下载、过滤、打包、训练与完整动作评测；支持 mjwarp、MuJoCo、Motrix 入口。新版评测会复用已完成环境，减少长短动作批次尾部空闲。
+- **Update（2026-11-03 核查）：** 已发布 LAFAN1 12k、BONES-SEED 12k 和 EMA/no-sync 8k 三套检查点；新增 Viser 批量回放，支持网格/单环境、暂停和逐步播放，并从运行配置恢复动作库。本次新增的是权重与回放入口，下方训练成绩不变。 [更新来源](https://github.com/Motphys/Uni-SuperMimic/blob/ac19b73a4f919fb2ea37dbad860b012315497139/README.md).
 - **上游报告：** 在 **129,487 条 BONES-SEED** 上，单张 **RTX 4090（上游注明 48 GB）**训练 **12k 迭代 / 1.69 小时**，全库回报 **0.9243、350 / 129,487 失败**。同机加入 EMA、消除同步及学习率调整后，**8k 迭代**达到 **0.9395、193 / 129,487 失败**；原 RTX 5090、10,000 条抽样评测属于另一次运行。
 - **选择时注意：** 明确配对的 1.69 小时属于 12k 基线；README 另称约 40 分钟可得到较强检查点，但未为 8k 优化行单列精确耗时。这里保留 mjwarp 实验口径，不把多后端支持当作等价成绩。所有 BONES-SEED 数字是训练动作库评测，不是留出泛化。 [核查版本](https://github.com/Motphys/Uni-SuperMimic/blob/05a9772ca09509c50a4cc3fe96f9d6b3c180f3d2/README.md)。
 
@@ -268,6 +276,17 @@ SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再
 
 ### ⭐ InstantTrack [![GitHub stars](https://img.shields.io/github/stars/Huy-Quang-Dao/instantTrack.svg?style=social)](https://github.com/Huy-Quang-Dao/instantTrack/stargazers)
 
+[仓库](https://github.com/Huy-Quang-Dao/instantTrack) · [安装](https://github.com/Huy-Quang-Dao/instantTrack/blob/019ae20a83c443a057736789b891a77dcc95505e/README.md#setup) · [结果与消融](https://github.com/Huy-Quang-Dao/instantTrack/blob/019ae20a83c443a057736789b891a77dcc95505e/README.md#results) · [训练预设](https://github.com/Huy-Quang-Dao/instantTrack/blob/019ae20a83c443a057736789b891a77dcc95505e/scripts/presets.sh) · [版本记录](https://github.com/Huy-Quang-Dao/instantTrack/blob/019ae20a83c443a057736789b891a77dcc95505e/CHANGELOG.md)
+
+- **作者：Huy-Quang-Dao。** 基于 supermimic_vibed 的 mjlab 移植版训练 G1，结合 EMA、失败重点采样和接触奖励。v1.2 加入 Muon、世界模型与策略更新的 CUDA Graph、批量目标编码，以及更小的策略网络。
+- **Update — v1.2.0（2026-11-01 发布，2026-11-03 核查）：** 单张 RTX 5090、5 个种子平均 **0.12 小时（约 7 分钟）**达到 **40 条 LAFAN1 动作回报 ≥ 0.82、0 / 40 失败，连续三个检查点满足**。四个种子约 0.10 小时，一个约 0.18 小时；作者报告相对同机 SuperMimic + EMA 基线加速 **4.7 倍**。 [当前结果](https://github.com/Huy-Quang-Dao/instantTrack/blob/019ae20a83c443a057736789b891a77dcc95505e/README.md#whats-new-in-v12)。
+- **选择时注意：** 训练耗时包含编译和检查点写入，不含离线评测；成绩来自训练动作上的仿真。困难动作仍可能在达标后退化，尚无更大动作库或 SuperMimic 真机结果。原 15 分钟结果保留在下方，属于此前版本。
+
+<a href="https://github.com/Huy-Quang-Dao/instantTrack/blob/019ae20a83c443a057736789b891a77dcc95505e/media/equal_time_6min.gif"><img src="https://raw.githubusercontent.com/Huy-Quang-Dao/instantTrack/019ae20a83c443a057736789b891a77dcc95505e/media/equal_time_6min.gif" width="480" alt="上游仿真 · 相同 6 分钟训练预算，seed 0；左起 SuperMimic + EMA、InstantTrack v1.1、v1.2；该检查点全部 40 条动作分别失败 15、6、0 条"></a><br><sub>上游仿真 · 相同 6 分钟训练预算，seed 0；左起 SuperMimic + EMA、InstantTrack v1.1、v1.2；该检查点全部 40 条动作分别失败 15、6、0 条</sub>
+
+<details>
+<summary>历史结果 · 2026-10-29 核查：约 15 分钟、3 个种子及原演示</summary>
+
 [仓库](https://github.com/Huy-Quang-Dao/instantTrack) · [安装](https://github.com/Huy-Quang-Dao/instantTrack/blob/a33691a08bca8802d9d2985f62e2567479735a8e/README.md#setup) · [结果与消融](https://github.com/Huy-Quang-Dao/instantTrack/blob/a33691a08bca8802d9d2985f62e2567479735a8e/results/report.md) · [训练预设](https://github.com/Huy-Quang-Dao/instantTrack/blob/a33691a08bca8802d9d2985f62e2567479735a8e/scripts/presets.sh)
 
 - **作者：Huy-Quang-Dao。** 基于 supermimic_vibed 的 mjlab 移植版实现 G1 跟踪，结合 GPU 训练循环优化、EMA 策略权重平均、更小的世界模型和失败重点采样；主预设还在想象轨迹中加入接触奖励。
@@ -276,15 +295,18 @@ SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再
 
 <a href="https://github.com/Huy-Quang-Dao/instantTrack/blob/a33691a08bca8802d9d2985f62e2567479735a8e/media/equal_time_15min.gif"><img src="https://raw.githubusercontent.com/Huy-Quang-Dao/instantTrack/a33691a08bca8802d9d2985f62e2567479735a8e/media/equal_time_15min.gif" width="480" alt="仿真 · 训练 15 分钟后的 SuperMimic + EMA 与 InstantTrack 对比"></a><br><sub>上游仿真演示 · 相同的 15 分钟训练预算；左为 SuperMimic + EMA，右为 InstantTrack，展示倒地起身动作</sub>
 
+</details>
+
 <br>
 
 <a name="blinkmimic"></a>
 
-### BlinkMimic [![GitHub stars](https://img.shields.io/github/stars/fuyichen0725/blinkmimic.svg?style=social)](https://github.com/fuyichen0725/blinkmimic/stargazers)
+### ⭐ BlinkMimic [![GitHub stars](https://img.shields.io/github/stars/fuyichen0725/blinkmimic.svg?style=social)](https://github.com/fuyichen0725/blinkmimic/stargazers)
 
 [仓库](https://github.com/fuyichen0725/blinkmimic) · [安装](https://github.com/fuyichen0725/blinkmimic/blob/d264658d6c9ce61fb52f9f0f8985a369f3ccc409/README.md#setup) · [结果](https://github.com/fuyichen0725/blinkmimic/blob/d264658d6c9ce61fb52f9f0f8985a369f3ccc409/README.md#results)
 
 - **作者：Fuyi Chen。** 基于 supermimic_vibed 与 InstantTrack，在 mjlab 上实现 G1 跟踪，加入在当前策略失败处重置、更小的想象批量配合更大的学习率，以及预测速度变化的世界模型。
+- **Update（2026-11-03 核查）：** 同一张 RTX 4090、各 3 个种子的对照中，连续三个检查点满足回报 ≥ 0.82 且 0 / 40 失败，BlinkMimic 用 **3.38 分钟**，InstantTrack v1.2 用 **7.36 分钟**。若要求连续六个检查点达标，BlinkMimic 仅 **2 / 3** 个种子满足；这是 40 条训练动作上的仿真结果。 [同机对照](https://github.com/fuyichen0725/blinkmimic/blob/d264658d6c9ce61fb52f9f0f8985a369f3ccc409/README.md#time-to-target)。
 - **上游报告：** 40 条 LAFAN1 动作（单张 RTX 4090，3 个种子平均），训练 **2.9 分钟**回报 **≥ 0.82**，**3.4 分钟**连续三个检查点 **≥ 0.82 且 0 / 40 失败**。
 - **选择时注意：** 时间为 GPU 无其他任务时的训练耗时，不含进程启动和离线评估；评估在仿真中、针对训练动作。 [核查版本](https://github.com/fuyichen0725/blinkmimic/blob/d264658d6c9ce61fb52f9f0f8985a369f3ccc409/README.md)。
 
@@ -329,6 +351,7 @@ SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再
 [仓库](https://github.com/btx0424/rethinking-supermimic) · [安装](https://github.com/btx0424/rethinking-supermimic/blob/2cbbd1278bfb8bd59c31fe48d7413c46ae205e32/README.md#installation) · [实现对照](https://github.com/btx0424/rethinking-supermimic/blob/2cbbd1278bfb8bd59c31fe48d7413c46ae205e32/README.md#ours-the-paper-and-supermimic_vibed)
 
 - **作者：btx0424。** 在 mjlab 的 G1 跟踪任务中研究目标条件化：比较目标与本体观测直接拼接，以及用 FiLM 调制策略各层。最新版本加入 HL-Gauss critic、梯度检查，以及可选朝向坐标系或骨盆坐标系的世界模型坐标。
+- **Update（2026-11-03 核查）：** 新增 **Weave / Weave XHand 人形手物交互**数据与任务入口，以及 **∇Mimic/PODS 风格策略更新**：用世界模型对动作的梯度构造目标动作，再回归策略；与 SuperMimic 共用世界模型和 critic。梯度仍来自学习模型，尚未公开相应的新成功率或训练加速基准。 [更新来源](https://github.com/btx0424/rethinking-supermimic/blob/730c57eee9cddd532aa86793cd893a24508deae8/README.md).
 - **选择时注意：** 提供可配置观测、锚点选择及 Viser 回放；实现对照表解释了与论文、supermimic_vibed 在自碰撞、观测输入等方面的差异。 [核查版本](https://github.com/btx0424/rethinking-supermimic/blob/2cbbd1278bfb8bd59c31fe48d7413c46ae205e32/README.md)。
 
 <a href="https://github.com/btx0424/rethinking-supermimic/blob/ecdaeb6a916a16cf7eb69b19226c17be31a6bc27/README.md"><img src="assets/community/rethinking-comparison.png" width="720" alt="历史实现对照表节选 · 2026-10-26 快照；当前对照见上方链接"></a><br><sub>历史实现对照表节选 · 2026-10-26 快照；当前对照见上方链接</sub>
@@ -356,6 +379,7 @@ SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再
 [仓库](https://github.com/Renforce-Dynamics/trackerlab-supermimic) · [安装](https://github.com/Renforce-Dynamics/trackerlab-supermimic/blob/813f37a89d9be0791c9c72695a322307001a5d11/README.md#install) · [结果与限制](https://github.com/Renforce-Dynamics/trackerlab-supermimic/blob/813f37a89d9be0791c9c72695a322307001a5d11/docs/results.md)
 
 - **团队：Renforce Dynamics。** 在 Isaac Lab / PhysX 中提供统一的重定向、训练、完整动作评估与导出流程，覆盖 G1、Go2、A3、T1、Bumi 和 Pi+，另含 Go2 任务策略。
+- **Update（2026-11-03 核查）：** 新增六种机器人 × 楼梯/山地/跑酷的 **18 个速度指令地形任务**，采用 MuJoCo-Warp、187 点理想高度扫描和 SuperMimic 更新流程。当前文档提供任务、训练队列及验证入口，未给出完成训练后的地形成功率；下方 PhysX 动作跟踪成绩不能移用于这些任务。 [更新来源](https://github.com/Renforce-Dynamics/trackerlab-supermimic/blob/b532cab8803b70b35fec4ea489204a5c3cf7cc14/docs/supermimic_terrain.md).
 - **上游报告：** 重新评估第 32,000 次迭代的 G1 上游检查点，得到归一化回报 **0.8694663、0 / 40 条 LAFAN1 动作失败**。
 - **选择时注意：** 结果使用 PhysX，而 supermimic_vibed 使用 MuJoCo Warp；各本体的动作库与训练过程不同，未见动作泛化仍未测量。 新增独立 G1 MuJoCo-Warp 训练入口及参考动作末帧 / 归一化修正；Warp 集成仅有 CPU 回归覆盖，仍需目标 GPU 验证，不能继承上述历史 PhysX 成绩。 [核查版本](https://github.com/Renforce-Dynamics/trackerlab-supermimic/blob/813f37a89d9be0791c9c72695a322307001a5d11/README.md)。
 
@@ -442,6 +466,7 @@ SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再
 [仓库](https://github.com/rzc156/supermimic-rtx5080) · [复现分析](https://github.com/rzc156/supermimic-rtx5080/blob/df967c61c29a2ed9ba6b188e1607ba59225fe8a7/REPRODUCTION_ANALYSIS.md) · [评测视频](https://github.com/rzc156/supermimic-rtx5080/blob/df967c61c29a2ed9ba6b188e1607ba59225fe8a7/results/lafan1_anchor/videos/index.html)
 
 - **作者：rzc156。** 基于 CuboiLeo 的独立 mjlab 复现，面向单张 **16 GB RTX 5080**，使用 2,048 个训练环境和额外锚点相对观测。
+- **Update（2026-11-03 核查）：** 新增原 **40k 检查点**的六项 GIF 画廊（行走、冲刺、舞蹈、拳击及起身）；演示从长动作中选取片段，评测仍从第 0 帧运行完整动作。此次是展示更新，训练成绩沿用下方原记录。 [更新来源](https://github.com/rzc156/supermimic-rtx5080/blob/c87455717c626c45fecd7c178d2ebb066429c3b1/README.md).
 - **上游报告：** **40k** 检查点训练 **2.7 小时**后达到 **0.8515 平均回报 / 0.8608 步加权回报**，**2 / 40 失败**；48k 检查点训练 **3.3 小时**，三次评测均值为 **0.8375**，**4–6 / 40 失败**。
 - **选择时注意：** 只有单个训练 seed，且额外锚点观测使其不等价于论文观测口径。作者以 40k 为重点检查点，但 40k/44k/48k 的差异仍需多 seed 验证。 [核查版本](https://github.com/rzc156/supermimic-rtx5080/blob/df967c61c29a2ed9ba6b188e1607ba59225fe8a7/README.md)。
 
@@ -544,6 +569,19 @@ SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再
 
 ### ⭐ SuperMimic for Robot Manipulation [![GitHub stars](https://img.shields.io/github/stars/emoPointer/supermimic_manipulation.svg?style=social)](https://github.com/emoPointer/supermimic_manipulation/stargazers)
 
+[仓库](https://github.com/emoPointer/supermimic_manipulation) · [安装](https://github.com/emoPointer/supermimic_manipulation/blob/eda7da480c6d92a68cc41c9628b7efdae08cae23/README.md#install) · [结果](https://github.com/emoPointer/supermimic_manipulation/blob/eda7da480c6d92a68cc41c9628b7efdae08cae23/README.md#results) · [Square / Drawer](https://github.com/emoPointer/supermimic_manipulation/blob/eda7da480c6d92a68cc41c9628b7efdae08cae23/README.md#square-and-drawer)
+
+- **作者：Zhiqiang Zhou（emoPointer）。** 在 mjlab / MuJoCo Warp 中以仿真 ARX5 机械臂实现五种基于状态的操作任务，提供 SuperMimic、PPO 基线及分阶段 reset bank。
+- **Update（2026-11-03 核查）：** 新增 Square 螺母插装和 Drawer 放入物体后关抽屉。单张共享 A100 80 GB 上，选定检查点分别训练 **16k / 10.5 小时、4k / 3.4 小时**，在留出 reset bank 上总体成功率为 **95.0%、90.2%**；每类 64 回合，分别覆盖 5 类 / 7 类起点。原 Lemon、BoxInBin、MugHang 三项结果保留在下方。 [评测来源](https://github.com/emoPointer/supermimic_manipulation/blob/eda7da480c6d92a68cc41c9628b7efdae08cae23/README.md#results)。
+- **选择时注意：** 总体指标同时含完整任务和中途阶段起点；第 0 类完整任务分别为 **95%、81%**。第二个训练种子分别为 **93.8%、75.9%**，Drawer 存在检查点波动。新增两项权重和 reset bank 尚未发布；上游提供收集、训练和评测命令，耗时受共卡影响。
+
+<a href="https://github.com/emoPointer/supermimic_manipulation/blob/eda7da480c6d92a68cc41c9628b7efdae08cae23/docs/media/square.gif"><img src="https://raw.githubusercontent.com/emoPointer/supermimic_manipulation/eda7da480c6d92a68cc41c9628b7efdae08cae23/docs/media/square.gif" width="480" alt="上游仿真 · Square；留出物体/目标、机械臂 home 起点，前两个回合"></a><br><sub>上游仿真 · Square；留出物体/目标、机械臂 home 起点，前两个回合</sub>
+
+<a href="https://github.com/emoPointer/supermimic_manipulation/blob/eda7da480c6d92a68cc41c9628b7efdae08cae23/docs/media/drawer.gif"><img src="https://raw.githubusercontent.com/emoPointer/supermimic_manipulation/eda7da480c6d92a68cc41c9628b7efdae08cae23/docs/media/drawer.gif" width="480" alt="上游仿真 · Drawer；相同 home 起点协议，前两个回合，2 倍速"></a><br><sub>上游仿真 · Drawer；相同 home 起点协议，前两个回合，2 倍速</sub>
+
+<details>
+<summary>历史结果 · 2026-11-03 更新前：Lemon / BoxInBin / MugHang、已发布权重及原演示</summary>
+
 [仓库](https://github.com/emoPointer/supermimic_manipulation) · [安装](https://github.com/emoPointer/supermimic_manipulation/blob/810e5768c50117d2fec75f20f9e643a11cd0882b/README.md#install) · [结果](https://github.com/emoPointer/supermimic_manipulation/blob/810e5768c50117d2fec75f20f9e643a11cd0882b/README.md#results)
 
 - **作者：Zhiqiang Zhou（emoPointer）。** 在 mjlab / MuJoCo Warp 中把 SuperMimic 迁移到仿真 ARX5 机械臂的基于状态操作任务，包括 Lemon、BoxInBin 和 MugHang。
@@ -551,6 +589,8 @@ SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再
 - **选择时注意：** 使用 OmniReset 式重置类别缩短有效时域，想象阶段以可微几何代理替换接触成功判据；策略只输入低维状态。检查点与 reset bank 已在 Hugging Face 发布。 [核查版本](https://github.com/emoPointer/supermimic_manipulation/blob/810e5768c50117d2fec75f20f9e643a11cd0882b/README.md)。
 
 <a href="https://github.com/emoPointer/supermimic_manipulation"><img src="https://raw.githubusercontent.com/emoPointer/supermimic_manipulation/810e5768c50117d2fec75f20f9e643a11cd0882b/docs/media/lemon.gif" width="480" alt="仿真 · ARX5 Lemon 任务的两个保留初态回放"></a><br><sub>仿真 · ARX5 Lemon 任务 · 两个保留初态回放</sub>
+
+</details>
 
 <br>
 
@@ -590,11 +630,24 @@ SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再
 
 ### ⭐ Sharpa SuperMimic · UniLab [![GitHub stars](https://img.shields.io/github/stars/Mingrui-Yu/sharpa_rl_unilab.svg?style=social)](https://github.com/Mingrui-Yu/sharpa_rl_unilab/stargazers)
 
-[仓库](https://github.com/Mingrui-Yu/sharpa_rl_unilab/tree/feat/supermimic-training) · [安装与验证](https://github.com/Mingrui-Yu/sharpa_rl_unilab/blob/a74e50bfe903ac7167fbcef39e37fabc737fba95/README.md#installation-and-validation) · [训练](https://github.com/Mingrui-Yu/sharpa_rl_unilab/blob/a74e50bfe903ac7167fbcef39e37fabc737fba95/docs/en/training.md) · [验证记录](https://github.com/Mingrui-Yu/sharpa_rl_unilab/blob/a74e50bfe903ac7167fbcef39e37fabc737fba95/docs/validation/unilab-1.5.4-20261031.json)
+[仓库](https://github.com/Mingrui-Yu/sharpa_rl_unilab) · [当前结果](https://github.com/Mingrui-Yu/sharpa_rl_unilab/blob/2d6bbe98aaa59216aedd9fba2b57196e830ef722/README.md#supermimic-single-stage-training) · [训练](https://github.com/Mingrui-Yu/sharpa_rl_unilab/blob/2d6bbe98aaa59216aedd9fba2b57196e830ef722/docs/en/training.md)
+
+- **作者：Mingrui Yu。** UniLab 上的 22 自由度 Sharpa Wave 灵巧手圆柱旋转任务，支持 MuJoCo / MJWarp / MotrixSim。SuperMimic、PPO、APPO、FlashSAC 共用任务，并保留 HORA 教师到学生蒸馏路线。
+- **Update（2026-11-03 核查）：** SuperMimic 已进入 **main**，新增直接训练仅观测 actor 的单阶段路线。单张 RTX 4090 / MJWarp，**3,000 迭代、686 秒、3,971,072 条转移**；固定 **240 场景 × 20 秒**仿真评测中，直接 actor 回报 **43.59**、固定窗口角速度 **0.671 rad/s**、掉落率 **2.08%**；特权教师分别为 **45.33、0.784 rad/s、1.25%**。 [结果来源](https://github.com/Mingrui-Yu/sharpa_rl_unilab/blob/2d6bbe98aaa59216aedd9fba2b57196e830ef722/README.md#supermimic-single-stage-training)。
+- **选择时注意：** 直接 actor 使用 147 维观测历史，训练 critic 仍有特权状态；上述是固定场景仿真比较，未给出多种子泛化或该 SuperMimic actor 的真机验证。旧开发分支已不再可用，以下历史记录使用固定提交链接。
+
+<a href="https://github.com/Mingrui-Yu/sharpa_rl_unilab/blob/2d6bbe98aaa59216aedd9fba2b57196e830ef722/docs/media/sharpa-supermimic-direct-rollout.gif"><img src="https://raw.githubusercontent.com/Mingrui-Yu/sharpa_rl_unilab/2d6bbe98aaa59216aedd9fba2b57196e830ef722/docs/media/sharpa-supermimic-direct-rollout.gif" width="480" alt="上游仿真 · 单阶段 SuperMimic actor 旋转圆柱；不代表真机部署结果"></a><br><sub>上游仿真 · 单阶段 SuperMimic actor 旋转圆柱；不代表真机部署结果</sub>
+
+<details>
+<summary>历史记录 · 2026-10-31：223 项检查及短程训练—评估—蒸馏 smoke</summary>
+
+[仓库](https://github.com/Mingrui-Yu/sharpa_rl_unilab/tree/a74e50bfe903ac7167fbcef39e37fabc737fba95) · [安装与验证](https://github.com/Mingrui-Yu/sharpa_rl_unilab/blob/a74e50bfe903ac7167fbcef39e37fabc737fba95/README.md#installation-and-validation) · [训练](https://github.com/Mingrui-Yu/sharpa_rl_unilab/blob/a74e50bfe903ac7167fbcef39e37fabc737fba95/docs/en/training.md) · [验证记录](https://github.com/Mingrui-Yu/sharpa_rl_unilab/blob/a74e50bfe903ac7167fbcef39e37fabc737fba95/docs/validation/unilab-1.5.4-20261031.json)
 
 - **作者：Mingrui Yu。** 提供独立的 UniLab 任务包，让 22 自由度 Sharpa Wave 手旋转自由圆柱体。SuperMimic 是默认教师：先从真实回放转移拟合世界模型，再通过想象的 rollout 优化共享 HORA 策略。
 - **提供内容：** 教师到学生的蒸馏管线、MJWarp 与 MuJoCo 入口、触觉历史、critic 特权观测、八种物体尺度，以及 PPO / APPO / FlashSAC 对照基线。
-- **验证与边界：** 2026-10-31 的验证记录显示，在单张 RTX 4090 上 **223 项测试**通过，覆盖 slow/CUDA 测试和一次短程 SuperMimic 训练—评估—蒸馏 smoke；这证明训练管线已接通，不构成完整的策略性能对比。SuperMimic 工作目前位于 `feat/supermimic-training`，默认 `main` 尚未包含它。 [核查版本](https://github.com/Mingrui-Yu/sharpa_rl_unilab/blob/a74e50bfe903ac7167fbcef39e37fabc737fba95/README.md)。
+- **验证与边界：** 2026-10-31 的验证记录显示，在单张 RTX 4090 上 **223 项测试**通过，覆盖 slow/CUDA 测试和一次短程 SuperMimic 训练—评估—蒸馏 smoke；这证明训练管线已接通，不构成完整的策略性能对比。该快照中的 SuperMimic 位于 `feat/supermimic-training`，当时尚未进入 `main`。 [核查版本](https://github.com/Mingrui-Yu/sharpa_rl_unilab/blob/a74e50bfe903ac7167fbcef39e37fabc737fba95/README.md)。
+
+</details>
 
 <br>
 
@@ -611,8 +664,9 @@ SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再
 [仓库](https://github.com/kaibohex/muscle-supermimic) · [安装](https://github.com/kaibohex/muscle-supermimic/blob/932ac22ca720b1c4db40c4323a3b67bf3c1eaa99/README.md#install) · [当前状态](https://github.com/kaibohex/muscle-supermimic/blob/932ac22ca720b1c4db40c4323a3b67bf3c1eaa99/README.md#status)
 
 - **作者：Kaibo He（kaibohex）。** 在 mjlab / MuJoCo Warp 中将 SuperMimic 扩展到肌肉驱动全身动作跟踪，支持 MS-Human-700（700 块肌肉）和 MyoFullBody（354 块肌肉）。
+- **Update（2026-11-03 核查）：** 单张 RTX 5090，MyoFullBody 在 **16k 迭代 / 9.6 小时**达到回报 **0.90、108 / 108 条留出 KIT 动作全部完成**；此前 10k / 6.0 小时的 101/108 结果保留在下方。两个本体的 10k 和 16k 检查点均已发布；MS-Human-700 的 16k 成绩仍为 104/108。 [新结果与权重](https://github.com/kaibohex/muscle-supermimic/blob/d73bbcb866da83bef186a730547ab09ecb96bd3d/README.md#status)。
 - **上游报告：** 使用 4,096 个环境、单张 RTX 5090，在 MuscleMimic 的 108 条 KIT 保留动作上，MS-Human-700 训练 **10.1 小时**达到归一化回报 **0.91**（第 16k 轮，**104 / 108** 完成）；MyoFullBody 训练 **6.0 小时**达到 **0.83**（第 10k 轮，**101 / 108** 完成）。
-- **选择时注意：** 项目仍在持续更新；策略以 100 Hz 控制每块肌肉的激励，提供可微 torch 肌肉模型和重定向工具。KIT 数据需接受许可，AMASS 数据与重定向结果不得再分发；MS-Human-700 以 Git 子模块提供。 [核查版本](https://github.com/kaibohex/muscle-supermimic/blob/932ac22ca720b1c4db40c4323a3b67bf3c1eaa99/README.md)。
+- **选择时注意：** 策略以 100 Hz 控制每块肌肉的激励，提供可微 torch 肌肉模型和重定向工具。KIT 数据需接受许可，AMASS 数据与重定向结果不得再分发；MS-Human-700 以 Git 子模块提供。 [核查版本](https://github.com/kaibohex/muscle-supermimic/blob/932ac22ca720b1c4db40c4323a3b67bf3c1eaa99/README.md)。
 
 <a href="https://github.com/kaibohex/muscle-supermimic"><img src="https://raw.githubusercontent.com/kaibohex/muscle-supermimic/b7c7cdd83e82399e057cb9d3f1b76f23ca022c7b/docs/assets/teaser_three.gif" width="480" alt="仿真 · 第 10000 轮 MS-Human-700 与 MyoFullBody 跟踪 KIT 动作"></a><br><sub>仿真 · MS-Human-700 与 MyoFullBody · 第 10000 轮</sub>
 
@@ -657,6 +711,7 @@ SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再
 [仓库](https://github.com/panhainan2020/SuperMimic-MuJoCo) · [安装](https://github.com/panhainan2020/SuperMimic-MuJoCo/blob/db045afa9c52458f213e2c66037387e9c109a03a/README.md#环境安装) · [评测](https://github.com/panhainan2020/SuperMimic-MuJoCo/blob/db045afa9c52458f213e2c66037387e9c109a03a/README.md#评估结果)
 
 - **作者：panhainan2020。** 面向 G1 的独立移植，使用 mjlab / MuJoCo Warp 训练、支持 CPU MuJoCo 评测，基于 supermimic_vibed，提供观测兼容配置、推理权重及未见 100STYLE 动作评测。
+- **Update（2026-11-03 核查）：** 新增分别从头训练、开启自碰撞的 LAFAN1 与 BONES-SEED 高难动作实验，后者只用 **514 条动作子集**。初步评测为 LAFAN 舞蹈 **1 条、回报 0.8590、0 失败**，高难动作 **6 条、平均回报 0.8120、3 条失败**；两次运行均未完成原定训练。它们与下方旧 98k 策略的 40/40 和 100STYLE 结果分开。 [新演示与评测](https://github.com/panhainan2020/SuperMimic-MuJoCo/blob/ac2a70f65a82db8e06b929614f47924068978d96/README.md#自碰撞训练演示)。
 - **上游报告：** 固定 98k 策略完成 **40 / 40 条 LAFAN 训练动作**，回报 **0.8713**；未经微调完成 **3,569 / 3,573 条未见 100STYLE 片段**，回报 **0.8045**。
 - **选择时注意：** 100STYLE 平均每条 18.77 秒，LAFAN 为 220.55 秒，重定向也不同；“完成”只表示未触发终止，不等于精确跟踪。未做跨来源语义重复检测；公开的是推理权重，不能恢复完整训练。 [核查版本](https://github.com/panhainan2020/SuperMimic-MuJoCo/blob/db045afa9c52458f213e2c66037387e9c109a03a/README.md)。
 
@@ -690,7 +745,7 @@ SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再
 - **上游报告：** 一个策略跟踪动作库全部 **665 段**，**0 段失败**（train / `hard` / 留出集平均归一化回报 **0.937 / 0.854 / 0.891**；确定性策略、无噪声；5 万次迭代，单张 H200 约 4.6 小时）。规划器 + 跟踪器在随机摇杆下 125 台 × 60 秒，有无域随机化均 **0 次摔倒**；无随机化时机器人速度达到摇杆的 **0.97 / 0.99 / 0.98**（vx / vy / 偏航角速度）。
 - **选择时注意：** 结果均在仿真中取得。跟踪器和规划器权重以及 99 段额外训练片段已发布，仅限非商业研究；其余 566 段由脚本按固定版本下载公开数据源重建。 [核查版本](https://github.com/Houserz/supermimic-quadruped/blob/46a81c248f4eff8eb595e63ac2d3d84d1e30e444/README.zh-CN.md)。
 
-<a href="https://github.com/Houserz/supermimic-quadruped"><img src="https://raw.githubusercontent.com/Houserz/supermimic-quadruped/46a81c248f4eff8eb595e63ac2d3d84d1e30e444/assets/showcase/joystick.gif" width="360" alt="仿真 · 键盘操控 Rover X1，蓝色为机器狗旁边的规划器输出"></a> <a href="https://github.com/Houserz/supermimic-quadruped"><img src="https://raw.githubusercontent.com/Houserz/supermimic-quadruped/46a81c248f4eff8eb595e63ac2d3d84d1e30e444/assets/showcase/zigzag.gif" width="360" alt="仿真 · Rover X1 跟踪狗动捕的之字形急转"></a><br><sub>仿真 · Rover X1：键盘摇杆 → 规划器（蓝色，画在机器狗旁边）→ 跟踪器；跟踪狗动捕的之字形急转（蓝色表示与参考动作的偏差）</sub>
+<a href="https://github.com/Houserz/supermimic-quadruped"><img src="https://raw.githubusercontent.com/Houserz/supermimic-quadruped/46a81c248f4eff8eb595e63ac2d3d84d1e30e444/assets/showcase/joystick.gif" width="480" alt="仿真 · 键盘操控 Rover X1，蓝色为机器狗旁边的规划器输出"></a> <a href="https://github.com/Houserz/supermimic-quadruped"><img src="https://raw.githubusercontent.com/Houserz/supermimic-quadruped/46a81c248f4eff8eb595e63ac2d3d84d1e30e444/assets/showcase/zigzag.gif" width="480" alt="仿真 · Rover X1 跟踪狗动捕的之字形急转"></a><br><sub>仿真 · Rover X1：键盘摇杆 → 规划器（蓝色，画在机器狗旁边）→ 跟踪器；跟踪狗动捕的之字形急转（蓝色表示与参考动作的偏差）</sub>
 
 <br>
 

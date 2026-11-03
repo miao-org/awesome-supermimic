@@ -79,6 +79,8 @@ The authors report surpassing SONIC's released-checkpoint return after **3 hours
 
 ## Community projects
 
+**Update** notes identify new versions or results and their review dates; historical results retain their original conditions and sources. [Review of all 41 projects](docs/project-review-2026-11-03.md).
+
 **41 projects in 7 categories, grouped by purpose.** Each project appears once; overlapping capabilities are described in its entry. The guide retains complementary starting points; ⭐ marks documented experiments, tools or learning examples.
 
 Within each category, **all projects are sorted by GitHub Stars, highest first** (2026-11-03 snapshot; ties by repository name), regardless of highlight status. The ⭐ marker identifies editorial highlights but does not change the order. The overview table retains category grouping and follows the same Stars order. Badges update dynamically; the order does not. Stars reflect repository popularity; results and demos are upstream reports.
@@ -91,7 +93,7 @@ Within each category, **all projects are sorted by GitHub Stars, highest first**
 <thead><tr><th align="left" width="32%">Explore</th><th align="left" width="40%">Project · Stars</th><th align="left" width="28%">Why it matters · evidence</th></tr></thead>
 <tbody>
 <tr>
-<td rowspan="8" valign="top"><a href="#reproductions-methods-and-training-frameworks">🔬&nbsp;Reproduction&nbsp;&amp;&nbsp;training&nbsp;(18)</a></td>
+<td rowspan="9" valign="top"><a href="#reproductions-methods-and-training-frameworks">🔬&nbsp;Reproduction&nbsp;&amp;&nbsp;training&nbsp;(18)</a></td>
 <td valign="top" nowrap="nowrap"><strong><a href="#supermimic_vibed">supermimic_vibed</a></strong>&nbsp;<a href="https://github.com/zita-ch/supermimic_vibed/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/zita-ch/supermimic_vibed.svg?style=social"></a><br>By Chong Zhang</td>
 <td valign="top"><strong>40/40 LAFAN1 motions in 1.47 hours!</strong> A ready-to-run Isaac Lab G1 reproduction on one RTX PRO 6000 Blackwell, with evaluation and rendering tools; note its disabled self-collisions and extra orientation input.</td>
 </tr>
@@ -109,7 +111,11 @@ Within each category, **all projects are sorted by GitHub Stars, highest first**
 </tr>
 <tr>
 <td valign="top" nowrap="nowrap"><strong><a href="#instanttrack">InstantTrack</a></strong>&nbsp;<a href="https://github.com/Huy-Quang-Dao/instantTrack/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/Huy-Quang-Dao/instantTrack.svg?style=social"></a><br>By Huy-Quang-Dao</td>
-<td valign="top"><strong>15 minutes, 0/40 failures, across three seeds!</strong> On one RTX 5090, EMA + compact world model + failure-focused resets + contact reward accelerate G1 tracking; timing excludes offline evaluation and covers training clips.</td>
+<td valign="top"><strong>Update · v1.2: 0/40 failures in ~7 minutes.</strong> One RTX 5090, mean of 5 seeds, return ≥ 0.82 held for three checkpoints; Muon, CUDA graphs and a smaller policy. The earlier 15-minute result is retained below.</td>
+</tr>
+<tr>
+<td valign="top" nowrap="nowrap"><strong><a href="#blinkmimic">BlinkMimic</a></strong>&nbsp;<a href="https://github.com/fuyichen0725/blinkmimic/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/fuyichen0725/blinkmimic.svg?style=social"></a><br>By Fuyi Chen</td>
+<td valign="top"><strong>One policy tracks all 40 motions in ~3.4 minutes!</strong> One RTX 4090, mean of 3 seeds, return ≥ 0.82 and 0/40 failures held for three checkpoints; includes a same-GPU InstantTrack v1.2 comparison, on training motions in simulation.</td>
 </tr>
 <tr>
 <td valign="top" nowrap="nowrap"><strong><a href="#allmimic">allmimic</a></strong>&nbsp;<a href="https://github.com/Shimingyi/allmimic/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/Shimingyi/allmimic.svg?style=social"></a><br>By Shimingyi</td>
@@ -139,7 +145,7 @@ Within each category, **all projects are sorted by GitHub Stars, highest first**
 </tr>
 <tr>
 <td valign="top" nowrap="nowrap"><strong><a href="#supermimic-for-robot-manipulation">supermimic_manipulation</a></strong>&nbsp;<a href="https://github.com/emoPointer/supermimic_manipulation/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/emoPointer/supermimic_manipulation.svg?style=social"></a><br>By Zhiqiang Zhou (emoPointer)</td>
-<td valign="top"><strong>Up to 100% success on held-out manipulation resets!</strong> Three ARX5 tasks score 100% / 94.9% / 96.9% over 256 episodes each, with released weights; 1.8–2.8 h per A100 run.</td>
+<td valign="top"><strong>Update · five arm-manipulation tasks.</strong> Adds nut insertion and drawer closing: 95.0% / 90.2% across staged held-out starts, 95% / 81% from the full-task category; new-task weights are not released.</td>
 </tr>
 <tr>
 <td valign="top" nowrap="nowrap"><strong><a href="#in-hand-rotation-mjlab">In-Hand Rotation mjlab</a></strong>&nbsp;<a href="https://github.com/Msornerrrr/in-hand-rotation-mjlab/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/Msornerrrr/in-hand-rotation-mjlab.svg?style=social"></a><br>By Msornerrrr</td>
@@ -147,12 +153,12 @@ Within each category, **all projects are sorted by GitHub Stars, highest first**
 </tr>
 <tr>
 <td valign="top" nowrap="nowrap"><strong><a href="#sharpa-supermimic">Sharpa SuperMimic</a></strong>&nbsp;<a href="https://github.com/Mingrui-Yu/sharpa_rl_unilab/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/Mingrui-Yu/sharpa_rl_unilab.svg?style=social"></a><br>By Mingrui Yu</td>
-<td valign="top"><strong>A tactile dexterous-hand target for SuperMimic!</strong> The default teacher rotates a cylinder with a 22-DoF Sharpa Wave hand, adds HORA teacher-to-student distillation and runs on UniLab/MJWarp beside PPO, APPO and FlashSAC baselines; validation covers the pipeline, not full policy performance.</td>
+<td valign="top"><strong>Update · single-stage SuperMimic without distillation.</strong> 686 s of RTX 4090 training; fixed 240-scene simulation evaluation: return 43.59, 0.671 rad/s rotation, 2.08% drops; not hardware validation.</td>
 </tr>
 <tr>
 <td rowspan="1" valign="top"><a href="#muscle-interaction-and-diagnostics">💪&nbsp;Muscles&nbsp;&amp;&nbsp;interaction&nbsp;(3)</a></td>
 <td valign="top" nowrap="nowrap"><strong><a href="#muscle-supermimic">muscle-supermimic</a></strong>&nbsp;<a href="https://github.com/kaibohex/muscle-supermimic/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/kaibohex/muscle-supermimic.svg?style=social"></a><br>By Kaibo He (kaibohex)</td>
-<td valign="top"><strong>Control a body with 700 muscles, not just joints!</strong> Tracks 104/108 held-out KIT motions after 10.1 h on one RTX 5090; also includes a 354-muscle MyoFullBody variant.</td>
+<td valign="top"><strong>Update · MyoFullBody completes 108/108 held-out clips.</strong> One RTX 5090, 16k iterations / 9.6 h, return 0.90; also supports MS-Human-700, with 10k/16k checkpoints released for both bodies.</td>
 </tr>
 <tr>
 <td rowspan="1" valign="top"><a href="#robot-porting-and-retargeting">🤖&nbsp;Robot&nbsp;ports&nbsp;(7)</a></td>
@@ -191,6 +197,7 @@ Original-method reproductions, training acceleration, algorithm variants, shared
 [Repository](https://github.com/zita-ch/supermimic_vibed) · [Setup and usage](https://github.com/zita-ch/supermimic_vibed/blob/8bfc1158bd968f729fcc65d5e897a05b05ea3d36/README.md#setup) · [Results](https://github.com/zita-ch/supermimic_vibed/blob/8bfc1158bd968f729fcc65d5e897a05b05ea3d36/README.md#result-lafan1-40-clips-one-rtx-pro-6000-blackwell)
 
 - **By Chong Zhang.** An independent G1 implementation on Isaac Lab 3, with a kit-less setup, training, full-clip evaluation and rendering tools.
+- **Update (checked 2026-11-03):** Links a community-trained checkpoint by Pantelis Manouselis: a separate run reports **0.8696 return and 0 / 40 failed LAFAN1 training clips**, with inference-only Safetensors weights requiring the compatible fork. This is separate from the original 1.47-hour experiment below. [Update source](https://github.com/zita-ch/supermimic_vibed/blob/0525a23a2dcfa61f8543f98b84c075fe66d9d286/README.md).
 - **Upstream report:** On 40 LAFAN1 clips, normalized return **0.829** and **0 / 40 failures** after **1.47 hours on one RTX PRO 6000 Blackwell**.
 - **Useful context:** The author describes it as a rapid, unreviewed reproduction. Documented deviations include disabled self-collisions, bf16 MLP computation and an extra reference-root orientation input. [Source snapshot](https://github.com/zita-ch/supermimic_vibed/blob/8bfc1158bd968f729fcc65d5e897a05b05ea3d36/README.md).
 
@@ -237,6 +244,7 @@ Original-method reproductions, training acceleration, algorithm variants, shared
 [Repository](https://github.com/Motphys/Uni-SuperMimic) · [Installation](https://github.com/Motphys/Uni-SuperMimic/blob/05a9772ca09509c50a4cc3fe96f9d6b3c180f3d2/README.md#installation) · [Results](https://github.com/Motphys/Uni-SuperMimic/blob/05a9772ca09509c50a4cc3fe96f9d6b3c180f3d2/README.md#results)
 
 - **By Motphys.** Implements G1 tracking in UniLab with LAFAN1/BONES-SEED download, filtering, packing, training and full-clip evaluation, plus mjwarp, MuJoCo and Motrix entrypoints. The updated evaluator recycles finished environments to reduce long-clip batch tails.
+- **Update (checked 2026-11-03):** Releases the LAFAN1 12k, BONES-SEED 12k and EMA/no-sync 8k checkpoints, plus Viser batch playback with grid/single-environment views, pause and stepping, and motion-library selection from the run configuration. These are new weights and playback entrypoints; the training results below are unchanged. [Update source](https://github.com/Motphys/Uni-SuperMimic/blob/ac19b73a4f919fb2ea37dbad860b012315497139/README.md).
 - **Upstream report:** On **129,487 BONES-SEED clips**, one **RTX 4090 (48 GB as reported upstream)** trains the **12k baseline in 1.69 h**, with full-library return **0.9243 and 350 / 129,487 failures**. Adding EMA, no-sync training and a learning-rate change on the same GPU reaches **0.9395 and 193 / 129,487 failures at 8k iterations**. The older RTX 5090 / 10,000-clip sample is a separate run.
 - **Useful context:** The explicitly paired 1.69 h belongs to the 12k baseline. The README also advertises a strong checkpoint in about 40 minutes, but does not give a precise elapsed time for the optimized 8k row. These are the reported mjwarp experiments, not equivalent validation across backends. BONES-SEED evaluation covers training motions, not held-out generalization. [Source snapshot](https://github.com/Motphys/Uni-SuperMimic/blob/05a9772ca09509c50a4cc3fe96f9d6b3c180f3d2/README.md).
 
@@ -268,6 +276,17 @@ Original-method reproductions, training acceleration, algorithm variants, shared
 
 ### ⭐ InstantTrack [![GitHub stars](https://img.shields.io/github/stars/Huy-Quang-Dao/instantTrack.svg?style=social)](https://github.com/Huy-Quang-Dao/instantTrack/stargazers)
 
+[Repository](https://github.com/Huy-Quang-Dao/instantTrack) · [Setup](https://github.com/Huy-Quang-Dao/instantTrack/blob/019ae20a83c443a057736789b891a77dcc95505e/README.md#setup) · [Results and ablations](https://github.com/Huy-Quang-Dao/instantTrack/blob/019ae20a83c443a057736789b891a77dcc95505e/README.md#results) · [Training presets](https://github.com/Huy-Quang-Dao/instantTrack/blob/019ae20a83c443a057736789b891a77dcc95505e/scripts/presets.sh) · [Changelog](https://github.com/Huy-Quang-Dao/instantTrack/blob/019ae20a83c443a057736789b891a77dcc95505e/CHANGELOG.md)
+
+- **By Huy-Quang-Dao.** Trains G1 on the mjlab port of supermimic_vibed with EMA, failure-focused resets and a contact reward. v1.2 adds Muon, CUDA-graph world-model and policy updates, batched goal encoding and a smaller policy.
+- **Update — v1.2.0 (released 2026-11-01; checked 2026-11-03):** On one RTX 5090, **0.12 h (~7 minutes)** on average across **5 seeds** to **return ≥ 0.82 and 0 / 40 failed LAFAN1 clips, held for three checkpoints**. Four seeds take about 0.10 h and one 0.18 h; the author reports **4.7×** over their same-machine SuperMimic + EMA baseline. [Current results](https://github.com/Huy-Quang-Dao/instantTrack/blob/019ae20a83c443a057736789b891a77dcc95505e/README.md#whats-new-in-v12).
+- **Useful context:** Training time includes compilation and checkpoint writing, excluding offline evaluation. These are simulation results on training motions; difficult clips can regress after first meeting the target. No larger-library or SuperMimic hardware results are reported. The earlier 15-minute result is retained below as a previous version.
+
+<a href="https://github.com/Huy-Quang-Dao/instantTrack/blob/019ae20a83c443a057736789b891a77dcc95505e/media/equal_time_6min.gif"><img src="https://raw.githubusercontent.com/Huy-Quang-Dao/instantTrack/019ae20a83c443a057736789b891a77dcc95505e/media/equal_time_6min.gif" width="480" alt="Upstream simulation · same 6-minute budget, seed 0; left to right: SuperMimic + EMA, InstantTrack v1.1, v1.2; this checkpoint fails 15, 6 and 0 of all 40 clips, respectively"></a><br><sub>Upstream simulation · same 6-minute budget, seed 0; left to right: SuperMimic + EMA, InstantTrack v1.1, v1.2; this checkpoint fails 15, 6 and 0 of all 40 clips, respectively</sub>
+
+<details>
+<summary>Earlier results · reviewed 2026-10-29: ~15 minutes, three seeds and the original demo</summary>
+
 [Repository](https://github.com/Huy-Quang-Dao/instantTrack) · [Setup](https://github.com/Huy-Quang-Dao/instantTrack/blob/a33691a08bca8802d9d2985f62e2567479735a8e/README.md#setup) · [Results and ablations](https://github.com/Huy-Quang-Dao/instantTrack/blob/a33691a08bca8802d9d2985f62e2567479735a8e/results/report.md) · [Training presets](https://github.com/Huy-Quang-Dao/instantTrack/blob/a33691a08bca8802d9d2985f62e2567479735a8e/scripts/presets.sh)
 
 - **By Huy-Quang-Dao.** Builds on the mjlab port of supermimic_vibed for G1, combining GPU training-loop optimizations, EMA policy weights, a smaller world model and failure-focused resets; the main preset also adds a contact reward during imagined rollouts.
@@ -276,15 +295,18 @@ Original-method reproductions, training acceleration, algorithm variants, shared
 
 <a href="https://github.com/Huy-Quang-Dao/instantTrack/blob/a33691a08bca8802d9d2985f62e2567479735a8e/media/equal_time_15min.gif"><img src="https://raw.githubusercontent.com/Huy-Quang-Dao/instantTrack/a33691a08bca8802d9d2985f62e2567479735a8e/media/equal_time_15min.gif" width="480" alt="Simulation · SuperMimic + EMA versus InstantTrack after 15 minutes of training"></a><br><sub>Upstream simulation · same 15-minute training budget; SuperMimic + EMA (left), InstantTrack (right), fall-and-get-up motion</sub>
 
+</details>
+
 <br>
 
 <a name="blinkmimic"></a>
 
-### BlinkMimic [![GitHub stars](https://img.shields.io/github/stars/fuyichen0725/blinkmimic.svg?style=social)](https://github.com/fuyichen0725/blinkmimic/stargazers)
+### ⭐ BlinkMimic [![GitHub stars](https://img.shields.io/github/stars/fuyichen0725/blinkmimic.svg?style=social)](https://github.com/fuyichen0725/blinkmimic/stargazers)
 
 [Repository](https://github.com/fuyichen0725/blinkmimic) · [Setup](https://github.com/fuyichen0725/blinkmimic/blob/d264658d6c9ce61fb52f9f0f8985a369f3ccc409/README.md#setup) · [Results](https://github.com/fuyichen0725/blinkmimic/blob/d264658d6c9ce61fb52f9f0f8985a369f3ccc409/README.md#results)
 
 - **By Fuyi Chen.** Builds on supermimic_vibed and InstantTrack for G1 in mjlab, adding resets at the points where the current policy fails, a smaller imagined batch with a larger learning rate, and a world model that predicts velocity changes.
+- **Update (checked 2026-11-03):** On the same RTX 4090, with 3 seeds each, return ≥ 0.82 and 0 / 40 failures held for three checkpoints takes **3.38 min** for BlinkMimic versus **7.36 min** for InstantTrack v1.2. Requiring six consecutive qualifying checkpoints leaves only **2 / 3** BlinkMimic seeds successful; these are simulation results on 40 training clips. [Same-GPU comparison](https://github.com/fuyichen0725/blinkmimic/blob/d264658d6c9ce61fb52f9f0f8985a369f3ccc409/README.md#time-to-target).
 - **Upstream report:** On 40 LAFAN1 clips (one RTX 4090, mean of 3 seeds), return **≥ 0.82** after **2.9 minutes**, and **≥ 0.82 with 0 / 40 failures** at three consecutive checkpoints after **3.4 minutes**.
 - **Useful context:** Training wall-clock on an otherwise idle GPU, excluding start-up and offline evaluation; evaluated in simulation on the training clips. [Source snapshot](https://github.com/fuyichen0725/blinkmimic/blob/d264658d6c9ce61fb52f9f0f8985a369f3ccc409/README.md).
 
@@ -329,6 +351,7 @@ Original-method reproductions, training acceleration, algorithm variants, shared
 [Repository](https://github.com/btx0424/rethinking-supermimic) · [Installation](https://github.com/btx0424/rethinking-supermimic/blob/2cbbd1278bfb8bd59c31fe48d7413c46ae205e32/README.md#installation) · [Implementation comparison](https://github.com/btx0424/rethinking-supermimic/blob/2cbbd1278bfb8bd59c31fe48d7413c46ae205e32/README.md#ours-the-paper-and-supermimic_vibed)
 
 - **By btx0424.** Studies goal conditioning for G1 in mjlab: concatenating the goal with proprioception versus using FiLM to modulate the policy layers. The latest revision adds an HL-Gauss critic, gradient checks and selectable heading- or pelvis-frame world-model coordinates.
+- **Update (checked 2026-11-03):** Adds **Weave / Weave XHand hand–object tasks** and a **∇Mimic/PODS-style policy update** that turns world-model action gradients into target actions, then regresses the policy onto them, sharing the world model and critic with SuperMimic. Gradients still come from the learned model; no new success-rate or training-speed benchmark is reported for these additions. [Update source](https://github.com/btx0424/rethinking-supermimic/blob/730c57eee9cddd532aa86793cd893a24508deae8/README.md).
 - **Useful context:** Provides configurable observations, anchor choices and Viser playback. Its implementation table explains differences from the paper and supermimic_vibed, including self-collisions and observation inputs. [Source snapshot](https://github.com/btx0424/rethinking-supermimic/blob/2cbbd1278bfb8bd59c31fe48d7413c46ae205e32/README.md).
 
 <a href="https://github.com/btx0424/rethinking-supermimic/blob/ecdaeb6a916a16cf7eb69b19226c17be31a6bc27/README.md"><img src="assets/community/rethinking-comparison.png" width="720" alt="Historical implementation table excerpt · 2026-10-26 snapshot; current comparison linked above"></a><br><sub>Historical implementation table excerpt · 2026-10-26 snapshot; current comparison linked above</sub>
@@ -356,6 +379,7 @@ Original-method reproductions, training acceleration, algorithm variants, shared
 [Repository](https://github.com/Renforce-Dynamics/trackerlab-supermimic) · [Install](https://github.com/Renforce-Dynamics/trackerlab-supermimic/blob/813f37a89d9be0791c9c72695a322307001a5d11/README.md#install) · [Results and limits](https://github.com/Renforce-Dynamics/trackerlab-supermimic/blob/813f37a89d9be0791c9c72695a322307001a5d11/docs/results.md)
 
 - **By Renforce Dynamics.** Provides a shared Isaac Lab / PhysX workflow for retargeting, training, full-clip evaluation and export across G1, Go2, A3, T1, Bumi and Pi+, plus Go2 task policies.
+- **Update (checked 2026-11-03):** Adds **18 velocity-commanded terrain tasks**: stairs, mountain and parkour for six robots, using MuJoCo-Warp, 187 idealized height samples and the SuperMimic update path. Documentation provides task, training-queue and validation entrypoints, but no completed terrain-policy success rates; the PhysX tracking results below do not validate these new tasks. [Update source](https://github.com/Renforce-Dynamics/trackerlab-supermimic/blob/b532cab8803b70b35fec4ea489204a5c3cf7cc14/docs/supermimic_terrain.md).
 - **Upstream report:** Re-evaluation of the 32,000-iteration G1 parent checkpoint reports normalized return **0.8694663** and **0 / 40 LAFAN1 failures**.
 - **Useful context:** Results use PhysX, while supermimic_vibed uses MuJoCo Warp. Robot-specific motion libraries and training histories differ; held-out motion generalization remains unmeasured. A separate G1 MuJoCo-Warp entrypoint and motion-tail/normalizer fixes are now available. The Warp integration has CPU regression coverage but still needs target-GPU qualification; it does not inherit the historical PhysX score above. [Source snapshot](https://github.com/Renforce-Dynamics/trackerlab-supermimic/blob/813f37a89d9be0791c9c72695a322307001a5d11/README.md).
 
@@ -442,6 +466,7 @@ Original-method reproductions, training acceleration, algorithm variants, shared
 [Repository](https://github.com/rzc156/supermimic-rtx5080) · [Reproduction analysis](https://github.com/rzc156/supermimic-rtx5080/blob/df967c61c29a2ed9ba6b188e1607ba59225fe8a7/REPRODUCTION_ANALYSIS.md) · [Evaluation videos](https://github.com/rzc156/supermimic-rtx5080/blob/df967c61c29a2ed9ba6b188e1607ba59225fe8a7/results/lafan1_anchor/videos/index.html)
 
 - **By rzc156.** An independent mjlab reproduction derived from CuboiLeo, configured for one **16 GB RTX 5080** with 2,048 training environments and additional anchor-relative observations.
+- **Update (checked 2026-11-03):** Adds a six-motion GIF gallery for the existing **40k checkpoint**, covering walking, sprinting, dancing, boxing and getting up. Demos excerpt long clips; benchmark evaluation still starts at frame zero and runs the complete clip. This is a presentation update, with the original training results retained below. [Update source](https://github.com/rzc156/supermimic-rtx5080/blob/c87455717c626c45fecd7c178d2ebb066429c3b1/README.md).
 - **Upstream report:** The **40k** checkpoint reaches **0.8515 mean / 0.8608 step-weighted return** with **2 / 40 failures** after **2.7 hours**. The 48k checkpoint averages **0.8375**, **4–6 / 40 failures**, after **3.3 hours** over three evaluations.
 - **Useful context:** This is a single training seed, and the extra anchor observations make it non-equivalent to the paper-observation protocol. The author highlights 40k as the preferred checkpoint but notes that 40k/44k/48k differences still require multiple seeds. [Source snapshot](https://github.com/rzc156/supermimic-rtx5080/blob/df967c61c29a2ed9ba6b188e1607ba59225fe8a7/README.md).
 
@@ -544,6 +569,19 @@ Arm, hand and object-interaction tasks, with dexterous manipulation grouped here
 
 ### ⭐ SuperMimic for Robot Manipulation [![GitHub stars](https://img.shields.io/github/stars/emoPointer/supermimic_manipulation.svg?style=social)](https://github.com/emoPointer/supermimic_manipulation/stargazers)
 
+[Repository](https://github.com/emoPointer/supermimic_manipulation) · [Install](https://github.com/emoPointer/supermimic_manipulation/blob/eda7da480c6d92a68cc41c9628b7efdae08cae23/README.md#install) · [Results](https://github.com/emoPointer/supermimic_manipulation/blob/eda7da480c6d92a68cc41c9628b7efdae08cae23/README.md#results) · [Square / Drawer](https://github.com/emoPointer/supermimic_manipulation/blob/eda7da480c6d92a68cc41c9628b7efdae08cae23/README.md#square-and-drawer)
+
+- **By Zhiqiang Zhou (emoPointer).** Five state-based ARX5 manipulation tasks in mjlab / MuJoCo Warp, with SuperMimic, a PPO baseline and staged reset banks.
+- **Update (checked 2026-11-03):** Adds Square nut insertion and Drawer placement-and-closing. Selected checkpoints train for **16k / 10.5 h and 4k / 3.4 h**, respectively, on one shared A100 80 GB; overall held-out reset-bank success is **95.0% / 90.2%**, with 64 episodes per category across 5 / 7 categories. The original Lemon, BoxInBin and MugHang results remain below. [Evaluation source](https://github.com/emoPointer/supermimic_manipulation/blob/eda7da480c6d92a68cc41c9628b7efdae08cae23/README.md#results).
+- **Useful context:** Overall scores mix full-task and intermediate starts; category-0 full-task success is **95% / 81%**. Second training seeds reach **93.8% / 75.9%**, with checkpoint instability on Drawer. The two new checkpoints and reset banks are not released; collection, training and evaluation commands are available. GPU sharing affects the reported times.
+
+<a href="https://github.com/emoPointer/supermimic_manipulation/blob/eda7da480c6d92a68cc41c9628b7efdae08cae23/docs/media/square.gif"><img src="https://raw.githubusercontent.com/emoPointer/supermimic_manipulation/eda7da480c6d92a68cc41c9628b7efdae08cae23/docs/media/square.gif" width="480" alt="Upstream simulation · Square; held-out objects/targets from the home pose, first two episodes"></a><br><sub>Upstream simulation · Square; held-out objects/targets from the home pose, first two episodes</sub>
+
+<a href="https://github.com/emoPointer/supermimic_manipulation/blob/eda7da480c6d92a68cc41c9628b7efdae08cae23/docs/media/drawer.gif"><img src="https://raw.githubusercontent.com/emoPointer/supermimic_manipulation/eda7da480c6d92a68cc41c9628b7efdae08cae23/docs/media/drawer.gif" width="480" alt="Upstream simulation · Drawer; same home-pose protocol, first two episodes, 2x speed"></a><br><sub>Upstream simulation · Drawer; same home-pose protocol, first two episodes, 2x speed</sub>
+
+<details>
+<summary>Earlier results · before the 2026-11-03 update: Lemon / BoxInBin / MugHang, released weights and demo</summary>
+
 [Repository](https://github.com/emoPointer/supermimic_manipulation) · [Setup](https://github.com/emoPointer/supermimic_manipulation/blob/810e5768c50117d2fec75f20f9e643a11cd0882b/README.md#install) · [Results](https://github.com/emoPointer/supermimic_manipulation/blob/810e5768c50117d2fec75f20f9e643a11cd0882b/README.md#results)
 
 - **By Zhiqiang Zhou (emoPointer).** Adapts SuperMimic to state-based manipulation with a simulated ARX5 arm in mjlab / MuJoCo Warp across the Lemon, BoxInBin and MugHang tasks.
@@ -551,6 +589,8 @@ Arm, hand and object-interaction tasks, with dexterous manipulation grouped here
 - **Useful context:** OmniReset-style reset categories shorten the effective horizon, and contact-based success tests use differentiable geometric surrogates during imagination. The policy observes low-dimensional state only; released checkpoints and reset banks are on Hugging Face. [Source snapshot](https://github.com/emoPointer/supermimic_manipulation/blob/810e5768c50117d2fec75f20f9e643a11cd0882b/README.md).
 
 <a href="https://github.com/emoPointer/supermimic_manipulation"><img src="https://raw.githubusercontent.com/emoPointer/supermimic_manipulation/810e5768c50117d2fec75f20f9e643a11cd0882b/docs/media/lemon.gif" width="480" alt="Simulation · ARX5 Lemon task with two held-out resets"></a><br><sub>Simulation · ARX5 Lemon task · two held-out resets</sub>
+
+</details>
 
 <br>
 
@@ -590,11 +630,24 @@ Arm, hand and object-interaction tasks, with dexterous manipulation grouped here
 
 ### ⭐ Sharpa SuperMimic · UniLab [![GitHub stars](https://img.shields.io/github/stars/Mingrui-Yu/sharpa_rl_unilab.svg?style=social)](https://github.com/Mingrui-Yu/sharpa_rl_unilab/stargazers)
 
-[Repository](https://github.com/Mingrui-Yu/sharpa_rl_unilab/tree/feat/supermimic-training) · [Installation](https://github.com/Mingrui-Yu/sharpa_rl_unilab/blob/a74e50bfe903ac7167fbcef39e37fabc737fba95/README.md#installation-and-validation) · [Training](https://github.com/Mingrui-Yu/sharpa_rl_unilab/blob/a74e50bfe903ac7167fbcef39e37fabc737fba95/docs/en/training.md) · [Validation](https://github.com/Mingrui-Yu/sharpa_rl_unilab/blob/a74e50bfe903ac7167fbcef39e37fabc737fba95/docs/validation/unilab-1.5.4-20261031.json)
+[Repository](https://github.com/Mingrui-Yu/sharpa_rl_unilab) · [Current results](https://github.com/Mingrui-Yu/sharpa_rl_unilab/blob/2d6bbe98aaa59216aedd9fba2b57196e830ef722/README.md#supermimic-single-stage-training) · [Training](https://github.com/Mingrui-Yu/sharpa_rl_unilab/blob/2d6bbe98aaa59216aedd9fba2b57196e830ef722/docs/en/training.md)
+
+- **By Mingrui Yu.** A 22-DoF Sharpa Wave cylinder-rotation task in UniLab on MuJoCo / MJWarp / MotrixSim, shared by SuperMimic, PPO, APPO and FlashSAC, retaining the HORA teacher-to-student pipeline.
+- **Update (checked 2026-11-03):** SuperMimic is now on **main**, with a single-stage observation-only actor. On one RTX 4090 / MJWarp: **3,000 iterations, 686 s, 3,971,072 transitions**. In fixed **240-scene × 20 s** simulation evaluation, the direct actor reaches **43.59 return, 0.671 rad/s fixed-window rotation and 2.08% drops**, versus **45.33, 0.784 rad/s and 1.25%** for the privileged teacher. [Result source](https://github.com/Mingrui-Yu/sharpa_rl_unilab/blob/2d6bbe98aaa59216aedd9fba2b57196e830ef722/README.md#supermimic-single-stage-training).
+- **Useful context:** The actor uses 147-dimensional observation history while its training critic retains privileged state. This fixed-scene comparison does not establish multi-seed generalization or hardware validation of the SuperMimic actor. The old feature branch is unavailable; the historical record below uses a pinned commit.
+
+<a href="https://github.com/Mingrui-Yu/sharpa_rl_unilab/blob/2d6bbe98aaa59216aedd9fba2b57196e830ef722/docs/media/sharpa-supermimic-direct-rollout.gif"><img src="https://raw.githubusercontent.com/Mingrui-Yu/sharpa_rl_unilab/2d6bbe98aaa59216aedd9fba2b57196e830ef722/docs/media/sharpa-supermimic-direct-rollout.gif" width="480" alt="Upstream simulation · single-stage SuperMimic cylinder rotation; not evidence of hardware deployment"></a><br><sub>Upstream simulation · single-stage SuperMimic cylinder rotation; not evidence of hardware deployment</sub>
+
+<details>
+<summary>Historical record · 2026-10-31: 223 checks and a short train–evaluate–distill smoke run</summary>
+
+[Repository](https://github.com/Mingrui-Yu/sharpa_rl_unilab/tree/a74e50bfe903ac7167fbcef39e37fabc737fba95) · [Installation](https://github.com/Mingrui-Yu/sharpa_rl_unilab/blob/a74e50bfe903ac7167fbcef39e37fabc737fba95/README.md#installation-and-validation) · [Training](https://github.com/Mingrui-Yu/sharpa_rl_unilab/blob/a74e50bfe903ac7167fbcef39e37fabc737fba95/docs/en/training.md) · [Validation](https://github.com/Mingrui-Yu/sharpa_rl_unilab/blob/a74e50bfe903ac7167fbcef39e37fabc737fba95/docs/validation/unilab-1.5.4-20261031.json)
 
 - **By Mingrui Yu.** Builds an independent UniLab task package for a 22-DoF Sharpa Wave hand rotating a free cylinder. SuperMimic is the default teacher: a learned world model is fitted on replay transitions, then the shared HORA policy is optimized through imagined rollouts.
 - **What it provides:** A teacher-to-student distillation pipeline, MJWarp and MuJoCo entrypoints, tactile history, privileged critic observations, eight object scales, and PPO / APPO / FlashSAC comparison baselines.
-- **Validation and limits:** The October 31 validation record reports **223 tests** passing on one RTX 4090, including slow/CUDA tests and a short SuperMimic train–evaluate–distill smoke run. This establishes pipeline integration, not a full policy-quality comparison. The SuperMimic work is currently on `feat/supermimic-training`; the default `main` branch does not yet contain it. [Source snapshot](https://github.com/Mingrui-Yu/sharpa_rl_unilab/blob/a74e50bfe903ac7167fbcef39e37fabc737fba95/README.md).
+- **Validation and limits:** The October 31 validation record reports **223 tests** passing on one RTX 4090, including slow/CUDA tests and a short SuperMimic train–evaluate–distill smoke run. This establishes pipeline integration, not a full policy-quality comparison. At that snapshot, the SuperMimic work was on `feat/supermimic-training` and was not yet on `main`. [Source snapshot](https://github.com/Mingrui-Yu/sharpa_rl_unilab/blob/a74e50bfe903ac7167fbcef39e37fabc737fba95/README.md).
+
+</details>
 
 <br>
 
@@ -611,8 +664,9 @@ Muscle-actuated bodies, physical interaction and contact-focused diagnostics.
 [Repository](https://github.com/kaibohex/muscle-supermimic) · [Setup](https://github.com/kaibohex/muscle-supermimic/blob/932ac22ca720b1c4db40c4323a3b67bf3c1eaa99/README.md#install) · [Status](https://github.com/kaibohex/muscle-supermimic/blob/932ac22ca720b1c4db40c4323a3b67bf3c1eaa99/README.md#status)
 
 - **By Kaibo He (kaibohex).** Extends SuperMimic to muscle-driven whole-body tracking on MS-Human-700 (700 muscles) and MyoFullBody (354 muscles) in mjlab / MuJoCo Warp.
+- **Update (checked 2026-11-03):** On one RTX 5090, MyoFullBody reaches **0.90 return and 108 / 108 held-out KIT clips completed at 16k iterations / 9.6 h**. Its earlier 10k / 6.0 h, 101/108 result remains below. Both bodies now have released 10k and 16k checkpoints; MS-Human-700 still completes 104/108 at 16k. [Results and weights](https://github.com/kaibohex/muscle-supermimic/blob/d73bbcb866da83bef186a730547ab09ecb96bd3d/README.md#status).
 - **Upstream report:** On MuscleMimic's 108 held-out KIT clips with 4,096 environments on one RTX 5090, MS-Human-700 reaches **0.91 normalized return after 10.1 hours** (iteration 16k, **104 / 108 tracked**); MyoFullBody reaches **0.83 after 6.0 hours** (iteration 10k, **101 / 108 tracked**).
-- **Useful context:** Active development. The policy controls muscle excitation at 100 Hz, and the project provides a differentiable torch muscle model plus retargeting tools. The retargeted KIT data is gated and subject to AMASS terms; MS-Human-700 is provided as a Git submodule. [Source snapshot](https://github.com/kaibohex/muscle-supermimic/blob/932ac22ca720b1c4db40c4323a3b67bf3c1eaa99/README.md).
+- **Useful context:** The policy controls muscle excitation at 100 Hz, and the project provides a differentiable torch muscle model plus retargeting tools. The retargeted KIT data is gated and subject to AMASS terms; MS-Human-700 is provided as a Git submodule. [Source snapshot](https://github.com/kaibohex/muscle-supermimic/blob/932ac22ca720b1c4db40c4323a3b67bf3c1eaa99/README.md).
 
 <a href="https://github.com/kaibohex/muscle-supermimic"><img src="https://raw.githubusercontent.com/kaibohex/muscle-supermimic/b7c7cdd83e82399e057cb9d3f1b76f23ca022c7b/docs/assets/teaser_three.gif" width="480" alt="Simulation · MS-Human-700 and MyoFullBody tracking KIT clips at iteration 10000"></a><br><sub>Simulation · MS-Human-700 and MyoFullBody · iteration 10000</sub>
 
@@ -657,6 +711,7 @@ Robot-, simulator- and hardware-specific ports, together with motion-retargeting
 [Repository](https://github.com/panhainan2020/SuperMimic-MuJoCo) · [Setup](https://github.com/panhainan2020/SuperMimic-MuJoCo/blob/db045afa9c52458f213e2c66037387e9c109a03a/README.md#环境安装) · [Evaluation](https://github.com/panhainan2020/SuperMimic-MuJoCo/blob/db045afa9c52458f213e2c66037387e9c109a03a/README.md#评估结果)
 
 - **By panhainan2020.** A standalone mjlab / CPU MuJoCo port of supermimic_vibed for G1, with observation-compatibility profiles, inference weights and held-out 100STYLE evaluation.
+- **Update (checked 2026-11-03):** Adds separate from-scratch, self-collision-enabled LAFAN1 and hard-motion runs; the latter uses only a **514-clip BONES-SEED subset**. Preliminary evaluation: **one LAFAN dance, 0.8590 return, no failure**; **six hard clips, 0.8120 mean return, three failures**. Both runs stopped short of their planned training budget. These differ from the older 98k policy and its 40/40 and 100STYLE results below. [New demos and evaluation](https://github.com/panhainan2020/SuperMimic-MuJoCo/blob/ac2a70f65a82db8e06b929614f47924068978d96/README.md#自碰撞训练演示).
 - **Upstream report:** The fixed 98k policy completes **40 / 40 LAFAN training motions** at return **0.8713**, and **3,569 / 3,573 unseen 100STYLE clips** at **0.8045**, without fine-tuning.
 - **Useful context:** Mean clip duration is 18.77 s for 100STYLE versus 220.55 s for LAFAN; retargeting also differs. Completion only means no termination, not accurate tracking. Cross-source semantic duplicates were not checked. The inference checkpoint does not resume full training. [Source snapshot](https://github.com/panhainan2020/SuperMimic-MuJoCo/blob/db045afa9c52458f213e2c66037387e9c109a03a/README.md).
 
@@ -690,7 +745,7 @@ Robot-, simulator- and hardware-specific ports, together with motion-retargeting
 - **Upstream report:** One policy tracks all **665 library clips** with **0 failed clips** (mean normalized return **0.937 / 0.854 / 0.891** for train / `hard` / held-out; deterministic, no noise; 50k iterations, about 4.6 h on one H200). Planner + tracker under a random joystick, 125 robots × 60 s: **0 falls** with and without domain randomization; without it, robot velocity is **0.97 / 0.99 / 0.98** of the stick (vx / vy / yaw rate).
 - **Useful context:** Results are in simulation. Tracker and planner weights and 99 extra training clips are released for non-commercial research use; the other 566 clips are rebuilt from public sources at pinned revisions. [Source snapshot](https://github.com/Houserz/supermimic-quadruped/blob/46a81c248f4eff8eb595e63ac2d3d84d1e30e444/README.md).
 
-<a href="https://github.com/Houserz/supermimic-quadruped"><img src="https://raw.githubusercontent.com/Houserz/supermimic-quadruped/46a81c248f4eff8eb595e63ac2d3d84d1e30e444/assets/showcase/joystick.gif" width="360" alt="Simulation · Rover X1 driven from the keyboard, planner output in blue beside the robot"></a> <a href="https://github.com/Houserz/supermimic-quadruped"><img src="https://raw.githubusercontent.com/Houserz/supermimic-quadruped/46a81c248f4eff8eb595e63ac2d3d84d1e30e444/assets/showcase/zigzag.gif" width="360" alt="Simulation · Rover X1 zig-zag turns tracked from dog motion capture"></a><br><sub>Simulation · Rover X1: keyboard joystick → planner (blue, beside the robot) → tracker; zig-zag turns from dog motion capture (blue marks deviations from the reference)</sub>
+<a href="https://github.com/Houserz/supermimic-quadruped"><img src="https://raw.githubusercontent.com/Houserz/supermimic-quadruped/46a81c248f4eff8eb595e63ac2d3d84d1e30e444/assets/showcase/joystick.gif" width="480" alt="Simulation · Rover X1 driven from the keyboard, planner output in blue beside the robot"></a> <a href="https://github.com/Houserz/supermimic-quadruped"><img src="https://raw.githubusercontent.com/Houserz/supermimic-quadruped/46a81c248f4eff8eb595e63ac2d3d84d1e30e444/assets/showcase/zigzag.gif" width="480" alt="Simulation · Rover X1 zig-zag turns tracked from dog motion capture"></a><br><sub>Simulation · Rover X1: keyboard joystick → planner (blue, beside the robot) → tracker; zig-zag turns from dog motion capture (blue marks deviations from the reference)</sub>
 
 <br>
 
