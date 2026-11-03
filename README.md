@@ -37,8 +37,8 @@ Start with the original work below, then choose an implementation by framework a
 ## Contents
 
 - [Original SuperMimic](#original-supermimic)
-- [Community projects (40)](#community-projects)
-  - 🔬 [Reproductions, methods & frameworks (17)](#reproductions-methods-and-training-frameworks)
+- [Community projects (41)](#community-projects)
+  - 🔬 [Reproductions, methods & frameworks (18)](#reproductions-methods-and-training-frameworks)
   - 👁️ [Perception & terrain (4)](#perception-terrain-and-quadrupeds)
   - 🦾 [Manipulation & hands (5)](#manipulation-and-dexterous-hands)
   - 💪 [Muscles & interaction (3)](#muscle-interaction-and-diagnostics)
@@ -79,7 +79,7 @@ The authors report surpassing SONIC's released-checkpoint return after **3 hours
 
 ## Community projects
 
-**40 projects in 7 categories, grouped by purpose.** Each project appears once; overlapping capabilities are described in its entry. The guide retains complementary starting points; ⭐ marks documented experiments, tools or learning examples.
+**41 projects in 7 categories, grouped by purpose.** Each project appears once; overlapping capabilities are described in its entry. The guide retains complementary starting points; ⭐ marks documented experiments, tools or learning examples.
 
 Within each category, **all projects are sorted by GitHub Stars, highest first** (2026-11-01 snapshot; ties by repository name), regardless of highlight status. The ⭐ marker identifies editorial highlights but does not change the order. The overview table retains category grouping and follows the same Stars order. Badges update dynamically; the order does not. Stars reflect repository popularity; results and demos are upstream reports.
 
@@ -91,7 +91,7 @@ Within each category, **all projects are sorted by GitHub Stars, highest first**
 <thead><tr><th align="left" width="32%">Explore</th><th align="left" width="40%">Project · Stars</th><th align="left" width="28%">Why it matters · evidence</th></tr></thead>
 <tbody>
 <tr>
-<td rowspan="8" valign="top"><a href="#reproductions-methods-and-training-frameworks">🔬&nbsp;Reproduction&nbsp;&amp;&nbsp;training&nbsp;(17)</a></td>
+<td rowspan="8" valign="top"><a href="#reproductions-methods-and-training-frameworks">🔬&nbsp;Reproduction&nbsp;&amp;&nbsp;training&nbsp;(18)</a></td>
 <td valign="top" nowrap="nowrap"><strong><a href="#supermimic_vibed">supermimic_vibed</a></strong>&nbsp;<a href="https://github.com/zita-ch/supermimic_vibed/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/zita-ch/supermimic_vibed.svg?style=social"></a><br>By Chong Zhang</td>
 <td valign="top"><strong>40/40 LAFAN1 motions in 1.47 hours!</strong> A ready-to-run Isaac Lab G1 reproduction on one RTX PRO 6000 Blackwell, with evaluation and rendering tools; note its disabled self-collisions and extra orientation input.</td>
 </tr>
@@ -432,6 +432,20 @@ Original-method reproductions, training acceleration, algorithm variants, shared
 - **Useful context:** This is a single training seed, and the extra anchor observations make it non-equivalent to the paper-observation protocol. The author highlights 40k as the preferred checkpoint but notes that 40k/44k/48k differences still require multiple seeds. [Source snapshot](https://github.com/rzc156/supermimic-rtx5080/blob/df967c61c29a2ed9ba6b188e1607ba59225fe8a7/README.md).
 
 <a href="https://github.com/rzc156/supermimic-rtx5080/blob/df967c61c29a2ed9ba6b188e1607ba59225fe8a7/results/lafan1_anchor/videos/index.html"><img src="https://raw.githubusercontent.com/rzc156/supermimic-rtx5080/df967c61c29a2ed9ba6b188e1607ba59225fe8a7/results/lafan1_anchor/gifs/walk1.gif" width="480" alt="Simulation · G1 walking with the RTX 5080 reproduction policy"></a><br><sub>Simulation · 40k checkpoint on a 15-second LAFAN1 walk clip; click for all seven videos</sub>
+
+<br>
+
+<a name="blinkmimic"></a>
+
+### BlinkMimic [![GitHub stars](https://img.shields.io/github/stars/fuyichen0725/blinkmimic.svg?style=social)](https://github.com/fuyichen0725/blinkmimic/stargazers)
+
+[Repository](https://github.com/fuyichen0725/blinkmimic) · [Setup](https://github.com/fuyichen0725/blinkmimic/blob/d264658d6c9ce61fb52f9f0f8985a369f3ccc409/README.md#setup) · [Results](https://github.com/fuyichen0725/blinkmimic/blob/d264658d6c9ce61fb52f9f0f8985a369f3ccc409/README.md#results)
+
+- **By Fuyi Chen.** Builds on supermimic_vibed and InstantTrack for G1 in mjlab, adding resets at the points where the current policy fails, a smaller imagined batch with a larger learning rate, and a world model that predicts velocity changes.
+- **Upstream report:** On 40 LAFAN1 clips (one RTX 4090, mean of 3 seeds), return **≥ 0.82** after **2.9 minutes**, and **≥ 0.82 with 0 / 40 failures** at three consecutive checkpoints after **3.4 minutes**.
+- **Useful context:** Training wall-clock on an otherwise idle GPU, excluding start-up and offline evaluation; evaluated in simulation on the training clips. [Source snapshot](https://github.com/fuyichen0725/blinkmimic/blob/d264658d6c9ce61fb52f9f0f8985a369f3ccc409/README.md).
+
+<a href="https://github.com/fuyichen0725/blinkmimic/blob/d264658d6c9ce61fb52f9f0f8985a369f3ccc409/docs/static/hero.gif"><img src="assets/community/blinkmimic-demo.gif" width="480" alt="Simulation · BlinkMimic tracking a fall-and-get-up motion after 3.1 minutes of training"></a><br><sub>Upstream simulation · after 3.1 minutes of training on one RTX 4090, fall-and-get-up motion; blue: reference. Click for the three-method comparison</sub>
 
 <br>
 
