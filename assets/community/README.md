@@ -1,5 +1,13 @@
 # Community media credits
 
+## Updated upstream previews — 2026-11-03
+
+These previews are embedded directly from immutable upstream revisions, without local copying, cropping, re-encoding or changes to frame timing. They are author demonstrations, not independent reruns by this collection. Earlier previews and their provenance remain below.
+
+- **InstantTrack v1.2:** [Huy-Quang-Dao, `media/equal_time_6min.gif`](https://github.com/Huy-Quang-Dao/instantTrack/blob/019ae20a83c443a057736789b891a77dcc95505e/media/equal_time_6min.gif), revision `019ae20a83c443a057736789b891a77dcc95505e`. One RTX 5090, seed 0, six minutes of training; SuperMimic + EMA, v1.1 and v1.2 on `fallAndGetUp2_subject3`. The corresponding 40-clip checkpoint evaluations fail 15, 6 and 0 clips. Embedded at 480 px; LAFAN1-derived media remain subject to the [upstream non-commercial terms](https://github.com/Huy-Quang-Dao/instantTrack/blob/019ae20a83c443a057736789b891a77dcc95505e/README.md#attribution-and-licenses).
+- **ARX5 Square / Drawer:** Zhiqiang Zhou / emoPointer, revision `eda7da480c6d92a68cc41c9628b7efdae08cae23`; [Square](https://github.com/emoPointer/supermimic_manipulation/blob/eda7da480c6d92a68cc41c9628b7efdae08cae23/docs/media/square.gif) and [Drawer](https://github.com/emoPointer/supermimic_manipulation/blob/eda7da480c6d92a68cc41c9628b7efdae08cae23/docs/media/drawer.gif). The first two episodes from the home pose, with held-out objects and targets. Drawer is **2× speed as published upstream**; Square preserves upstream playback. Embedded at 480 px; [source context](https://github.com/emoPointer/supermimic_manipulation/blob/eda7da480c6d92a68cc41c9628b7efdae08cae23/README.md). Upstream and third-party media rights remain with their owners and are excluded from this collection's CC0 dedication.
+- **Sharpa SuperMimic direct actor:** Mingrui Yu, revision `2d6bbe98aaa59216aedd9fba2b57196e830ef722`; [single-stage simulation rollout](https://github.com/Mingrui-Yu/sharpa_rl_unilab/blob/2d6bbe98aaa59216aedd9fba2b57196e830ef722/docs/media/sharpa-supermimic-direct-rollout.gif). Embedded at 480 px. This is the SuperMimic simulation GIF, separate from the repository's real-robot demonstration; [source context](https://github.com/Mingrui-Yu/sharpa_rl_unilab/blob/2d6bbe98aaa59216aedd9fba2b57196e830ef722/README.md#demonstrations). Upstream and third-party media rights remain with their owners and are excluded from this collection's CC0 dedication.
+
 ## BlinkMimic animated preview
 
 Checked on **2026-11-02**, source revision **`d264658d6c9ce61fb52f9f0f8985a369f3ccc409`**.
