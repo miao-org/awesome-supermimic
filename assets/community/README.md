@@ -1,5 +1,15 @@
 # Community media credits
 
+## BlinkMimic animated preview
+
+Checked on **2026-11-02**, source revision **`d264658d6c9ce61fb52f9f0f8985a369f3ccc409`**.
+
+- **Source / author:** [fuyichen0725 / blinkmimic](https://github.com/fuyichen0725/blinkmimic).
+- **Original preview:** [docs/static/hero.gif](https://github.com/fuyichen0725/blinkmimic/blob/d264658d6c9ce61fb52f9f0f8985a369f3ccc409/docs/static/hero.gif), a 1200 × 370 three-panel comparison.
+- **Local excerpt:** [blinkmimic-demo.gif](blinkmimic-demo.gif) crops the right (BlinkMimic) panel to 400 × 370, keeping all 233 frames and their timing (19.4 seconds) and quantizing to at most 128 colors; no frames were interpolated or generated. The README links to the complete upstream GIF.
+- **Context:** The policy on `fallAndGetUp1_subject1` after 3.1 minutes of training on one RTX 4090 (seed 0), showing the first 8 seconds and then 30–42 seconds; the blue ghost is the reference motion. This is one demonstration, not the complete 40-clip evaluation or an experiment rerun by this collection.
+- **Rights:** The upstream attribution excludes LAFAN1-derived media from its MIT code license and provides them for non-commercial research use only. Rights remain with the source owners; this preview is excluded from this collection's CC0 dedication. See the [upstream terms](https://github.com/fuyichen0725/blinkmimic/blob/d264658d6c9ce61fb52f9f0f8985a369f3ccc409/README.md#attribution-and-licenses).
+
 ## InstantTrack animated preview
 
 Checked on **2026-10-29**, source revision **`a33691a08bca8802d9d2985f62e2567479735a8e`**.
