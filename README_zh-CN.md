@@ -81,7 +81,7 @@ SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再
 
 **41 个项目，按用途分为 7 类。** 每个项目只收录一次，跨方向的能力在介绍中说明。下表保留各方向的推荐入口，⭐ 表示有值得阅读的实验、工具或示例。
 
-各分类内，**所有项目统一按 GitHub Stars 降序排列**（2026-11-01 快照；同数按仓库名排序），⭐ 表示编辑推荐，不影响排序。汇总表仍按分类组织，并在分类内遵循相同顺序。徽章动态更新，排列顺序不会自动变化。Stars 体现仓库关注度；结果与演示为上游报告。
+各分类内，**所有项目统一按 GitHub Stars 降序排列**（2026-11-03 快照；同数按仓库名排序），⭐ 表示编辑推荐，不影响排序。汇总表仍按分类组织，并在分类内遵循相同顺序。徽章动态更新，排列顺序不会自动变化。Stars 体现仓库关注度；结果与演示为上游报告。
 
 <a name="精选项目"></a>
 
@@ -278,6 +278,20 @@ SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再
 
 <br>
 
+<a name="blinkmimic"></a>
+
+### BlinkMimic [![GitHub stars](https://img.shields.io/github/stars/fuyichen0725/blinkmimic.svg?style=social)](https://github.com/fuyichen0725/blinkmimic/stargazers)
+
+[仓库](https://github.com/fuyichen0725/blinkmimic) · [安装](https://github.com/fuyichen0725/blinkmimic/blob/d264658d6c9ce61fb52f9f0f8985a369f3ccc409/README.md#setup) · [结果](https://github.com/fuyichen0725/blinkmimic/blob/d264658d6c9ce61fb52f9f0f8985a369f3ccc409/README.md#results)
+
+- **作者：Fuyi Chen。** 基于 supermimic_vibed 与 InstantTrack，在 mjlab 上实现 G1 跟踪，加入在当前策略失败处重置、更小的想象批量配合更大的学习率，以及预测速度变化的世界模型。
+- **上游报告：** 40 条 LAFAN1 动作（单张 RTX 4090，3 个种子平均），训练 **2.9 分钟**回报 **≥ 0.82**，**3.4 分钟**连续三个检查点 **≥ 0.82 且 0 / 40 失败**。
+- **选择时注意：** 时间为 GPU 无其他任务时的训练耗时，不含进程启动和离线评估；评估在仿真中、针对训练动作。 [核查版本](https://github.com/fuyichen0725/blinkmimic/blob/d264658d6c9ce61fb52f9f0f8985a369f3ccc409/README.md)。
+
+<a href="https://github.com/fuyichen0725/blinkmimic/blob/d264658d6c9ce61fb52f9f0f8985a369f3ccc409/docs/static/hero.gif"><img src="assets/community/blinkmimic-demo.gif" width="480" alt="仿真 · 训练 3.1 分钟后的 BlinkMimic 跟踪倒地起身动作"></a><br><sub>上游仿真演示 · 单张 RTX 4090 训练 3.1 分钟，倒地起身动作，蓝色为参考动作；点击查看三种方法的对比</sub>
+
+<br>
+
 <a name="allmimic"></a>
 
 ### ⭐ allmimic [![GitHub stars](https://img.shields.io/github/stars/Shimingyi/allmimic.svg?style=social)](https://github.com/Shimingyi/allmimic/stargazers)
@@ -289,6 +303,22 @@ SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再
 - **选择时注意：** 推荐配置包含算法和数据采样改动；仅训练 306 条困难动作的实验，与完整 BONES-SEED 训练是不同实验。 [核查版本](https://github.com/Shimingyi/allmimic/blob/cb334ff674b2f57248f33f8c21b7fb526fbdf8cc/README.md)。
 
 <a href="https://github.com/Shimingyi/allmimic"><img src="https://raw.githubusercontent.com/Shimingyi/allmimic/cb334ff674b2f57248f33f8c21b7fb526fbdf8cc/assets/challenge_cases.gif" width="480" alt="仿真 · 高难度动作片段"></a><br><sub>仿真 · 高难度动作片段</sub>
+
+<br>
+
+<a name="scalebfm_plus--supermimic"></a>
+
+<a name="-scalebfm_plus--supermimic"></a>
+
+### ⭐ ScaleBFM_Plus · SuperMimic [![GitHub stars](https://img.shields.io/github/stars/Hxxxz0/ScaleBFM_Plus.svg?style=social)](https://github.com/Hxxxz0/ScaleBFM_Plus/stargazers)
+
+[仓库](https://github.com/Hxxxz0/ScaleBFM_Plus) · [训练与结果](https://github.com/Hxxxz0/ScaleBFM_Plus/blob/65e4d524bd31fdc4284ba8c6e624fb0b0127da03/ScaleTrack/README.md#fast-training-with-a-learned-world-model-supermimic) · [发布权重](https://github.com/Hxxxz0/ScaleBFM_Plus/tree/65e4d524bd31fdc4284ba8c6e624fb0b0127da03/ScaleTrack/checkpoints/supermimic_m)
+
+- **作者：Hxxxz0，基于 ScaleBFM 扩展。** 在 IsaacLab / RSL-RL 的 G1 ScaleTrack 流程中接入 SuperMimic 式世界模型学习与 32 步 BPTT，保留 humanoid transformer 和跟踪模式，支持兼容 PPO 格式的策略导出与回放。
+- **上游报告：** 使用 BONES-SEED、any4hdmi、LAFAN1 共 **309 小时 / 13.8 万条动作**，在 **16 张 RTX 5090 上训练 8.3 小时**，对 **2,575 条留出测试动作**报告 **99.5% 跟踪成功率**。在 386 条高动态测试动作中，该策略与官方 ScaleBFM-M 检查点均成功 **376 / 386**，平均全局身体位置误差分别为 **6.35 cm** 和 **6.43 cm**。
+- **选择时注意：** 这是 ScaleBFM 的社区扩展。报告的 **26× 单步提速**对比的是 **16 张 RTX 5090 上的 0.65 秒**与 PPO 在 **8 张 RTX 5090 上的 17.0 秒**，并非相同算力或达到同等质量所需时间的对照。 [核查版本](https://github.com/Hxxxz0/ScaleBFM_Plus/blob/65e4d524bd31fdc4284ba8c6e624fb0b0127da03/ScaleTrack/README.md)。
+
+<a href="https://github.com/Hxxxz0/ScaleBFM_Plus/blob/65e4d524bd31fdc4284ba8c6e624fb0b0127da03/ScaleTrack/assets/demos/supermimic_vs_official.gif"><img src="https://media.githubusercontent.com/media/Hxxxz0/ScaleBFM_Plus/65e4d524bd31fdc4284ba8c6e624fb0b0127da03/ScaleTrack/assets/demos/supermimic_vs_official.gif" width="480" alt="仿真 · 官方 ScaleBFM-M（左）与 SuperMimic（右），未见 LAFAN 舞蹈"></a><br><sub>仿真 · 官方 ScaleBFM-M（左）与 SuperMimic（右），未见 LAFAN 舞蹈 · 来源：Hxxxz0 / ScaleBFM_Plus</sub>
 
 <br>
 
@@ -316,22 +346,6 @@ SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再
 - **选择时注意：** 只有单个训练 seed，且共用 GPU、没有扰动；32 次 rollout 是同一策略的副本，不是独立 seed。作者未声称训练速度或真机收益。 [核查版本](https://github.com/JackMin7/supermimic_whole_body_tracking/blob/553a7d32dc5fc00cbe6de5ee46479af2fcceeda8/README.md)。
 
 <a href="https://github.com/JackMin7/supermimic_whole_body_tracking/blob/553a7d32dc5fc00cbe6de5ee46479af2fcceeda8/media/ppo_vs_mbrl_60s.mp4"><img src="https://raw.githubusercontent.com/JackMin7/supermimic_whole_body_tracking/553a7d32dc5fc00cbe6de5ee46479af2fcceeda8/media/PPO%E4%B8%8EMBRL%E7%AB%99%E7%AB%8B%E5%AF%B9%E7%85%A7_60%E7%A7%92%E5%8A%A8%E5%9B%BE.gif" width="640" alt="仿真 · PPO 与 MBRL 的 G1 站立任务 60 秒对照"></a><br><sub>仿真 · 60 秒 PPO / MBRL 原速对照；PPO 终止后画面冻结</sub>
-
-<br>
-
-<a name="scalebfm_plus--supermimic"></a>
-
-<a name="-scalebfm_plus--supermimic"></a>
-
-### ⭐ ScaleBFM_Plus · SuperMimic [![GitHub stars](https://img.shields.io/github/stars/Hxxxz0/ScaleBFM_Plus.svg?style=social)](https://github.com/Hxxxz0/ScaleBFM_Plus/stargazers)
-
-[仓库](https://github.com/Hxxxz0/ScaleBFM_Plus) · [训练与结果](https://github.com/Hxxxz0/ScaleBFM_Plus/blob/65e4d524bd31fdc4284ba8c6e624fb0b0127da03/ScaleTrack/README.md#fast-training-with-a-learned-world-model-supermimic) · [发布权重](https://github.com/Hxxxz0/ScaleBFM_Plus/tree/65e4d524bd31fdc4284ba8c6e624fb0b0127da03/ScaleTrack/checkpoints/supermimic_m)
-
-- **作者：Hxxxz0，基于 ScaleBFM 扩展。** 在 IsaacLab / RSL-RL 的 G1 ScaleTrack 流程中接入 SuperMimic 式世界模型学习与 32 步 BPTT，保留 humanoid transformer 和跟踪模式，支持兼容 PPO 格式的策略导出与回放。
-- **上游报告：** 使用 BONES-SEED、any4hdmi、LAFAN1 共 **309 小时 / 13.8 万条动作**，在 **16 张 RTX 5090 上训练 8.3 小时**，对 **2,575 条留出测试动作**报告 **99.5% 跟踪成功率**。在 386 条高动态测试动作中，该策略与官方 ScaleBFM-M 检查点均成功 **376 / 386**，平均全局身体位置误差分别为 **6.35 cm** 和 **6.43 cm**。
-- **选择时注意：** 这是 ScaleBFM 的社区扩展。报告的 **26× 单步提速**对比的是 **16 张 RTX 5090 上的 0.65 秒**与 PPO 在 **8 张 RTX 5090 上的 17.0 秒**，并非相同算力或达到同等质量所需时间的对照。 [核查版本](https://github.com/Hxxxz0/ScaleBFM_Plus/blob/65e4d524bd31fdc4284ba8c6e624fb0b0127da03/ScaleTrack/README.md)。
-
-<a href="https://github.com/Hxxxz0/ScaleBFM_Plus/blob/65e4d524bd31fdc4284ba8c6e624fb0b0127da03/ScaleTrack/assets/demos/supermimic_vs_official.gif"><img src="https://media.githubusercontent.com/media/Hxxxz0/ScaleBFM_Plus/65e4d524bd31fdc4284ba8c6e624fb0b0127da03/ScaleTrack/assets/demos/supermimic_vs_official.gif" width="480" alt="仿真 · 官方 ScaleBFM-M（左）与 SuperMimic（右），未见 LAFAN 舞蹈"></a><br><sub>仿真 · 官方 ScaleBFM-M（左）与 SuperMimic（右），未见 LAFAN 舞蹈 · 来源：Hxxxz0 / ScaleBFM_Plus</sub>
 
 <br>
 
@@ -432,20 +446,6 @@ SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再
 - **选择时注意：** 只有单个训练 seed，且额外锚点观测使其不等价于论文观测口径。作者以 40k 为重点检查点，但 40k/44k/48k 的差异仍需多 seed 验证。 [核查版本](https://github.com/rzc156/supermimic-rtx5080/blob/df967c61c29a2ed9ba6b188e1607ba59225fe8a7/README.md)。
 
 <a href="https://github.com/rzc156/supermimic-rtx5080/blob/df967c61c29a2ed9ba6b188e1607ba59225fe8a7/results/lafan1_anchor/videos/index.html"><img src="https://raw.githubusercontent.com/rzc156/supermimic-rtx5080/df967c61c29a2ed9ba6b188e1607ba59225fe8a7/results/lafan1_anchor/gifs/walk1.gif" width="480" alt="仿真 · RTX 5080 复现策略执行 G1 行走"></a><br><sub>仿真 · 40k 检查点在 15 秒 LAFAN1 行走片段上的回放；点击查看全部七段视频</sub>
-
-<br>
-
-<a name="blinkmimic"></a>
-
-### BlinkMimic [![GitHub stars](https://img.shields.io/github/stars/fuyichen0725/blinkmimic.svg?style=social)](https://github.com/fuyichen0725/blinkmimic/stargazers)
-
-[仓库](https://github.com/fuyichen0725/blinkmimic) · [安装](https://github.com/fuyichen0725/blinkmimic/blob/d264658d6c9ce61fb52f9f0f8985a369f3ccc409/README.md#setup) · [结果](https://github.com/fuyichen0725/blinkmimic/blob/d264658d6c9ce61fb52f9f0f8985a369f3ccc409/README.md#results)
-
-- **作者：Fuyi Chen。** 基于 supermimic_vibed 与 InstantTrack，在 mjlab 上实现 G1 跟踪，加入在当前策略失败处重置、更小的想象批量配合更大的学习率，以及预测速度变化的世界模型。
-- **上游报告：** 40 条 LAFAN1 动作（单张 RTX 4090，3 个种子平均），训练 **2.9 分钟**回报 **≥ 0.82**，**3.4 分钟**连续三个检查点 **≥ 0.82 且 0 / 40 失败**。
-- **选择时注意：** 时间为 GPU 无其他任务时的训练耗时，不含进程启动和离线评估；评估在仿真中、针对训练动作。 [核查版本](https://github.com/fuyichen0725/blinkmimic/blob/d264658d6c9ce61fb52f9f0f8985a369f3ccc409/README.md)。
-
-<a href="https://github.com/fuyichen0725/blinkmimic/blob/d264658d6c9ce61fb52f9f0f8985a369f3ccc409/docs/static/hero.gif"><img src="assets/community/blinkmimic-demo.gif" width="480" alt="仿真 · 训练 3.1 分钟后的 BlinkMimic 跟踪倒地起身动作"></a><br><sub>上游仿真演示 · 单张 RTX 4090 训练 3.1 分钟，倒地起身动作，蓝色为参考动作；点击查看三种方法的对比</sub>
 
 <br>
 
@@ -666,6 +666,34 @@ SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再
 
 <br>
 
+<a name="supermimic-轮腿版wheelbipe"></a>
+
+### SuperMimic 轮腿版（wheelbipe） [![GitHub stars](https://img.shields.io/github/stars/RadiantForever/supermimic_wheelbipe.svg?style=social)](https://github.com/RadiantForever/supermimic_wheelbipe/stargazers)
+
+[仓库](https://github.com/RadiantForever/supermimic_wheelbipe) · [安装](https://github.com/RadiantForever/supermimic_wheelbipe/blob/0bf3456299a9f754289da58dce6c97c46afd3f03/README.md#setup) · [结果](https://github.com/RadiantForever/supermimic_wheelbipe/blob/0bf3456299a9f754289da58dce6c97c46afd3f03/README.md#results)
+
+- **作者：RadiantForever。** 将 SuperMimic 下游移植到 wheelbipe V14_2 轮腿机器人。人形动作库换成速度指令库；6 维动作（4 个腿目标 + 2 个轮速）在可微世界模型里优化，PhysX / Isaac Lab 只提供数据，训练过程不跑 PPO。
+- **上游报告：** 16 条指令网格中统一检查点 **0 / 16 摔倒**、归一化回报 **0.983**；高速专项检查点跟踪 **1.40 m/s、误差 0.01**，偏航到 **10.21 rad/s（1.62 圈/秒）**，变腿行程 **0.20-0.28 m**。单卡 RTX 4090，4096 个并行环境，多段续训累计 3.72 小时；单次运行，未做多随机种子。
+- **选择时注意：** 同一台机器人的预训练 PPO 策略只在世界模型前 800 轮混入 buffer，且未做「完全不给老师」的对照，因此这些数字不能全部归因于方法本身。移植需要上游仓库的机器人 USD 资产，没有 URDF。 [核查版本](https://github.com/RadiantForever/supermimic_wheelbipe/blob/0bf3456299a9f754289da58dce6c97c46afd3f03/README.md)。
+
+<a href="https://www.bilibili.com/video/BV1haxM6CEGm/"><img src="assets/community/wheelbipe-grid.gif" width="480" alt="仿真 · 四种指令工况"></a><br><sub>仿真 · 四种指令工况：10 rad/s 偏航（左上）、0.20-0.28 m 变腿（右上）、1.5 m/s 前进并变腿（左下）、偏航并变腿（右下）</sub>
+
+<br>
+
+<a name="supermimic-quadruped"></a>
+
+### SuperMimic-Quadruped [![GitHub stars](https://img.shields.io/github/stars/Houserz/supermimic-quadruped.svg?style=social)](https://github.com/Houserz/supermimic-quadruped/stargazers)
+
+[仓库](https://github.com/Houserz/supermimic-quadruped) · [快速开始](https://github.com/Houserz/supermimic-quadruped/blob/46a81c248f4eff8eb595e63ac2d3d84d1e30e444/README.zh-CN.md#快速开始) · [结果](https://github.com/Houserz/supermimic-quadruped/blob/46a81c248f4eff8eb595e63ac2d3d84d1e30e444/README.zh-CN.md#结果) · [摇杆规划器](https://github.com/Houserz/supermimic-quadruped/blob/46a81c248f4eff8eb595e63ac2d3d84d1e30e444/docs/PLANNER.zh-CN.md) · [预训练模型](https://github.com/Houserz/supermimic-quadruped/releases/tag/v0.2.0)
+
+- **作者：Houserz。** 基于 CuboiLeo 复现，在 mjlab / MuJoCo Warp 中把 SuperMimic 动作跟踪移植到 12 自由度的越疆 Rover X1 四足机器人，并加入 SONIC 风格的摇杆行走：运动学规划器把键盘输入实时生成参考动作，由同一个跟踪策略执行。公开狗动捕可重定向到任何用一个 YAML 描述的 12 自由度四足。
+- **上游报告：** 一个策略跟踪动作库全部 **665 段**，**0 段失败**（train / `hard` / 留出集平均归一化回报 **0.937 / 0.854 / 0.891**；确定性策略、无噪声；5 万次迭代，单张 H200 约 4.6 小时）。规划器 + 跟踪器在随机摇杆下 125 台 × 60 秒，有无域随机化均 **0 次摔倒**；无随机化时机器人速度达到摇杆的 **0.97 / 0.99 / 0.98**（vx / vy / 偏航角速度）。
+- **选择时注意：** 结果均在仿真中取得。跟踪器和规划器权重以及 99 段额外训练片段已发布，仅限非商业研究；其余 566 段由脚本按固定版本下载公开数据源重建。 [核查版本](https://github.com/Houserz/supermimic-quadruped/blob/46a81c248f4eff8eb595e63ac2d3d84d1e30e444/README.zh-CN.md)。
+
+<a href="https://github.com/Houserz/supermimic-quadruped"><img src="https://raw.githubusercontent.com/Houserz/supermimic-quadruped/46a81c248f4eff8eb595e63ac2d3d84d1e30e444/assets/showcase/joystick.gif" width="360" alt="仿真 · 键盘操控 Rover X1，蓝色为机器狗旁边的规划器输出"></a> <a href="https://github.com/Houserz/supermimic-quadruped"><img src="https://raw.githubusercontent.com/Houserz/supermimic-quadruped/46a81c248f4eff8eb595e63ac2d3d84d1e30e444/assets/showcase/zigzag.gif" width="360" alt="仿真 · Rover X1 跟踪狗动捕的之字形急转"></a><br><sub>仿真 · Rover X1：键盘摇杆 → 规划器（蓝色，画在机器狗旁边）→ 跟踪器；跟踪狗动捕的之字形急转（蓝色表示与参考动作的偏差）</sub>
+
+<br>
+
 <a name="supermimic-retargeted"></a>
 
 <a name="-supermimic-retargeted"></a>
@@ -682,20 +710,6 @@ SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再
 
 <br>
 
-<a name="supermimic-轮腿版wheelbipe"></a>
-
-### SuperMimic 轮腿版（wheelbipe） [![GitHub stars](https://img.shields.io/github/stars/RadiantForever/supermimic_wheelbipe.svg?style=social)](https://github.com/RadiantForever/supermimic_wheelbipe/stargazers)
-
-[仓库](https://github.com/RadiantForever/supermimic_wheelbipe) · [安装](https://github.com/RadiantForever/supermimic_wheelbipe/blob/0bf3456299a9f754289da58dce6c97c46afd3f03/README.md#setup) · [结果](https://github.com/RadiantForever/supermimic_wheelbipe/blob/0bf3456299a9f754289da58dce6c97c46afd3f03/README.md#results)
-
-- **作者：RadiantForever。** 将 SuperMimic 下游移植到 wheelbipe V14_2 轮腿机器人。人形动作库换成速度指令库；6 维动作（4 个腿目标 + 2 个轮速）在可微世界模型里优化，PhysX / Isaac Lab 只提供数据，训练过程不跑 PPO。
-- **上游报告：** 16 条指令网格中统一检查点 **0 / 16 摔倒**、归一化回报 **0.983**；高速专项检查点跟踪 **1.40 m/s、误差 0.01**，偏航到 **10.21 rad/s（1.62 圈/秒）**，变腿行程 **0.20-0.28 m**。单卡 RTX 4090，4096 个并行环境，多段续训累计 3.72 小时；单次运行，未做多随机种子。
-- **选择时注意：** 同一台机器人的预训练 PPO 策略只在世界模型前 800 轮混入 buffer，且未做「完全不给老师」的对照，因此这些数字不能全部归因于方法本身。移植需要上游仓库的机器人 USD 资产，没有 URDF。 [核查版本](https://github.com/RadiantForever/supermimic_wheelbipe/blob/0bf3456299a9f754289da58dce6c97c46afd3f03/README.md)。
-
-<a href="https://www.bilibili.com/video/BV1haxM6CEGm/"><img src="assets/community/wheelbipe-grid.gif" width="480" alt="仿真 · 四种指令工况"></a><br><sub>仿真 · 四种指令工况：10 rad/s 偏航（左上）、0.20-0.28 m 变腿（右上）、1.5 m/s 前进并变腿（左下）、偏航并变腿（右下）</sub>
-
-<br>
-
 <a name="supermimic-e1"></a>
 
 ### SuperMimic E1 [![GitHub stars](https://img.shields.io/github/stars/wenconggan/SuperMimic_e1.svg?style=social)](https://github.com/wenconggan/SuperMimic_e1/stargazers)
@@ -707,20 +721,6 @@ SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再
 - **选择时注意：** 完整动作评测与独立初始化短片段采用不同协议，两者都不代表未见动作泛化或真机迁移。 [核查版本](https://github.com/wenconggan/SuperMimic_e1/blob/d5fbe8f219c438b84633130652c5e6e74beff628/README.md)。
 
 <a href="https://github.com/wenconggan/SuperMimic_e1/blob/d5fbe8f219c438b84633130652c5e6e74beff628/docs/assets/e1_random10_80s.mp4"><img src="https://raw.githubusercontent.com/wenconggan/SuperMimic_e1/d5fbe8f219c438b84633130652c5e6e74beff628/docs/assets/e1_preview.gif" width="480" alt="E1 sim2sim · 原生 MuJoCo"></a><br><sub>E1 sim2sim · 原生 MuJoCo</sub>
-
-<br>
-
-<a name="supermimic-quadruped"></a>
-
-### SuperMimic-Quadruped [![GitHub stars](https://img.shields.io/github/stars/Houserz/supermimic-quadruped.svg?style=social)](https://github.com/Houserz/supermimic-quadruped/stargazers)
-
-[仓库](https://github.com/Houserz/supermimic-quadruped) · [快速开始](https://github.com/Houserz/supermimic-quadruped/blob/46a81c248f4eff8eb595e63ac2d3d84d1e30e444/README.zh-CN.md#快速开始) · [结果](https://github.com/Houserz/supermimic-quadruped/blob/46a81c248f4eff8eb595e63ac2d3d84d1e30e444/README.zh-CN.md#结果) · [摇杆规划器](https://github.com/Houserz/supermimic-quadruped/blob/46a81c248f4eff8eb595e63ac2d3d84d1e30e444/docs/PLANNER.zh-CN.md) · [预训练模型](https://github.com/Houserz/supermimic-quadruped/releases/tag/v0.2.0)
-
-- **作者：Houserz。** 基于 CuboiLeo 复现，在 mjlab / MuJoCo Warp 中把 SuperMimic 动作跟踪移植到 12 自由度的越疆 Rover X1 四足机器人，并加入 SONIC 风格的摇杆行走：运动学规划器把键盘输入实时生成参考动作，由同一个跟踪策略执行。公开狗动捕可重定向到任何用一个 YAML 描述的 12 自由度四足。
-- **上游报告：** 一个策略跟踪动作库全部 **665 段**，**0 段失败**（train / `hard` / 留出集平均归一化回报 **0.937 / 0.854 / 0.891**；确定性策略、无噪声；5 万次迭代，单张 H200 约 4.6 小时）。规划器 + 跟踪器在随机摇杆下 125 台 × 60 秒，有无域随机化均 **0 次摔倒**；无随机化时机器人速度达到摇杆的 **0.97 / 0.99 / 0.98**（vx / vy / 偏航角速度）。
-- **选择时注意：** 结果均在仿真中取得。跟踪器和规划器权重以及 99 段额外训练片段已发布，仅限非商业研究；其余 566 段由脚本按固定版本下载公开数据源重建。 [核查版本](https://github.com/Houserz/supermimic-quadruped/blob/46a81c248f4eff8eb595e63ac2d3d84d1e30e444/README.zh-CN.md)。
-
-<a href="https://github.com/Houserz/supermimic-quadruped"><img src="https://raw.githubusercontent.com/Houserz/supermimic-quadruped/46a81c248f4eff8eb595e63ac2d3d84d1e30e444/assets/showcase/joystick.gif" width="360" alt="仿真 · 键盘操控 Rover X1，蓝色为机器狗旁边的规划器输出"></a> <a href="https://github.com/Houserz/supermimic-quadruped"><img src="https://raw.githubusercontent.com/Houserz/supermimic-quadruped/46a81c248f4eff8eb595e63ac2d3d84d1e30e444/assets/showcase/zigzag.gif" width="360" alt="仿真 · Rover X1 跟踪狗动捕的之字形急转"></a><br><sub>仿真 · Rover X1：键盘摇杆 → 规划器（蓝色，画在机器狗旁边）→ 跟踪器；跟踪狗动捕的之字形急转（蓝色表示与参考动作的偏差）</sub>
 
 <br>
 

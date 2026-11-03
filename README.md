@@ -81,7 +81,7 @@ The authors report surpassing SONIC's released-checkpoint return after **3 hours
 
 **41 projects in 7 categories, grouped by purpose.** Each project appears once; overlapping capabilities are described in its entry. The guide retains complementary starting points; ⭐ marks documented experiments, tools or learning examples.
 
-Within each category, **all projects are sorted by GitHub Stars, highest first** (2026-11-01 snapshot; ties by repository name), regardless of highlight status. The ⭐ marker identifies editorial highlights but does not change the order. The overview table retains category grouping and follows the same Stars order. Badges update dynamically; the order does not. Stars reflect repository popularity; results and demos are upstream reports.
+Within each category, **all projects are sorted by GitHub Stars, highest first** (2026-11-03 snapshot; ties by repository name), regardless of highlight status. The ⭐ marker identifies editorial highlights but does not change the order. The overview table retains category grouping and follows the same Stars order. Badges update dynamically; the order does not. Stars reflect repository popularity; results and demos are upstream reports.
 
 <a name="featured-projects"></a>
 
@@ -278,6 +278,20 @@ Original-method reproductions, training acceleration, algorithm variants, shared
 
 <br>
 
+<a name="blinkmimic"></a>
+
+### BlinkMimic [![GitHub stars](https://img.shields.io/github/stars/fuyichen0725/blinkmimic.svg?style=social)](https://github.com/fuyichen0725/blinkmimic/stargazers)
+
+[Repository](https://github.com/fuyichen0725/blinkmimic) · [Setup](https://github.com/fuyichen0725/blinkmimic/blob/d264658d6c9ce61fb52f9f0f8985a369f3ccc409/README.md#setup) · [Results](https://github.com/fuyichen0725/blinkmimic/blob/d264658d6c9ce61fb52f9f0f8985a369f3ccc409/README.md#results)
+
+- **By Fuyi Chen.** Builds on supermimic_vibed and InstantTrack for G1 in mjlab, adding resets at the points where the current policy fails, a smaller imagined batch with a larger learning rate, and a world model that predicts velocity changes.
+- **Upstream report:** On 40 LAFAN1 clips (one RTX 4090, mean of 3 seeds), return **≥ 0.82** after **2.9 minutes**, and **≥ 0.82 with 0 / 40 failures** at three consecutive checkpoints after **3.4 minutes**.
+- **Useful context:** Training wall-clock on an otherwise idle GPU, excluding start-up and offline evaluation; evaluated in simulation on the training clips. [Source snapshot](https://github.com/fuyichen0725/blinkmimic/blob/d264658d6c9ce61fb52f9f0f8985a369f3ccc409/README.md).
+
+<a href="https://github.com/fuyichen0725/blinkmimic/blob/d264658d6c9ce61fb52f9f0f8985a369f3ccc409/docs/static/hero.gif"><img src="assets/community/blinkmimic-demo.gif" width="480" alt="Simulation · BlinkMimic tracking a fall-and-get-up motion after 3.1 minutes of training"></a><br><sub>Upstream simulation · after 3.1 minutes of training on one RTX 4090, fall-and-get-up motion; blue: reference. Click for the three-method comparison</sub>
+
+<br>
+
 <a name="allmimic"></a>
 
 ### ⭐ allmimic [![GitHub stars](https://img.shields.io/github/stars/Shimingyi/allmimic.svg?style=social)](https://github.com/Shimingyi/allmimic/stargazers)
@@ -289,6 +303,22 @@ Original-method reproductions, training acceleration, algorithm variants, shared
 - **Useful context:** The recommended preset changes the method and data sampling. The 306-hard-motion-only run and full BONES-SEED training are separate experiments. [Source snapshot](https://github.com/Shimingyi/allmimic/blob/cb334ff674b2f57248f33f8c21b7fb526fbdf8cc/README.md).
 
 <a href="https://github.com/Shimingyi/allmimic"><img src="https://raw.githubusercontent.com/Shimingyi/allmimic/cb334ff674b2f57248f33f8c21b7fb526fbdf8cc/assets/challenge_cases.gif" width="480" alt="Simulation · challenging motion clips"></a><br><sub>Simulation · challenging motion clips</sub>
+
+<br>
+
+<a name="scalebfm_plus--supermimic"></a>
+
+<a name="-scalebfm_plus--supermimic"></a>
+
+### ⭐ ScaleBFM_Plus · SuperMimic [![GitHub stars](https://img.shields.io/github/stars/Hxxxz0/ScaleBFM_Plus.svg?style=social)](https://github.com/Hxxxz0/ScaleBFM_Plus/stargazers)
+
+[Repository](https://github.com/Hxxxz0/ScaleBFM_Plus) · [Training and results](https://github.com/Hxxxz0/ScaleBFM_Plus/blob/65e4d524bd31fdc4284ba8c6e624fb0b0127da03/ScaleTrack/README.md#fast-training-with-a-learned-world-model-supermimic) · [Released checkpoint](https://github.com/Hxxxz0/ScaleBFM_Plus/tree/65e4d524bd31fdc4284ba8c6e624fb0b0127da03/ScaleTrack/checkpoints/supermimic_m)
+
+- **By Hxxxz0, building on ScaleBFM.** Integrates SuperMimic-style world-model learning and 32-step BPTT into ScaleTrack for G1 in IsaacLab / RSL-RL, retaining the humanoid transformer and tracking modes, with PPO-compatible policy export and playback.
+- **Upstream report:** Training on **309 h / 138k clips** from BONES-SEED, any4hdmi and LAFAN1 for **8.3 h on 16 RTX 5090s** yields **99.5% tracking success on 2,575 held-out motions**. On 386 dynamic test motions, both this policy and the official ScaleBFM-M checkpoint succeed on **376 / 386**, with mean global body-position errors of **6.35 cm** and **6.43 cm**, respectively.
+- **Useful context:** This is a community extension of ScaleBFM. The reported **26× per-step speedup** compares **0.65 s on 16 RTX 5090s** with PPO's **17.0 s on 8 RTX 5090s**; it is not a matched-compute or time-to-quality comparison. [Source snapshot](https://github.com/Hxxxz0/ScaleBFM_Plus/blob/65e4d524bd31fdc4284ba8c6e624fb0b0127da03/ScaleTrack/README.md).
+
+<a href="https://github.com/Hxxxz0/ScaleBFM_Plus/blob/65e4d524bd31fdc4284ba8c6e624fb0b0127da03/ScaleTrack/assets/demos/supermimic_vs_official.gif"><img src="https://media.githubusercontent.com/media/Hxxxz0/ScaleBFM_Plus/65e4d524bd31fdc4284ba8c6e624fb0b0127da03/ScaleTrack/assets/demos/supermimic_vs_official.gif" width="480" alt="Simulation · official ScaleBFM-M (left) and SuperMimic (right), unseen LAFAN dance"></a><br><sub>Simulation · official ScaleBFM-M (left) and SuperMimic (right), unseen LAFAN dance · Source: Hxxxz0 / ScaleBFM_Plus</sub>
 
 <br>
 
@@ -316,22 +346,6 @@ Original-method reproductions, training acceleration, algorithm variants, shared
 - **Useful context:** Single training seed, shared GPU, no disturbances, and the 32 rollouts are copies rather than independent seeds. The project does not claim training-speed or real-robot gains. [Source snapshot](https://github.com/JackMin7/supermimic_whole_body_tracking/blob/553a7d32dc5fc00cbe6de5ee46479af2fcceeda8/README.md).
 
 <a href="https://github.com/JackMin7/supermimic_whole_body_tracking/blob/553a7d32dc5fc00cbe6de5ee46479af2fcceeda8/media/ppo_vs_mbrl_60s.mp4"><img src="https://raw.githubusercontent.com/JackMin7/supermimic_whole_body_tracking/553a7d32dc5fc00cbe6de5ee46479af2fcceeda8/media/PPO%E4%B8%8EMBRL%E7%AB%99%E7%AB%8B%E5%AF%B9%E7%85%A7_60%E7%A7%92%E5%8A%A8%E5%9B%BE.gif" width="640" alt="Simulation · PPO and MBRL G1 standing comparison over 60 seconds"></a><br><sub>Simulation · 60-second PPO / MBRL comparison at normal speed; PPO freezes after termination</sub>
-
-<br>
-
-<a name="scalebfm_plus--supermimic"></a>
-
-<a name="-scalebfm_plus--supermimic"></a>
-
-### ⭐ ScaleBFM_Plus · SuperMimic [![GitHub stars](https://img.shields.io/github/stars/Hxxxz0/ScaleBFM_Plus.svg?style=social)](https://github.com/Hxxxz0/ScaleBFM_Plus/stargazers)
-
-[Repository](https://github.com/Hxxxz0/ScaleBFM_Plus) · [Training and results](https://github.com/Hxxxz0/ScaleBFM_Plus/blob/65e4d524bd31fdc4284ba8c6e624fb0b0127da03/ScaleTrack/README.md#fast-training-with-a-learned-world-model-supermimic) · [Released checkpoint](https://github.com/Hxxxz0/ScaleBFM_Plus/tree/65e4d524bd31fdc4284ba8c6e624fb0b0127da03/ScaleTrack/checkpoints/supermimic_m)
-
-- **By Hxxxz0, building on ScaleBFM.** Integrates SuperMimic-style world-model learning and 32-step BPTT into ScaleTrack for G1 in IsaacLab / RSL-RL, retaining the humanoid transformer and tracking modes, with PPO-compatible policy export and playback.
-- **Upstream report:** Training on **309 h / 138k clips** from BONES-SEED, any4hdmi and LAFAN1 for **8.3 h on 16 RTX 5090s** yields **99.5% tracking success on 2,575 held-out motions**. On 386 dynamic test motions, both this policy and the official ScaleBFM-M checkpoint succeed on **376 / 386**, with mean global body-position errors of **6.35 cm** and **6.43 cm**, respectively.
-- **Useful context:** This is a community extension of ScaleBFM. The reported **26× per-step speedup** compares **0.65 s on 16 RTX 5090s** with PPO's **17.0 s on 8 RTX 5090s**; it is not a matched-compute or time-to-quality comparison. [Source snapshot](https://github.com/Hxxxz0/ScaleBFM_Plus/blob/65e4d524bd31fdc4284ba8c6e624fb0b0127da03/ScaleTrack/README.md).
-
-<a href="https://github.com/Hxxxz0/ScaleBFM_Plus/blob/65e4d524bd31fdc4284ba8c6e624fb0b0127da03/ScaleTrack/assets/demos/supermimic_vs_official.gif"><img src="https://media.githubusercontent.com/media/Hxxxz0/ScaleBFM_Plus/65e4d524bd31fdc4284ba8c6e624fb0b0127da03/ScaleTrack/assets/demos/supermimic_vs_official.gif" width="480" alt="Simulation · official ScaleBFM-M (left) and SuperMimic (right), unseen LAFAN dance"></a><br><sub>Simulation · official ScaleBFM-M (left) and SuperMimic (right), unseen LAFAN dance · Source: Hxxxz0 / ScaleBFM_Plus</sub>
 
 <br>
 
@@ -432,20 +446,6 @@ Original-method reproductions, training acceleration, algorithm variants, shared
 - **Useful context:** This is a single training seed, and the extra anchor observations make it non-equivalent to the paper-observation protocol. The author highlights 40k as the preferred checkpoint but notes that 40k/44k/48k differences still require multiple seeds. [Source snapshot](https://github.com/rzc156/supermimic-rtx5080/blob/df967c61c29a2ed9ba6b188e1607ba59225fe8a7/README.md).
 
 <a href="https://github.com/rzc156/supermimic-rtx5080/blob/df967c61c29a2ed9ba6b188e1607ba59225fe8a7/results/lafan1_anchor/videos/index.html"><img src="https://raw.githubusercontent.com/rzc156/supermimic-rtx5080/df967c61c29a2ed9ba6b188e1607ba59225fe8a7/results/lafan1_anchor/gifs/walk1.gif" width="480" alt="Simulation · G1 walking with the RTX 5080 reproduction policy"></a><br><sub>Simulation · 40k checkpoint on a 15-second LAFAN1 walk clip; click for all seven videos</sub>
-
-<br>
-
-<a name="blinkmimic"></a>
-
-### BlinkMimic [![GitHub stars](https://img.shields.io/github/stars/fuyichen0725/blinkmimic.svg?style=social)](https://github.com/fuyichen0725/blinkmimic/stargazers)
-
-[Repository](https://github.com/fuyichen0725/blinkmimic) · [Setup](https://github.com/fuyichen0725/blinkmimic/blob/d264658d6c9ce61fb52f9f0f8985a369f3ccc409/README.md#setup) · [Results](https://github.com/fuyichen0725/blinkmimic/blob/d264658d6c9ce61fb52f9f0f8985a369f3ccc409/README.md#results)
-
-- **By Fuyi Chen.** Builds on supermimic_vibed and InstantTrack for G1 in mjlab, adding resets at the points where the current policy fails, a smaller imagined batch with a larger learning rate, and a world model that predicts velocity changes.
-- **Upstream report:** On 40 LAFAN1 clips (one RTX 4090, mean of 3 seeds), return **≥ 0.82** after **2.9 minutes**, and **≥ 0.82 with 0 / 40 failures** at three consecutive checkpoints after **3.4 minutes**.
-- **Useful context:** Training wall-clock on an otherwise idle GPU, excluding start-up and offline evaluation; evaluated in simulation on the training clips. [Source snapshot](https://github.com/fuyichen0725/blinkmimic/blob/d264658d6c9ce61fb52f9f0f8985a369f3ccc409/README.md).
-
-<a href="https://github.com/fuyichen0725/blinkmimic/blob/d264658d6c9ce61fb52f9f0f8985a369f3ccc409/docs/static/hero.gif"><img src="assets/community/blinkmimic-demo.gif" width="480" alt="Simulation · BlinkMimic tracking a fall-and-get-up motion after 3.1 minutes of training"></a><br><sub>Upstream simulation · after 3.1 minutes of training on one RTX 4090, fall-and-get-up motion; blue: reference. Click for the three-method comparison</sub>
 
 <br>
 
@@ -666,6 +666,34 @@ Robot-, simulator- and hardware-specific ports, together with motion-retargeting
 
 <br>
 
+<a name="supermimic-wheel-legged-wheelbipe"></a>
+
+### SuperMimic Wheel-Legged (wheelbipe) [![GitHub stars](https://img.shields.io/github/stars/RadiantForever/supermimic_wheelbipe.svg?style=social)](https://github.com/RadiantForever/supermimic_wheelbipe/stargazers)
+
+[Repository](https://github.com/RadiantForever/supermimic_wheelbipe) · [Setup](https://github.com/RadiantForever/supermimic_wheelbipe/blob/0bf3456299a9f754289da58dce6c97c46afd3f03/README.md#setup) · [Results](https://github.com/RadiantForever/supermimic_wheelbipe/blob/0bf3456299a9f754289da58dce6c97c46afd3f03/README.md#results)
+
+- **By RadiantForever.** Downstream port of SuperMimic to the wheeled-legged wheelbipe V14_2. The humanoid motion library is replaced by a velocity-command library; a 6-DoF action policy (four leg targets plus two wheel speeds) is optimised inside the differentiable world model, with PhysX / Isaac Lab as the data source and no PPO in the loop.
+- **Upstream report:** On a 16-command grid the unified checkpoint reaches **0 / 16 falls** and normalized return **0.983**; a speed-focused checkpoint tracks **1.40 m/s at 0.01 error**, and yaw reaches **10.21 rad/s (1.62 rev/s)** with a **0.20-0.28 m** leg cycle. Single RTX 4090, 4096 environments, 3.72 h cumulative over resumed runs; one run, no seed sweep.
+- **Useful context:** A pretrained PPO policy for the same robot is mixed into the world-model buffer for the first 800 iterations only, and no teacher-free ablation was run, so these numbers are not attributable to the method alone. The port requires the robot USD asset from the upstream repository; there is no URDF. [Source snapshot](https://github.com/RadiantForever/supermimic_wheelbipe/blob/0bf3456299a9f754289da58dce6c97c46afd3f03/README.md).
+
+<a href="https://www.bilibili.com/video/BV1haxM6CEGm/"><img src="assets/community/wheelbipe-grid.gif" width="480" alt="Simulation · four commanded conditions"></a><br><sub>Simulation · four commanded conditions: 10 rad/s yaw (top-left), 0.20-0.28 m leg cycle (top-right), 1.5 m/s forward with leg cycle (bottom-left), yaw with leg cycle (bottom-right)</sub>
+
+<br>
+
+<a name="supermimic-quadruped"></a>
+
+### SuperMimic-Quadruped [![GitHub stars](https://img.shields.io/github/stars/Houserz/supermimic-quadruped.svg?style=social)](https://github.com/Houserz/supermimic-quadruped/stargazers)
+
+[Repository](https://github.com/Houserz/supermimic-quadruped) · [Quick start](https://github.com/Houserz/supermimic-quadruped/blob/46a81c248f4eff8eb595e63ac2d3d84d1e30e444/README.md#quick-start) · [Results](https://github.com/Houserz/supermimic-quadruped/blob/46a81c248f4eff8eb595e63ac2d3d84d1e30e444/README.md#results) · [Joystick planner](https://github.com/Houserz/supermimic-quadruped/blob/46a81c248f4eff8eb595e63ac2d3d84d1e30e444/docs/PLANNER.md) · [Pretrained models](https://github.com/Houserz/supermimic-quadruped/releases/tag/v0.2.0)
+
+- **By Houserz.** Ports SuperMimic motion tracking to the Dobot Rover X1 quadruped (12 DoF) in mjlab / MuJoCo Warp, building on the CuboiLeo baseline, and adds SONIC-style joystick walking: a kinematic planner turns keyboard input into reference motion that the same tracker follows. Public dog motion capture is retargeted for any 12-DoF quadruped described by one YAML file.
+- **Upstream report:** One policy tracks all **665 library clips** with **0 failed clips** (mean normalized return **0.937 / 0.854 / 0.891** for train / `hard` / held-out; deterministic, no noise; 50k iterations, about 4.6 h on one H200). Planner + tracker under a random joystick, 125 robots × 60 s: **0 falls** with and without domain randomization; without it, robot velocity is **0.97 / 0.99 / 0.98** of the stick (vx / vy / yaw rate).
+- **Useful context:** Results are in simulation. Tracker and planner weights and 99 extra training clips are released for non-commercial research use; the other 566 clips are rebuilt from public sources at pinned revisions. [Source snapshot](https://github.com/Houserz/supermimic-quadruped/blob/46a81c248f4eff8eb595e63ac2d3d84d1e30e444/README.md).
+
+<a href="https://github.com/Houserz/supermimic-quadruped"><img src="https://raw.githubusercontent.com/Houserz/supermimic-quadruped/46a81c248f4eff8eb595e63ac2d3d84d1e30e444/assets/showcase/joystick.gif" width="360" alt="Simulation · Rover X1 driven from the keyboard, planner output in blue beside the robot"></a> <a href="https://github.com/Houserz/supermimic-quadruped"><img src="https://raw.githubusercontent.com/Houserz/supermimic-quadruped/46a81c248f4eff8eb595e63ac2d3d84d1e30e444/assets/showcase/zigzag.gif" width="360" alt="Simulation · Rover X1 zig-zag turns tracked from dog motion capture"></a><br><sub>Simulation · Rover X1: keyboard joystick → planner (blue, beside the robot) → tracker; zig-zag turns from dog motion capture (blue marks deviations from the reference)</sub>
+
+<br>
+
 <a name="supermimic-retargeted"></a>
 
 <a name="-supermimic-retargeted"></a>
@@ -682,20 +710,6 @@ Robot-, simulator- and hardware-specific ports, together with motion-retargeting
 
 <br>
 
-<a name="supermimic-wheel-legged-wheelbipe"></a>
-
-### SuperMimic Wheel-Legged (wheelbipe) [![GitHub stars](https://img.shields.io/github/stars/RadiantForever/supermimic_wheelbipe.svg?style=social)](https://github.com/RadiantForever/supermimic_wheelbipe/stargazers)
-
-[Repository](https://github.com/RadiantForever/supermimic_wheelbipe) · [Setup](https://github.com/RadiantForever/supermimic_wheelbipe/blob/0bf3456299a9f754289da58dce6c97c46afd3f03/README.md#setup) · [Results](https://github.com/RadiantForever/supermimic_wheelbipe/blob/0bf3456299a9f754289da58dce6c97c46afd3f03/README.md#results)
-
-- **By RadiantForever.** Downstream port of SuperMimic to the wheeled-legged wheelbipe V14_2. The humanoid motion library is replaced by a velocity-command library; a 6-DoF action policy (four leg targets plus two wheel speeds) is optimised inside the differentiable world model, with PhysX / Isaac Lab as the data source and no PPO in the loop.
-- **Upstream report:** On a 16-command grid the unified checkpoint reaches **0 / 16 falls** and normalized return **0.983**; a speed-focused checkpoint tracks **1.40 m/s at 0.01 error**, and yaw reaches **10.21 rad/s (1.62 rev/s)** with a **0.20-0.28 m** leg cycle. Single RTX 4090, 4096 environments, 3.72 h cumulative over resumed runs; one run, no seed sweep.
-- **Useful context:** A pretrained PPO policy for the same robot is mixed into the world-model buffer for the first 800 iterations only, and no teacher-free ablation was run, so these numbers are not attributable to the method alone. The port requires the robot USD asset from the upstream repository; there is no URDF. [Source snapshot](https://github.com/RadiantForever/supermimic_wheelbipe/blob/0bf3456299a9f754289da58dce6c97c46afd3f03/README.md).
-
-<a href="https://www.bilibili.com/video/BV1haxM6CEGm/"><img src="assets/community/wheelbipe-grid.gif" width="480" alt="Simulation · four commanded conditions"></a><br><sub>Simulation · four commanded conditions: 10 rad/s yaw (top-left), 0.20-0.28 m leg cycle (top-right), 1.5 m/s forward with leg cycle (bottom-left), yaw with leg cycle (bottom-right)</sub>
-
-<br>
-
 <a name="supermimic-e1"></a>
 
 ### SuperMimic E1 [![GitHub stars](https://img.shields.io/github/stars/wenconggan/SuperMimic_e1.svg?style=social)](https://github.com/wenconggan/SuperMimic_e1/stargazers)
@@ -707,20 +721,6 @@ Robot-, simulator- and hardware-specific ports, together with motion-retargeting
 - **Useful context:** Complete-clip evaluation and independently initialized short segments use different protocols. Neither result measures unseen-motion generalization or hardware transfer. [Source snapshot](https://github.com/wenconggan/SuperMimic_e1/blob/d5fbe8f219c438b84633130652c5e6e74beff628/README.md).
 
 <a href="https://github.com/wenconggan/SuperMimic_e1/blob/d5fbe8f219c438b84633130652c5e6e74beff628/docs/assets/e1_random10_80s.mp4"><img src="https://raw.githubusercontent.com/wenconggan/SuperMimic_e1/d5fbe8f219c438b84633130652c5e6e74beff628/docs/assets/e1_preview.gif" width="480" alt="E1 sim-to-sim · native MuJoCo"></a><br><sub>E1 sim-to-sim · native MuJoCo</sub>
-
-<br>
-
-<a name="supermimic-quadruped"></a>
-
-### SuperMimic-Quadruped [![GitHub stars](https://img.shields.io/github/stars/Houserz/supermimic-quadruped.svg?style=social)](https://github.com/Houserz/supermimic-quadruped/stargazers)
-
-[Repository](https://github.com/Houserz/supermimic-quadruped) · [Quick start](https://github.com/Houserz/supermimic-quadruped/blob/46a81c248f4eff8eb595e63ac2d3d84d1e30e444/README.md#quick-start) · [Results](https://github.com/Houserz/supermimic-quadruped/blob/46a81c248f4eff8eb595e63ac2d3d84d1e30e444/README.md#results) · [Joystick planner](https://github.com/Houserz/supermimic-quadruped/blob/46a81c248f4eff8eb595e63ac2d3d84d1e30e444/docs/PLANNER.md) · [Pretrained models](https://github.com/Houserz/supermimic-quadruped/releases/tag/v0.2.0)
-
-- **By Houserz.** Ports SuperMimic motion tracking to the Dobot Rover X1 quadruped (12 DoF) in mjlab / MuJoCo Warp, building on the CuboiLeo baseline, and adds SONIC-style joystick walking: a kinematic planner turns keyboard input into reference motion that the same tracker follows. Public dog motion capture is retargeted for any 12-DoF quadruped described by one YAML file.
-- **Upstream report:** One policy tracks all **665 library clips** with **0 failed clips** (mean normalized return **0.937 / 0.854 / 0.891** for train / `hard` / held-out; deterministic, no noise; 50k iterations, about 4.6 h on one H200). Planner + tracker under a random joystick, 125 robots × 60 s: **0 falls** with and without domain randomization; without it, robot velocity is **0.97 / 0.99 / 0.98** of the stick (vx / vy / yaw rate).
-- **Useful context:** Results are in simulation. Tracker and planner weights and 99 extra training clips are released for non-commercial research use; the other 566 clips are rebuilt from public sources at pinned revisions. [Source snapshot](https://github.com/Houserz/supermimic-quadruped/blob/46a81c248f4eff8eb595e63ac2d3d84d1e30e444/README.md).
-
-<a href="https://github.com/Houserz/supermimic-quadruped"><img src="https://raw.githubusercontent.com/Houserz/supermimic-quadruped/46a81c248f4eff8eb595e63ac2d3d84d1e30e444/assets/showcase/joystick.gif" width="360" alt="Simulation · Rover X1 driven from the keyboard, planner output in blue beside the robot"></a> <a href="https://github.com/Houserz/supermimic-quadruped"><img src="https://raw.githubusercontent.com/Houserz/supermimic-quadruped/46a81c248f4eff8eb595e63ac2d3d84d1e30e444/assets/showcase/zigzag.gif" width="360" alt="Simulation · Rover X1 zig-zag turns tracked from dog motion capture"></a><br><sub>Simulation · Rover X1: keyboard joystick → planner (blue, beside the robot) → tracker; zig-zag turns from dog motion capture (blue marks deviations from the reference)</sub>
 
 <br>
 
