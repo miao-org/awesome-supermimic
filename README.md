@@ -474,15 +474,15 @@ Original-method reproductions, training acceleration, algorithm variants, shared
 
 <br>
 
-<a name="a100mimic"></a>
+<a name="a100supermimic"></a>
 
-### A100Mimic [![GitHub stars](https://img.shields.io/github/stars/Hzzzzs/A100Mimic.svg?style=social)](https://github.com/Hzzzzs/A100Mimic/stargazers)
+### A100Supermimic [![GitHub stars](https://img.shields.io/github/stars/Hzzzzs/A100Supermimic.svg?style=social)](https://github.com/Hzzzzs/A100Supermimic/stargazers)
 
-[Repository](https://github.com/Hzzzzs/A100Mimic) · [Setup](https://github.com/Hzzzzs/A100Mimic/blob/a483c82c20be489d6a2582c14f3a05ac625105ad/README.md#install-and-prepare-data) · [Experiment](https://github.com/Hzzzzs/A100Mimic/blob/a483c82c20be489d6a2582c14f3a05ac625105ad/experiments/a100_40gb_seed0/summary.json)
+[Repository](https://github.com/Hzzzzs/A100Supermimic) · [Setup](https://github.com/Hzzzzs/A100Supermimic/blob/bb546fb0aad28003f7cfd8dbafdc160e7d2f59ff/README.md#install-and-prepare-data) · [Experiment](https://github.com/Hzzzzs/A100Supermimic/blob/bb546fb0aad28003f7cfd8dbafdc160e7d2f59ff/experiments/a100_40gb_seed0/summary.json)
 
 - **By Hzzzzs.** An unofficial RealMimic-derived SuperMimic engineering baseline for G1 in mjlab / MuJoCo Warp, with single-A100 40 GB setup, training, warm resume and evaluation documentation.
 - **Project report (checked 2026-11-10):** One fresh seed trained on 129,491 filtered BONES-SEED motions for 86,000 iterations in **12 h 59 min 51 s** on one A100 40 GB, excluding evaluation. Training-library evaluation reports **6 / 129,491 early terminations** and **0.9544 mean normalized return**; external LAFAN1 reports **13 / 40** and **0.6768**, respectively.
-- **Useful context:** The evaluations use solver 32/40 and `njmax=500`, different from training and not claimed to match the paper. One seed; cross-source overlap is unverified. Weights are not yet distributed. [Source snapshot](https://github.com/Hzzzzs/A100Mimic/blob/a483c82c20be489d6a2582c14f3a05ac625105ad/README.md).
+- **Useful context:** The evaluations use solver 32/40 and `njmax=500`, different from training and not claimed to match the paper. One seed; cross-source overlap is unverified. Weights are not yet distributed. [Source snapshot](https://github.com/Hzzzzs/A100Supermimic/blob/bb546fb0aad28003f7cfd8dbafdc160e7d2f59ff/README.md).
 
 <br>
 

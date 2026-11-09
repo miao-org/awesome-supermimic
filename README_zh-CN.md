@@ -474,15 +474,15 @@ SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再
 
 <br>
 
-<a name="a100mimic"></a>
+<a name="a100supermimic"></a>
 
-### A100Mimic [![GitHub stars](https://img.shields.io/github/stars/Hzzzzs/A100Mimic.svg?style=social)](https://github.com/Hzzzzs/A100Mimic/stargazers)
+### A100Supermimic [![GitHub stars](https://img.shields.io/github/stars/Hzzzzs/A100Supermimic.svg?style=social)](https://github.com/Hzzzzs/A100Supermimic/stargazers)
 
-[仓库](https://github.com/Hzzzzs/A100Mimic) · [安装](https://github.com/Hzzzzs/A100Mimic/blob/a483c82c20be489d6a2582c14f3a05ac625105ad/README_zh-CN.md) · [实验结果](https://github.com/Hzzzzs/A100Mimic/blob/a483c82c20be489d6a2582c14f3a05ac625105ad/experiments/a100_40gb_seed0/summary.json)
+[仓库](https://github.com/Hzzzzs/A100Supermimic) · [安装](https://github.com/Hzzzzs/A100Supermimic/blob/bb546fb0aad28003f7cfd8dbafdc160e7d2f59ff/README_zh-CN.md) · [实验结果](https://github.com/Hzzzzs/A100Supermimic/blob/bb546fb0aad28003f7cfd8dbafdc160e7d2f59ff/experiments/a100_40gb_seed0/summary.json)
 
 - **作者：Hzzzzs。** 基于 RealMimic 的非官方 SuperMimic G1 工程实现，使用 mjlab / MuJoCo Warp，提供单张 A100 40 GB 的安装、训练、warm resume 和评测说明。
 - **项目报告（2026-11-10 核查）：** 单 seed 在一张 A100 40 GB 上训练 129,491 条过滤后 BONES-SEED 动作、86,000 轮，耗时 **12 小时 59 分 51 秒**（不含评测）。训练库评测 **6 / 129,491 提前终止**、平均归一化回报 **0.9544**；外部 LAFAN1 分别为 **13 / 40** 和 **0.6768**。
-- **选择时注意：** 评测采用 solver 32/40、`njmax=500`，与训练设置不同，不声称等同论文协议；仅一个训练种子，跨来源相似动作尚未排除。权重尚未公开。 [核查版本](https://github.com/Hzzzzs/A100Mimic/blob/a483c82c20be489d6a2582c14f3a05ac625105ad/README_zh-CN.md)。
+- **选择时注意：** 评测采用 solver 32/40、`njmax=500`，与训练设置不同，不声称等同论文协议；仅一个训练种子，跨来源相似动作尚未排除。权重尚未公开。 [核查版本](https://github.com/Hzzzzs/A100Supermimic/blob/bb546fb0aad28003f7cfd8dbafdc160e7d2f59ff/README_zh-CN.md)。
 
 <br>
 
