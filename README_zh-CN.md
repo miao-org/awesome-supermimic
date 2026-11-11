@@ -37,9 +37,9 @@
 ## 目录
 
 - [原始 SuperMimic](#原始-supermimic)
-- [社区项目（41）](#社区项目)
+- [社区项目（42）](#社区项目)
   - 🔬 [复现、方法与训练框架（18）](#复现方法与训练框架)
-  - 👁️ [感知与地形（4）](#感知地形与四足任务)
+  - 👁️ [感知与地形（5）](#感知地形与四足任务)
   - 🦾 [操作与灵巧手（5）](#操作与灵巧手)
   - 💪 [肌肉与交互（3）](#肌肉驱动交互与诊断)
   - 🤖 [本体移植（7）](#机器人移植与重定向)
@@ -89,7 +89,7 @@ SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再
 
 **Update** 标注新版本或新结果及核查日期；历史结果保留原实验条件和来源。[本轮 41 个项目的核查记录](docs/project-review-2026-11-03.md)。
 
-**41 个项目，按用途分为 7 类。** 每个项目只收录一次，跨方向的能力在介绍中说明。下表保留各方向的推荐入口，⭐ 表示有值得阅读的实验、工具或示例。
+**42 个项目，按用途分为 7 类。** 每个项目只收录一次，跨方向的能力在介绍中说明。下表保留各方向的推荐入口，⭐ 表示有值得阅读的实验、工具或示例。
 
 各分类内，**所有项目统一按 GitHub Stars 降序排列**（2026-11-03 快照；同数按仓库名排序），⭐ 表示编辑推荐，不影响排序。汇总表仍按分类组织，并在分类内遵循相同顺序。徽章动态更新，排列顺序不会自动变化。Stars 体现仓库关注度；结果与演示为上游报告。
 
@@ -138,7 +138,7 @@ SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再
 <td valign="top"><strong>回报从 0.60 提升到 0.85，且每一步都有消融！</strong> 逐项验证 Actor/Critic 归一化、朝向锚点、模型归一化和学习率修正，公开策略与世界模型权重。</td>
 </tr>
 <tr>
-<td rowspan="2" valign="top"><a href="#感知地形与四足任务">👁️&nbsp;感知与地形（4）</a></td>
+<td rowspan="2" valign="top"><a href="#感知地形与四足任务">👁️&nbsp;感知与地形（5）</a></td>
 <td valign="top" nowrap="nowrap"><strong><a href="#instinctmj--supermimic">InstinctMJ</a></strong>&nbsp;<a href="https://github.com/project-instinct/InstinctMJ/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/project-instinct/InstinctMJ.svg?style=social"></a><br>团队：Project Instinct</td>
 <td valign="top"><strong>让 G1 带着深度视觉走复杂地形！</strong> 单张 RTX 3090 约 2.7 小时，10 条动作成功率 94.9%；仅一个训练种子，尚非大规模泛化验证。</td>
 </tr>
@@ -515,6 +515,20 @@ SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再
 - **选择时注意：** 目前只有仿真验证，目标感知来自仿真真值；发布的地形策略在最难设置下仍会摔倒或撞杆。 [核查版本](https://github.com/Zhengtianjin/go2-supermimic/blob/d9eee9b3f248e5300e636c433255db2c1c3e086a/README.md)。
 
 <a href="https://github.com/Zhengtianjin/go2-supermimic"><img src="https://raw.githubusercontent.com/Zhengtianjin/go2-supermimic/054a13c13285a1c94b2e69dc8ac7331f9a8c71cf/resources/terrain.gif" width="480" alt="仿真 · Go2 地形追逐与闪避"></a><br><sub>仿真 · Go2 地形追逐与闪避</sub>
+
+<br>
+
+<a name="terrain-grounded-imagination"></a>
+
+### Terrain-Grounded Imagination [![GitHub stars](https://img.shields.io/github/stars/leggedrobotics/terrain-grounded-imagination.svg?style=social)](https://github.com/leggedrobotics/terrain-grounded-imagination/stargazers)
+
+[仓库](https://github.com/leggedrobotics/terrain-grounded-imagination) · [训练](https://github.com/leggedrobotics/terrain-grounded-imagination/blob/977bee887cb2254af97fa3513f6441d23378f95d/README.md#training) · [结果](https://github.com/leggedrobotics/terrain-grounded-imagination/blob/977bee887cb2254af97fa3513f6441d23378f95d/README.md#results)
+
+- **作者：Matthias Heyrman。** 方法扩展：在 Isaac Lab 3 中实现 G1 在楼梯、沟壑和梅花桩上的感知式行走，把 SuperMimic 的训练方式用于 Watch Your Step 的落脚点门控感知。世界模型只学习机器人自身动力学；地形、奖励和感知通过可微查询从仿真器高度图读取。
+- **上游报告：** 以 **6.2 倍的速度**达到 PPO 训练的 Watch Your Step 策略的仿真性能。8,192 个环境、4 万次迭代（0.82 B 步仿真交互；Quadro RTX 6000 上 15.6 小时，RTX 3090 上 10.9 小时），五个种子的均值 ± 标准差：13 种地形成功率 **81.8 ± 2.5%**，含 20 cm 梅花桩时 **77.9 ± 2.1%**，39 段走廊到达终点 **75.5 ± 7.3%**。
+- **选择时注意：** 任务是速度指令行走，不是动作跟踪。目前为仿真结果，提供 MuJoCo sim2sim 脚本和 ONNX 导出。MIT 许可。 [核查版本](https://github.com/leggedrobotics/terrain-grounded-imagination/blob/977bee887cb2254af97fa3513f6441d23378f95d/README.md)。
+
+<a href="https://github.com/leggedrobotics/terrain-grounded-imagination/blob/977bee887cb2254af97fa3513f6441d23378f95d/media/course.gif"><img src="https://raw.githubusercontent.com/leggedrobotics/terrain-grounded-imagination/977bee887cb2254af97fa3513f6441d23378f95d/media/course.gif" width="480" alt="仿真 · G1 走过倾斜石板、楼梯和梅花桩"></a><br><sub>仿真 · G1 走过倾斜石板、楼梯和梅花桩</sub>
 
 <br>
 
