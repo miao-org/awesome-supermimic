@@ -138,13 +138,17 @@ Within each category, **all projects are sorted by GitHub Stars, highest first**
 <td valign="top"><strong>From 0.60 to 0.85 return, with the ablations to explain why!</strong> Actor/critic normalization, orientation anchors, world-model normalization and LR fixes are documented step by step; checkpoints released.</td>
 </tr>
 <tr>
-<td rowspan="2" valign="top"><a href="#perception-terrain-and-quadrupeds">👁️&nbsp;Perception&nbsp;&amp;&nbsp;terrain&nbsp;(5)</a></td>
+<td rowspan="3" valign="top"><a href="#perception-terrain-and-quadrupeds">👁️&nbsp;Perception&nbsp;&amp;&nbsp;terrain&nbsp;(5)</a></td>
 <td valign="top" nowrap="nowrap"><strong><a href="#instinctmj--supermimic">InstinctMJ</a></strong>&nbsp;<a href="https://github.com/project-instinct/InstinctMJ/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/project-instinct/InstinctMJ.svg?style=social"></a><br>By Project Instinct</td>
 <td valign="top"><strong>G1 learns to track over terrain with depth perception!</strong> Reports 94.9% success across 10 motions after ~2.7 h on one RTX 3090; one training seed, not a broad generalization benchmark.</td>
 </tr>
 <tr>
 <td valign="top" nowrap="nowrap"><strong><a href="#go2-supermimic">Go2-SuperMimic</a></strong>&nbsp;<a href="https://github.com/Zhengtianjin/go2-supermimic/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/Zhengtianjin/go2-supermimic.svg?style=social"></a><br>By Zhengtianjin</td>
 <td valign="top"><strong>SuperMimic goes quadruped: chase, dodge, navigate terrain.</strong> Three released Go2 actors span flat ground, obstacles and terrain, with evaluation/recording tools; simulation only.</td>
+</tr>
+<tr>
+<td valign="top" nowrap="nowrap"><strong><a href="#terrain-grounded-imagination">Terrain-Grounded Imagination</a></strong>&nbsp;<a href="https://github.com/leggedrobotics/terrain-grounded-imagination/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/leggedrobotics/terrain-grounded-imagination.svg?style=social"></a><br>By Matthias Heyrman</td>
+<td valign="top"><strong>Learns perceptive locomotion over sparse and rough terrain</strong>, matching PPO in sim performance but 6.2× faster, training to 40k iterations in 5.4 hours on one RTX 4090; tested on hardware.</td>
 </tr>
 <tr>
 <td rowspan="4" valign="top"><a href="#manipulation-and-dexterous-hands">🦾&nbsp;Manipulation&nbsp;&amp;&nbsp;hands&nbsp;(5)</a></td>
@@ -520,13 +524,15 @@ Vision, height-scan, terrain and quadruped task adaptations.
 
 <a name="terrain-grounded-imagination"></a>
 
-### Terrain-Grounded Imagination [![GitHub stars](https://img.shields.io/github/stars/leggedrobotics/terrain-grounded-imagination.svg?style=social)](https://github.com/leggedrobotics/terrain-grounded-imagination/stargazers)
+<a name="-terrain-grounded-imagination"></a>
+
+### ⭐ Terrain-Grounded Imagination [![GitHub stars](https://img.shields.io/github/stars/leggedrobotics/terrain-grounded-imagination.svg?style=social)](https://github.com/leggedrobotics/terrain-grounded-imagination/stargazers)
 
 [Repository](https://github.com/leggedrobotics/terrain-grounded-imagination) · [Training](https://github.com/leggedrobotics/terrain-grounded-imagination/blob/941366144d35977d6a303ec6b8bf7bf5554f8450/README.md#training) · [Results](https://github.com/leggedrobotics/terrain-grounded-imagination/blob/941366144d35977d6a303ec6b8bf7bf5554f8450/README.md#results)
 
 - **By Matthias Heyrman.** Method extension for perceptive G1 locomotion over stairs, gaps and stepping stones in Isaac Lab 3, applying the SuperMimic training style to the foothold-gated perception of Watch Your Step. The world model learns only the robot's dynamics; terrain, rewards and perception are read from the simulator heightmap through differentiable lookups.
 - **Upstream report:** Successful locomotion over sparse and rough terrain in simulation after **40k iterations in 5.4 h on one RTX 4090**.
-- **Useful context:** Velocity-commanded locomotion, not motion tracking. Simulation results, with a MuJoCo sim2sim script and ONNX export. MIT license. [Source snapshot](https://github.com/leggedrobotics/terrain-grounded-imagination/blob/941366144d35977d6a303ec6b8bf7bf5554f8450/README.md).
+- **Useful context:** Velocity-commanded locomotion, not motion tracking. Tested on hardware; hardware videos are not yet published. Includes a MuJoCo sim2sim script and ONNX export. MIT license. [Source snapshot](https://github.com/leggedrobotics/terrain-grounded-imagination/blob/941366144d35977d6a303ec6b8bf7bf5554f8450/README.md).
 
 <a href="https://github.com/leggedrobotics/terrain-grounded-imagination/blob/941366144d35977d6a303ec6b8bf7bf5554f8450/media/course.gif"><img src="https://raw.githubusercontent.com/leggedrobotics/terrain-grounded-imagination/941366144d35977d6a303ec6b8bf7bf5554f8450/media/course.gif" width="480" alt="Simulation · G1 on tilted slabs, stairs and stepping stones"></a><br><sub>Simulation · G1 on tilted slabs, stairs and stepping stones</sub>
 
