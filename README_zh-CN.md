@@ -8,7 +8,7 @@
 
 [English](README.md) · 简体中文
 
-[原始论文](https://arxiv.org/abs/2610.28480) · [官方项目](https://supermimic.github.io/) · [官方代码](https://github.com/HybridRobotics/supermimic) · [交互演示](https://supermimic.github.io/demo/) · [社区项目](#社区项目)
+[原始论文](https://arxiv.org/abs/2610.28480) · [官方项目](https://supermimic.github.io/) · [官方代码](https://github.com/HybridRobotics/supermimic) · [官方讲解](assets/official/supermimic-official-talk-2026.mp4) · [交互演示](https://supermimic.github.io/demo/) · [社区项目](#社区项目)
 
 </div>
 
@@ -58,7 +58,7 @@
 Qiayuan Liao、Yiyang Shao、Junfeng Long、Kevin Zakka、Roberto Horowitz、Pieter Abbeel、Koushil Sreenath。<br>
 **UC Berkeley · CoRL 2026 Oral**
 
-[论文](https://arxiv.org/abs/2610.28480) · [PDF](https://arxiv.org/pdf/2610.28480) · [代码](https://github.com/HybridRobotics/supermimic) · [项目主页](https://supermimic.github.io/) · [官方视频](https://supermimic.github.io/media/real/film-1080.mp4) · [浏览器演示](https://supermimic.github.io/demo/)
+[论文](https://arxiv.org/abs/2610.28480) · [PDF](https://arxiv.org/pdf/2610.28480) · [代码](https://github.com/HybridRobotics/supermimic) · [项目主页](https://supermimic.github.io/) · [官方讲解（MP4）](assets/official/supermimic-official-talk-2026.mp4) · [官方视频](https://supermimic.github.io/media/real/film-1080.mp4) · [浏览器演示](https://supermimic.github.io/demo/)
 
 SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再通过短时想象轨迹训练动作跟踪策略。世界模型和策略在同一个循环中持续更新，策略梯度经过学习到的模型。[方法介绍](https://supermimic.github.io/#loop)。
 
@@ -76,6 +76,14 @@ SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再
 作者报告：**单张 H100 训练 3 小时**超过 SONIC 已发布 checkpoint 的回报，**129,514 个动作中失败 25 个**；两张 H100 训练 9.8 小时后失败数为 0。这是训练动作覆盖结果，且两者训练硬件与数据规模不同。[原始结果与计算量口径](https://supermimic.github.io/#compute)。
 
 **官方实现（2026-11-10 开源）：** [HybridRobotics/supermimic](https://github.com/HybridRobotics/supermimic) 是项目公开的实现仓库，采用 Apache-2.0 许可，提供基于同级 `mjlab_research` 仓库的 G1 世界模型与策略训练、回放脚本。详见[安装与使用说明](https://github.com/HybridRobotics/supermimic/blob/5efbf114e11f725c31d83e217be987c13c0e4ce2/README.md#setup)。下列条目仍为独立维护的社区实现与扩展。
+
+<p align="center">
+  <a href="assets/official/supermimic-official-talk-2026.mp4">
+    <img src="assets/official/supermimic-official-talk-poster.jpg" width="100%" alt="SuperMimic 官方 CoRL 2026 讲解视频末页：Code open-sourced，链接到 HybridRobotics/supermimic">
+  </a><br>
+  <b>官方 CoRL 2026 讲解视频 · 8 分 35 秒 MP4</b><br>
+  <sub>点击播放或下载。视频涵盖研究动机、可微世界模型、单张 H100 训练结果、G1 真机演示和代码开源。</sub>
+</p>
 
 ## 社区项目
 
@@ -914,7 +922,7 @@ SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再
 
 感谢 SuperMimic 原作者和社区维护者。清单的组织和展示参考了 [Awesome Nano Banana Images](https://github.com/PicoTrex/Awesome-Nano-Banana-images) 与 [Awesome World Models](https://github.com/knightnemo/Awesome-World-Models)。
 
-本清单原创整理文字采用 [CC0 1.0](LICENSE)。第三方代码、论文、数据及媒体保留各自的权利与使用条款，包括存放在本仓库中的[原论文框架图与官方视频预览](assets/official/README.md)；这些素材不属于本清单的 CC0 授权范围。[社区媒体预览与来源](assets/community/README.md)同样保留原作者权利。
+本清单原创整理文字采用 [CC0 1.0](LICENSE)。第三方代码、论文、数据及媒体保留各自的权利与使用条款，包括存放在本仓库中的[原论文框架图、官方视频预览与 CoRL 2026 讲解视频](assets/official/README.md)；这些素材不属于本清单的 CC0 授权范围。[社区媒体预览与来源](assets/community/README.md)同样保留原作者权利。
 
 ## Star History
 

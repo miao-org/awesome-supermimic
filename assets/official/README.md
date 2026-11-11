@@ -1,8 +1,8 @@
 # Official SuperMimic media credits
 
-These previews come from the [SuperMimic project website](https://supermimic.github.io/), by Qiayuan Liao, Yiyang Shao, Junfeng Long, Kevin Zakka, Roberto Horowitz, Pieter Abbeel, and Koushil Sreenath (UC Berkeley).
+The three previews come from the [SuperMimic project website](https://supermimic.github.io/), by Qiayuan Liao, Yiyang Shao, Junfeng Long, Kevin Zakka, Roberto Horowitz, Pieter Abbeel, and Koushil Sreenath (UC Berkeley). The conference talk is the authors' CoRL 2026 presentation, supplied for inclusion in this catalog.
 
-They illustrate **SuperMimic: Scaling Humanoid Whole-Body Control with One Differentiable World Model**, CoRL 2026. These are the original authors' demonstrations, not experiments run by this collection.
+They illustrate **SuperMimic: Scaling Humanoid Whole-Body Control with One Differentiable World Model**, CoRL 2026. These are the original authors' demonstrations and explanation, not experiments run by this collection.
 
 | Preview | Source | Source duration | GIF resolution |
 | --- | --- | --- | --- |
@@ -16,9 +16,18 @@ Retrieved on 2026-10-26. Each GIF preserves the full corresponding source clip, 
 - **World model:** the official prediction overlay; the blue figures depict learned world-model predictions over simulator motion.
 - **Real G1:** the official bay-side hardware demonstration.
 
+## Official CoRL 2026 talk
+
+| Asset | Source | Duration | Format |
+| --- | --- | --- | --- |
+| [supermimic-official-talk-2026.mp4](supermimic-official-talk-2026.mp4) | CoRL 2026 presentation by Qiayuan Liao and the SuperMimic authors | 8:35 | H.264 High / AAC, 1280 × 720, 30 fps, 33 MiB |
+| [supermimic-official-talk-poster.jpg](supermimic-official-talk-poster.jpg) | Frame at 7:50 showing the final code-release slide | — | JPEG, 960 × 575 |
+
+The supplied QuickTime recording was transcoded to MP4 with its original frame geometry, frame order, playback speed, and stereo audio preserved. Video uses H.264 CRF 24 and audio uses AAC at 96 kbps; the MP4 is fast-start enabled for immediate playback access.
+
 ## Rights and attribution
 
-All rights in the source footage and paper figure remain with the original rights holders. These third-party assets are **excluded from this repository's CC0 dedication**. The source website did not state a separate media license when checked; this collection does not grant reuse rights to the footage or figure. Follow the source website and paper for the authors' materials and terms.
+All rights in the source footage, conference talk, slides, and paper figure remain with the original rights holders. These third-party assets are **excluded from this repository's CC0 dedication**. The source website did not state a separate media license when checked; this collection does not grant reuse rights to the footage, talk, or figure. Follow the source website and paper for the authors' materials and terms.
 
 ## Original paper framework
 
