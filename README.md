@@ -528,13 +528,13 @@ Vision, height-scan, terrain and quadruped task adaptations.
 
 ### ⭐ Terrain-Grounded Imagination [![GitHub stars](https://img.shields.io/github/stars/leggedrobotics/terrain-grounded-imagination.svg?style=social)](https://github.com/leggedrobotics/terrain-grounded-imagination/stargazers)
 
-[Repository](https://github.com/leggedrobotics/terrain-grounded-imagination) · [Training](https://github.com/leggedrobotics/terrain-grounded-imagination/blob/941366144d35977d6a303ec6b8bf7bf5554f8450/README.md#training) · [Results](https://github.com/leggedrobotics/terrain-grounded-imagination/blob/941366144d35977d6a303ec6b8bf7bf5554f8450/README.md#results)
+[Repository](https://github.com/leggedrobotics/terrain-grounded-imagination) · [Training](https://github.com/leggedrobotics/terrain-grounded-imagination/blob/8d71d8fa6734088b8ba4f3c846b09aa909e29816/README.md#training) · [Results](https://github.com/leggedrobotics/terrain-grounded-imagination/blob/8d71d8fa6734088b8ba4f3c846b09aa909e29816/README.md#results)
 
 - **By Matthias Heyrman.** Method extension for perceptive G1 locomotion over stairs, gaps and stepping stones in Isaac Lab 3, applying the SuperMimic training style to the foothold-gated perception of Watch Your Step. The world model learns only the robot's dynamics; terrain, rewards and perception are read from the simulator heightmap through differentiable lookups.
 - **Upstream report:** Successful locomotion over sparse and rough terrain in simulation after **40k iterations in 5.4 h on one RTX 4090**.
-- **Useful context:** Velocity-commanded locomotion, not motion tracking. Tested on hardware; hardware videos are not yet published. Includes a MuJoCo sim2sim script and ONNX export. MIT license. [Source snapshot](https://github.com/leggedrobotics/terrain-grounded-imagination/blob/941366144d35977d6a303ec6b8bf7bf5554f8450/README.md).
+- **Useful context:** Velocity-commanded locomotion, not motion tracking. Tested on hardware, with a first hardware clip in the README. Includes a MuJoCo sim2sim script and ONNX export. MIT license. [Source snapshot](https://github.com/leggedrobotics/terrain-grounded-imagination/blob/8d71d8fa6734088b8ba4f3c846b09aa909e29816/README.md).
 
-<a href="https://github.com/leggedrobotics/terrain-grounded-imagination/blob/941366144d35977d6a303ec6b8bf7bf5554f8450/media/course.gif"><img src="https://raw.githubusercontent.com/leggedrobotics/terrain-grounded-imagination/941366144d35977d6a303ec6b8bf7bf5554f8450/media/course.gif" width="480" alt="Simulation · G1 on tilted slabs, stairs and stepping stones"></a><br><sub>Simulation · G1 on tilted slabs, stairs and stepping stones</sub>
+<a href="https://github.com/leggedrobotics/terrain-grounded-imagination/blob/8d71d8fa6734088b8ba4f3c846b09aa909e29816/media/course.gif"><img src="https://raw.githubusercontent.com/leggedrobotics/terrain-grounded-imagination/8d71d8fa6734088b8ba4f3c846b09aa909e29816/media/course.gif" width="480" alt="Simulation · G1 on tilted slabs, stairs and stepping stones"></a><br><sub>Simulation · G1 on tilted slabs, stairs and stepping stones</sub>
 
 <br>
 
