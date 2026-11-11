@@ -37,8 +37,8 @@ Start with the original work below, then choose an implementation by framework a
 ## Contents
 
 - [Original SuperMimic](#original-supermimic)
-- [Community projects (41)](#community-projects)
-  - 🔬 [Reproductions, methods & frameworks (18)](#reproductions-methods-and-training-frameworks)
+- [Community projects (42)](#community-projects)
+  - 🔬 [Reproductions, methods & frameworks (19)](#reproductions-methods-and-training-frameworks)
   - 👁️ [Perception & terrain (4)](#perception-terrain-and-quadrupeds)
   - 🦾 [Manipulation & hands (5)](#manipulation-and-dexterous-hands)
   - 💪 [Muscles & interaction (3)](#muscle-interaction-and-diagnostics)
@@ -81,7 +81,7 @@ The authors report surpassing SONIC's released-checkpoint return after **3 hours
 
 **Update** notes identify new versions or results and their review dates; historical results retain their original conditions and sources. [Review of all 41 projects](docs/project-review-2026-11-03.md).
 
-**41 projects in 7 categories, grouped by purpose.** Each project appears once; overlapping capabilities are described in its entry. The guide retains complementary starting points; ⭐ marks documented experiments, tools or learning examples.
+**42 projects in 7 categories, grouped by purpose.** Each project appears once; overlapping capabilities are described in its entry. The guide retains complementary starting points; ⭐ marks documented experiments, tools or learning examples.
 
 Within each category, **all projects are sorted by GitHub Stars, highest first** (2026-11-03 snapshot; ties by repository name), regardless of highlight status. The ⭐ marker identifies editorial highlights but does not change the order. The overview table retains category grouping and follows the same Stars order. Badges update dynamically; the order does not. Stars reflect repository popularity; results and demos are upstream reports.
 
@@ -93,7 +93,7 @@ Within each category, **all projects are sorted by GitHub Stars, highest first**
 <thead><tr><th align="left" width="32%">Explore</th><th align="left" width="40%">Project · Stars</th><th align="left" width="28%">Why it matters · evidence</th></tr></thead>
 <tbody>
 <tr>
-<td rowspan="9" valign="top"><a href="#reproductions-methods-and-training-frameworks">🔬&nbsp;Reproduction&nbsp;&amp;&nbsp;training&nbsp;(18)</a></td>
+<td rowspan="9" valign="top"><a href="#reproductions-methods-and-training-frameworks">🔬&nbsp;Reproduction&nbsp;&amp;&nbsp;training&nbsp;(19)</a></td>
 <td valign="top" nowrap="nowrap"><strong><a href="#supermimic_vibed">supermimic_vibed</a></strong>&nbsp;<a href="https://github.com/zita-ch/supermimic_vibed/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/zita-ch/supermimic_vibed.svg?style=social"></a><br>By Chong Zhang</td>
 <td valign="top"><strong>40/40 LAFAN1 motions in 1.47 hours!</strong> A ready-to-run Isaac Lab G1 reproduction on one RTX PRO 6000 Blackwell, with evaluation and rendering tools; note its disabled self-collisions and extra orientation input.</td>
 </tr>
@@ -471,6 +471,18 @@ Original-method reproductions, training acceleration, algorithm variants, shared
 - **Useful context:** This is a single training seed, and the extra anchor observations make it non-equivalent to the paper-observation protocol. The author highlights 40k as the preferred checkpoint but notes that 40k/44k/48k differences still require multiple seeds. [Source snapshot](https://github.com/rzc156/supermimic-rtx5080/blob/df967c61c29a2ed9ba6b188e1607ba59225fe8a7/README.md).
 
 <a href="https://github.com/rzc156/supermimic-rtx5080/blob/df967c61c29a2ed9ba6b188e1607ba59225fe8a7/results/lafan1_anchor/videos/index.html"><img src="https://raw.githubusercontent.com/rzc156/supermimic-rtx5080/df967c61c29a2ed9ba6b188e1607ba59225fe8a7/results/lafan1_anchor/gifs/walk1.gif" width="480" alt="Simulation · G1 walking with the RTX 5080 reproduction policy"></a><br><sub>Simulation · 40k checkpoint on a 15-second LAFAN1 walk clip; click for all seven videos</sub>
+
+<br>
+
+<a name="a100supermimic"></a>
+
+### A100Supermimic [![GitHub stars](https://img.shields.io/github/stars/Hzzzzs/A100Supermimic.svg?style=social)](https://github.com/Hzzzzs/A100Supermimic/stargazers)
+
+[Repository](https://github.com/Hzzzzs/A100Supermimic) · [Setup](https://github.com/Hzzzzs/A100Supermimic/blob/bb546fb0aad28003f7cfd8dbafdc160e7d2f59ff/README.md#install-and-prepare-data) · [Experiment](https://github.com/Hzzzzs/A100Supermimic/blob/bb546fb0aad28003f7cfd8dbafdc160e7d2f59ff/experiments/a100_40gb_seed0/summary.json)
+
+- **By Hzzzzs.** An unofficial RealMimic-derived SuperMimic engineering baseline for G1 in mjlab / MuJoCo Warp, with single-A100 40 GB setup, training, warm resume and evaluation documentation.
+- **Project report (checked 2026-11-10):** One fresh seed trained on 129,491 filtered BONES-SEED motions for 86,000 iterations in **12 h 59 min 51 s** on one A100 40 GB, excluding evaluation. Training-library evaluation reports **6 / 129,491 early terminations** and **0.9544 mean normalized return**; external LAFAN1 reports **13 / 40** and **0.6768**, respectively.
+- **Useful context:** The evaluations use solver 32/40 and `njmax=500`, different from training and not claimed to match the paper. One seed; cross-source overlap is unverified. Weights are not yet distributed. [Source snapshot](https://github.com/Hzzzzs/A100Supermimic/blob/bb546fb0aad28003f7cfd8dbafdc160e7d2f59ff/README.md).
 
 <br>
 

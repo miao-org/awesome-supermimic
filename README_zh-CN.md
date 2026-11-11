@@ -37,8 +37,8 @@
 ## 目录
 
 - [原始 SuperMimic](#原始-supermimic)
-- [社区项目（41）](#社区项目)
-  - 🔬 [复现、方法与训练框架（18）](#复现方法与训练框架)
+- [社区项目（42）](#社区项目)
+  - 🔬 [复现、方法与训练框架（19）](#复现方法与训练框架)
   - 👁️ [感知与地形（4）](#感知地形与四足任务)
   - 🦾 [操作与灵巧手（5）](#操作与灵巧手)
   - 💪 [肌肉与交互（3）](#肌肉驱动交互与诊断)
@@ -81,7 +81,7 @@ SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再
 
 **Update** 标注新版本或新结果及核查日期；历史结果保留原实验条件和来源。[本轮 41 个项目的核查记录](docs/project-review-2026-11-03.md)。
 
-**41 个项目，按用途分为 7 类。** 每个项目只收录一次，跨方向的能力在介绍中说明。下表保留各方向的推荐入口，⭐ 表示有值得阅读的实验、工具或示例。
+**42 个项目，按用途分为 7 类。** 每个项目只收录一次，跨方向的能力在介绍中说明。下表保留各方向的推荐入口，⭐ 表示有值得阅读的实验、工具或示例。
 
 各分类内，**所有项目统一按 GitHub Stars 降序排列**（2026-11-03 快照；同数按仓库名排序），⭐ 表示编辑推荐，不影响排序。汇总表仍按分类组织，并在分类内遵循相同顺序。徽章动态更新，排列顺序不会自动变化。Stars 体现仓库关注度；结果与演示为上游报告。
 
@@ -93,7 +93,7 @@ SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再
 <thead><tr><th align="left" width="32%">方向</th><th align="left" width="40%">项目 · Stars</th><th align="left" width="28%">技术价值 · 实验证据</th></tr></thead>
 <tbody>
 <tr>
-<td rowspan="9" valign="top"><a href="#复现方法与训练框架">🔬&nbsp;复现与训练（18）</a></td>
+<td rowspan="9" valign="top"><a href="#复现方法与训练框架">🔬&nbsp;复现与训练（19）</a></td>
 <td valign="top" nowrap="nowrap"><strong><a href="#supermimic_vibed">supermimic_vibed</a></strong>&nbsp;<a href="https://github.com/zita-ch/supermimic_vibed/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/zita-ch/supermimic_vibed.svg?style=social"></a><br>作者：Chong Zhang</td>
 <td valign="top"><strong>1.47 小时跑通 LAFAN1 全部 40 条动作！</strong> 单张 RTX PRO 6000 Blackwell 的 Isaac Lab G1 复现，配套完整评测与渲染；需注意关闭自碰撞、增加朝向观测。</td>
 </tr>
@@ -471,6 +471,18 @@ SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再
 - **选择时注意：** 只有单个训练 seed，且额外锚点观测使其不等价于论文观测口径。作者以 40k 为重点检查点，但 40k/44k/48k 的差异仍需多 seed 验证。 [核查版本](https://github.com/rzc156/supermimic-rtx5080/blob/df967c61c29a2ed9ba6b188e1607ba59225fe8a7/README.md)。
 
 <a href="https://github.com/rzc156/supermimic-rtx5080/blob/df967c61c29a2ed9ba6b188e1607ba59225fe8a7/results/lafan1_anchor/videos/index.html"><img src="https://raw.githubusercontent.com/rzc156/supermimic-rtx5080/df967c61c29a2ed9ba6b188e1607ba59225fe8a7/results/lafan1_anchor/gifs/walk1.gif" width="480" alt="仿真 · RTX 5080 复现策略执行 G1 行走"></a><br><sub>仿真 · 40k 检查点在 15 秒 LAFAN1 行走片段上的回放；点击查看全部七段视频</sub>
+
+<br>
+
+<a name="a100supermimic"></a>
+
+### A100Supermimic [![GitHub stars](https://img.shields.io/github/stars/Hzzzzs/A100Supermimic.svg?style=social)](https://github.com/Hzzzzs/A100Supermimic/stargazers)
+
+[仓库](https://github.com/Hzzzzs/A100Supermimic) · [安装](https://github.com/Hzzzzs/A100Supermimic/blob/bb546fb0aad28003f7cfd8dbafdc160e7d2f59ff/README_zh-CN.md) · [实验结果](https://github.com/Hzzzzs/A100Supermimic/blob/bb546fb0aad28003f7cfd8dbafdc160e7d2f59ff/experiments/a100_40gb_seed0/summary.json)
+
+- **作者：Hzzzzs。** 基于 RealMimic 的非官方 SuperMimic G1 工程实现，使用 mjlab / MuJoCo Warp，提供单张 A100 40 GB 的安装、训练、warm resume 和评测说明。
+- **项目报告（2026-11-10 核查）：** 单 seed 在一张 A100 40 GB 上训练 129,491 条过滤后 BONES-SEED 动作、86,000 轮，耗时 **12 小时 59 分 51 秒**（不含评测）。训练库评测 **6 / 129,491 提前终止**、平均归一化回报 **0.9544**；外部 LAFAN1 分别为 **13 / 40** 和 **0.6768**。
+- **选择时注意：** 评测采用 solver 32/40、`njmax=500`，与训练设置不同，不声称等同论文协议；仅一个训练种子，跨来源相似动作尚未排除。权重尚未公开。 [核查版本](https://github.com/Hzzzzs/A100Supermimic/blob/bb546fb0aad28003f7cfd8dbafdc160e7d2f59ff/README_zh-CN.md)。
 
 <br>
 
