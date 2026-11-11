@@ -525,7 +525,7 @@ SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再
 [仓库](https://github.com/leggedrobotics/terrain-grounded-imagination) · [训练](https://github.com/leggedrobotics/terrain-grounded-imagination/blob/977bee887cb2254af97fa3513f6441d23378f95d/README.md#training) · [结果](https://github.com/leggedrobotics/terrain-grounded-imagination/blob/977bee887cb2254af97fa3513f6441d23378f95d/README.md#results)
 
 - **作者：Matthias Heyrman。** 方法扩展：在 Isaac Lab 3 中实现 G1 在楼梯、沟壑和梅花桩上的感知式行走，把 SuperMimic 的训练方式用于 Watch Your Step 的落脚点门控感知。世界模型只学习机器人自身动力学；地形、奖励和感知通过可微查询从仿真器高度图读取。
-- **上游报告：** 以 **6.2 倍的速度**达到 PPO 训练的 Watch Your Step 策略的仿真性能。8,192 个环境、4 万次迭代（0.82 B 步仿真交互；Quadro RTX 6000 上 15.6 小时，RTX 3090 上 10.9 小时），五个种子的均值 ± 标准差：13 种地形成功率 **81.8 ± 2.5%**，含 20 cm 梅花桩时 **77.9 ± 2.1%**，39 段走廊到达终点 **75.5 ± 7.3%**。
+- **上游报告：** 在单张 RTX 4090 上训练 **4 万次迭代、5.4 小时**后，可在仿真中稳定走过稀疏和崎岖地形。
 - **选择时注意：** 任务是速度指令行走，不是动作跟踪。目前为仿真结果，提供 MuJoCo sim2sim 脚本和 ONNX 导出。MIT 许可。 [核查版本](https://github.com/leggedrobotics/terrain-grounded-imagination/blob/977bee887cb2254af97fa3513f6441d23378f95d/README.md)。
 
 <a href="https://github.com/leggedrobotics/terrain-grounded-imagination/blob/977bee887cb2254af97fa3513f6441d23378f95d/media/course.gif"><img src="https://raw.githubusercontent.com/leggedrobotics/terrain-grounded-imagination/977bee887cb2254af97fa3513f6441d23378f95d/media/course.gif" width="480" alt="仿真 · G1 走过倾斜石板、楼梯和梅花桩"></a><br><sub>仿真 · G1 走过倾斜石板、楼梯和梅花桩</sub>
