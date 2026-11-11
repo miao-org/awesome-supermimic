@@ -8,7 +8,7 @@
 
 [English](README.md) · 简体中文
 
-[原始论文](https://arxiv.org/abs/2610.28480) · [官方项目](https://supermimic.github.io/) · [交互演示](https://supermimic.github.io/demo/) · [社区项目](#社区项目)
+[原始论文](https://arxiv.org/abs/2610.28480) · [官方项目](https://supermimic.github.io/) · [官方代码](https://github.com/HybridRobotics/supermimic) · [交互演示](https://supermimic.github.io/demo/) · [社区项目](#社区项目)
 
 </div>
 
@@ -58,7 +58,7 @@
 Qiayuan Liao、Yiyang Shao、Junfeng Long、Kevin Zakka、Roberto Horowitz、Pieter Abbeel、Koushil Sreenath。<br>
 **UC Berkeley · CoRL 2026 Oral**
 
-[论文](https://arxiv.org/abs/2610.28480) · [PDF](https://arxiv.org/pdf/2610.28480) · [项目主页](https://supermimic.github.io/) · [官方视频](https://supermimic.github.io/media/real/film-1080.mp4) · [浏览器演示](https://supermimic.github.io/demo/)
+[论文](https://arxiv.org/abs/2610.28480) · [PDF](https://arxiv.org/pdf/2610.28480) · [代码](https://github.com/HybridRobotics/supermimic) · [项目主页](https://supermimic.github.io/) · [官方视频](https://supermimic.github.io/media/real/film-1080.mp4) · [浏览器演示](https://supermimic.github.io/demo/)
 
 SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再通过短时想象轨迹训练动作跟踪策略。世界模型和策略在同一个循环中持续更新，策略梯度经过学习到的模型。[方法介绍](https://supermimic.github.io/#loop)。
 
@@ -75,7 +75,7 @@ SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再
 
 作者报告：**单张 H100 训练 3 小时**超过 SONIC 已发布 checkpoint 的回报，**129,514 个动作中失败 25 个**；两张 H100 训练 9.8 小时后失败数为 0。这是训练动作覆盖结果，且两者训练硬件与数据规模不同。[原始结果与计算量口径](https://supermimic.github.io/#compute)。
 
-**官方代码状态（2026-10-28 核查）：**官方主页提供论文、视频和浏览器演示，尚未链接训练代码仓库。下列条目均为社区实现或扩展。
+**官方实现（2026-11-10 开源）：** [HybridRobotics/supermimic](https://github.com/HybridRobotics/supermimic) 是项目公开的实现仓库，采用 Apache-2.0 许可，提供基于同级 `mjlab_research` 仓库的 G1 世界模型与策略训练、回放脚本。详见[安装与使用说明](https://github.com/HybridRobotics/supermimic/blob/5efbf114e11f725c31d83e217be987c13c0e4ce2/README.md#setup)。下列条目仍为独立维护的社区实现与扩展。
 
 ## 社区项目
 
