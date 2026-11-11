@@ -2,7 +2,7 @@
 
 ## Terrain-Grounded Imagination preview — 2026-11-11
 
-- **Source / author:** [Matthias Heyrman, `media/course.gif`](https://github.com/leggedrobotics/terrain-grounded-imagination/blob/977bee887cb2254af97fa3513f6441d23378f95d/media/course.gif), revision `977bee887cb2254af97fa3513f6441d23378f95d`. Embedded directly from the pinned upstream revision at 480 pixels wide, preserving aspect ratio, frame order and timing; no local copy or re-encoding.
+- **Source / author:** [Matthias Heyrman, `media/course.gif`](https://github.com/leggedrobotics/terrain-grounded-imagination/blob/941366144d35977d6a303ec6b8bf7bf5554f8450/media/course.gif), revision `941366144d35977d6a303ec6b8bf7bf5554f8450`. Embedded directly from the pinned upstream revision at 480 pixels wide, preserving aspect ratio, frame order and timing; no local copy or re-encoding.
 - **Context:** The author's simulation demonstration of a G1 walking a course of tilted slabs, stairs and stepping stones. This is one demonstration, not the evaluation behind the reported results or an experiment rerun by this collection.
 
 ## Updated upstream previews — 2026-11-03
