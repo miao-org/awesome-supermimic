@@ -8,7 +8,7 @@
 
 English · [简体中文](README_zh-CN.md)
 
-[Original paper](https://arxiv.org/abs/2610.28480) · [Official website](https://supermimic.github.io/) · [Interactive demo](https://supermimic.github.io/demo/) · [Community projects](#community-projects)
+[Original paper](https://arxiv.org/abs/2610.28480) · [Official website](https://supermimic.github.io/) · [Official code](https://github.com/HybridRobotics/supermimic) · [Interactive demo](https://supermimic.github.io/demo/) · [Community projects](#community-projects)
 
 </div>
 
@@ -58,7 +58,7 @@ Start with the original work below, then choose an implementation by framework a
 Qiayuan Liao, Yiyang Shao, Junfeng Long, Kevin Zakka, Roberto Horowitz, Pieter Abbeel, and Koushil Sreenath.<br>
 **UC Berkeley · CoRL 2026 Oral**
 
-[Paper](https://arxiv.org/abs/2610.28480) · [PDF](https://arxiv.org/pdf/2610.28480) · [Project](https://supermimic.github.io/) · [Video](https://supermimic.github.io/media/real/film-1080.mp4) · [Browser demo](https://supermimic.github.io/demo/)
+[Paper](https://arxiv.org/abs/2610.28480) · [PDF](https://arxiv.org/pdf/2610.28480) · [Code](https://github.com/HybridRobotics/supermimic) · [Project](https://supermimic.github.io/) · [Video](https://supermimic.github.io/media/real/film-1080.mp4) · [Browser demo](https://supermimic.github.io/demo/)
 
 SuperMimic learns shared humanoid dynamics from simulator transitions and improves a motion-tracking policy through short imagined rollouts. The world model and policy are updated in the same training loop; policy gradients pass through the learned model. [Method overview](https://supermimic.github.io/#loop).
 
@@ -75,7 +75,7 @@ The world model is fit on **8-step replay windows**; the policy and critic learn
 
 The authors report surpassing SONIC's released-checkpoint return after **3 hours on one H100**, with **25 / 129,514 failed motions**, and **0 / 129,514** after 9.8 hours on two H100s. These are training-motion coverage results, with different training hardware and data from SONIC. See the [official results and compute accounting](https://supermimic.github.io/#compute).
 
-**Official code status — checked 2026-10-28:** the official website links the paper, video, and browser demo, but does not link a training-code repository. The projects below are community implementations and extensions.
+**Official implementation — released 2026-11-10:** [HybridRobotics/supermimic](https://github.com/HybridRobotics/supermimic) is the project's public implementation repository, released under Apache-2.0. It provides G1 world-model and policy training plus playback scripts built on the sibling `mjlab_research` repository. See the [setup and usage guide](https://github.com/HybridRobotics/supermimic/blob/5efbf114e11f725c31d83e217be987c13c0e4ce2/README.md#setup). The projects below remain separately maintained community implementations and extensions.
 
 ## Community projects
 
