@@ -8,7 +8,7 @@
 
 English · [简体中文](README_zh-CN.md)
 
-[Original paper](https://arxiv.org/abs/2610.28480) · [Official website](https://supermimic.github.io/) · [Official code](https://github.com/HybridRobotics/supermimic) · [Interactive demo](https://supermimic.github.io/demo/) · [Community projects](#community-projects)
+[Original paper](https://arxiv.org/abs/2610.28480) · [Official website](https://supermimic.github.io/) · [Official code](https://github.com/HybridRobotics/supermimic) · [Official talk](assets/official/supermimic-official-talk-2026.mp4) · [Interactive demo](https://supermimic.github.io/demo/) · [Community projects](#community-projects)
 
 </div>
 
@@ -58,7 +58,7 @@ Start with the original work below, then choose an implementation by framework a
 Qiayuan Liao, Yiyang Shao, Junfeng Long, Kevin Zakka, Roberto Horowitz, Pieter Abbeel, and Koushil Sreenath.<br>
 **UC Berkeley · CoRL 2026 Oral**
 
-[Paper](https://arxiv.org/abs/2610.28480) · [PDF](https://arxiv.org/pdf/2610.28480) · [Code](https://github.com/HybridRobotics/supermimic) · [Project](https://supermimic.github.io/) · [Video](https://supermimic.github.io/media/real/film-1080.mp4) · [Browser demo](https://supermimic.github.io/demo/)
+[Paper](https://arxiv.org/abs/2610.28480) · [PDF](https://arxiv.org/pdf/2610.28480) · [Code](https://github.com/HybridRobotics/supermimic) · [Project](https://supermimic.github.io/) · [Official talk (MP4)](assets/official/supermimic-official-talk-2026.mp4) · [Video](https://supermimic.github.io/media/real/film-1080.mp4) · [Browser demo](https://supermimic.github.io/demo/)
 
 SuperMimic learns shared humanoid dynamics from simulator transitions and improves a motion-tracking policy through short imagined rollouts. The world model and policy are updated in the same training loop; policy gradients pass through the learned model. [Method overview](https://supermimic.github.io/#loop).
 
@@ -76,6 +76,14 @@ The world model is fit on **8-step replay windows**; the policy and critic learn
 The authors report surpassing SONIC's released-checkpoint return after **3 hours on one H100**, with **25 / 129,514 failed motions**, and **0 / 129,514** after 9.8 hours on two H100s. These are training-motion coverage results, with different training hardware and data from SONIC. See the [official results and compute accounting](https://supermimic.github.io/#compute).
 
 **Official implementation — released 2026-11-10:** [HybridRobotics/supermimic](https://github.com/HybridRobotics/supermimic) is the project's public implementation repository, released under Apache-2.0. It provides G1 world-model and policy training plus playback scripts built on the sibling `mjlab_research` repository. See the [setup and usage guide](https://github.com/HybridRobotics/supermimic/blob/5efbf114e11f725c31d83e217be987c13c0e4ce2/README.md#setup). The projects below remain separately maintained community implementations and extensions.
+
+<p align="center">
+  <a href="assets/official/supermimic-official-talk-2026.mp4">
+    <img src="assets/official/supermimic-official-talk-poster.jpg" width="100%" alt="Final slide from the official SuperMimic CoRL 2026 talk: Code open-sourced, linking to HybridRobotics/supermimic">
+  </a><br>
+  <b>Official CoRL 2026 talk · 8:35 MP4</b><br>
+  <sub>Click to play or download. The talk covers the motivation, differentiable world model, single-H100 training result, real-G1 demonstrations, and code release.</sub>
+</p>
 
 ## Community projects
 
@@ -914,7 +922,7 @@ When building on the method, cite the **original SuperMimic paper** and credit t
 
 Thanks to the original SuperMimic authors and all community maintainers. The presentation of this list is inspired by [Awesome Nano Banana Images](https://github.com/PicoTrex/Awesome-Nano-Banana-images) and [Awesome World Models](https://github.com/knightnemo/Awesome-World-Models).
 
-The original curation text in this collection is released under [CC0 1.0](LICENSE). Third-party code, papers, datasets, and media retain their respective rights and terms. This includes the [original paper figure and official video previews](assets/official/README.md) stored in this repository; they are not covered by this collection's CC0 dedication. [Community media previews and credits](assets/community/README.md) follow the same attribution rule.
+The original curation text in this collection is released under [CC0 1.0](LICENSE). Third-party code, papers, datasets, and media retain their respective rights and terms. This includes the [original paper figure, official video previews, and CoRL 2026 talk](assets/official/README.md) stored in this repository; they are not covered by this collection's CC0 dedication. [Community media previews and credits](assets/community/README.md) follow the same attribution rule.
 
 ## Star History
 
