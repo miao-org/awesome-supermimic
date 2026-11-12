@@ -37,9 +37,9 @@
 ## 目录
 
 - [原始 SuperMimic](#原始-supermimic)
-- [社区项目（41）](#社区项目)
+- [社区项目（42）](#社区项目)
   - 🔬 [复现、方法与训练框架（18）](#复现方法与训练框架)
-  - 👁️ [感知与地形（4）](#感知地形与四足任务)
+  - 👁️ [感知与地形（5）](#感知地形与四足任务)
   - 🦾 [操作与灵巧手（5）](#操作与灵巧手)
   - 💪 [肌肉与交互（3）](#肌肉驱动交互与诊断)
   - 🤖 [本体移植（7）](#机器人移植与重定向)
@@ -89,7 +89,7 @@ SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再
 
 **Update** 标注新版本或新结果及核查日期；历史结果保留原实验条件和来源。[本轮 41 个项目的核查记录](docs/project-review-2026-11-03.md)。
 
-**41 个项目，按用途分为 7 类。** 每个项目只收录一次，跨方向的能力在介绍中说明。下表保留各方向的推荐入口，⭐ 表示有值得阅读的实验、工具或示例。
+**42 个项目，按用途分为 7 类。** 每个项目只收录一次，跨方向的能力在介绍中说明。下表保留各方向的推荐入口，⭐ 表示有值得阅读的实验、工具或示例。
 
 各分类内，**所有项目统一按 GitHub Stars 降序排列**（2026-11-03 快照；同数按仓库名排序），⭐ 表示编辑推荐，不影响排序。汇总表仍按分类组织，并在分类内遵循相同顺序。徽章动态更新，排列顺序不会自动变化。Stars 体现仓库关注度；结果与演示为上游报告。
 
@@ -138,13 +138,17 @@ SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再
 <td valign="top"><strong>回报从 0.60 提升到 0.85，且每一步都有消融！</strong> 逐项验证 Actor/Critic 归一化、朝向锚点、模型归一化和学习率修正，公开策略与世界模型权重。</td>
 </tr>
 <tr>
-<td rowspan="2" valign="top"><a href="#感知地形与四足任务">👁️&nbsp;感知与地形（4）</a></td>
+<td rowspan="3" valign="top"><a href="#感知地形与四足任务">👁️&nbsp;感知与地形（5）</a></td>
 <td valign="top" nowrap="nowrap"><strong><a href="#instinctmj--supermimic">InstinctMJ</a></strong>&nbsp;<a href="https://github.com/project-instinct/InstinctMJ/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/project-instinct/InstinctMJ.svg?style=social"></a><br>团队：Project Instinct</td>
 <td valign="top"><strong>让 G1 带着深度视觉走复杂地形！</strong> 单张 RTX 3090 约 2.7 小时，10 条动作成功率 94.9%；仅一个训练种子，尚非大规模泛化验证。</td>
 </tr>
 <tr>
 <td valign="top" nowrap="nowrap"><strong><a href="#go2-supermimic">Go2-SuperMimic</a></strong>&nbsp;<a href="https://github.com/Zhengtianjin/go2-supermimic/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/Zhengtianjin/go2-supermimic.svg?style=social"></a><br>作者：Zhengtianjin</td>
 <td valign="top"><strong>SuperMimic 也能训练四足追逐与闪避！</strong> Go2 三套公开 actor 覆盖平地、障碍与地形，附评测和录制工具；目前仅仿真。</td>
+</tr>
+<tr>
+<td valign="top" nowrap="nowrap"><strong><a href="#terrain-grounded-imagination">Terrain-Grounded Imagination</a></strong>&nbsp;<a href="https://github.com/leggedrobotics/terrain-grounded-imagination/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/leggedrobotics/terrain-grounded-imagination.svg?style=social"></a><br>作者：Matthias Heyrman</td>
+<td valign="top"><strong>学会在稀疏和崎岖地形上的感知式行走</strong>，仿真性能与 PPO 相当，但训练快 6.2 倍：单张 RTX 4090 上 4 万次迭代只需 5.4 小时；已在真机上测试。</td>
 </tr>
 <tr>
 <td rowspan="4" valign="top"><a href="#操作与灵巧手">🦾&nbsp;操作与灵巧手（5）</a></td>
@@ -515,6 +519,22 @@ SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再
 - **选择时注意：** 目前只有仿真验证，目标感知来自仿真真值；发布的地形策略在最难设置下仍会摔倒或撞杆。 [核查版本](https://github.com/Zhengtianjin/go2-supermimic/blob/d9eee9b3f248e5300e636c433255db2c1c3e086a/README.md)。
 
 <a href="https://github.com/Zhengtianjin/go2-supermimic"><img src="https://raw.githubusercontent.com/Zhengtianjin/go2-supermimic/054a13c13285a1c94b2e69dc8ac7331f9a8c71cf/resources/terrain.gif" width="480" alt="仿真 · Go2 地形追逐与闪避"></a><br><sub>仿真 · Go2 地形追逐与闪避</sub>
+
+<br>
+
+<a name="terrain-grounded-imagination"></a>
+
+<a name="-terrain-grounded-imagination"></a>
+
+### ⭐ Terrain-Grounded Imagination [![GitHub stars](https://img.shields.io/github/stars/leggedrobotics/terrain-grounded-imagination.svg?style=social)](https://github.com/leggedrobotics/terrain-grounded-imagination/stargazers)
+
+[仓库](https://github.com/leggedrobotics/terrain-grounded-imagination) · [训练](https://github.com/leggedrobotics/terrain-grounded-imagination/blob/8d71d8fa6734088b8ba4f3c846b09aa909e29816/README.md#training) · [结果](https://github.com/leggedrobotics/terrain-grounded-imagination/blob/8d71d8fa6734088b8ba4f3c846b09aa909e29816/README.md#results)
+
+- **作者：Matthias Heyrman。** 方法扩展：在 Isaac Lab 3 中实现 G1 在楼梯、沟壑和梅花桩上的感知式行走，把 SuperMimic 的训练方式用于 Watch Your Step 的落脚点门控感知。世界模型只学习机器人自身动力学；地形、奖励和感知通过可微查询从仿真器高度图读取。
+- **上游报告：** 在单张 RTX 4090 上训练 **4 万次迭代、5.4 小时**后，可在仿真中稳定走过稀疏和崎岖地形。
+- **选择时注意：** 任务是速度指令行走，不是动作跟踪。已在真机上测试，README 中有一段真机视频。提供 MuJoCo sim2sim 脚本和 ONNX 导出。MIT 许可。 [核查版本](https://github.com/leggedrobotics/terrain-grounded-imagination/blob/8d71d8fa6734088b8ba4f3c846b09aa909e29816/README.md)。
+
+<a href="https://github.com/leggedrobotics/terrain-grounded-imagination/blob/8d71d8fa6734088b8ba4f3c846b09aa909e29816/media/course.gif"><img src="https://raw.githubusercontent.com/leggedrobotics/terrain-grounded-imagination/8d71d8fa6734088b8ba4f3c846b09aa909e29816/media/course.gif" width="480" alt="仿真 · G1 走过倾斜石板、楼梯和梅花桩"></a><br><sub>仿真 · G1 走过倾斜石板、楼梯和梅花桩</sub>
 
 <br>
 
