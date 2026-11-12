@@ -1,5 +1,11 @@
 # Community media credits
 
+## BlinkMimic 2 preview — 2026-11-12
+
+- **Source / author:** [Jiayu Li, `docs/media/hero.gif`](https://github.com/jyl681/blinkmimic2/blob/850de91c4c26ed1337b36259391d2a4f21c89198/docs/media/hero.gif), revision `850de91c4c26ed1337b36259391d2a4f21c89198`. Embedded directly from the pinned upstream revision at 480 pixels wide, preserving aspect ratio, frame order and timing; no local copy or re-encoding.
+- **Context:** The released seed-1 policy after 15.6 minutes of training on one RTX 4090, on four BONES-SEED clips (backflip, hip-hop dance, high jump, fall and get up), each played from its first frame; the translucent blue robot is the reference motion. Upstream states that every clip shown was tracked to its end in the full evaluation. This is one demonstration, not the 129,491-clip evaluation or an experiment rerun by this collection.
+- **Rights:** Derived from BONES-SEED (Motion Data by Bones Studio) and excluded from the upstream MIT License; subject to the BONES Motion Capture Dataset License Agreement. Rights remain with the source owners; this preview is excluded from this collection's CC0 dedication. See the [upstream terms](https://github.com/jyl681/blinkmimic2/blob/850de91c4c26ed1337b36259391d2a4f21c89198/README.md#acknowledgements).
+
 ## Terrain-Grounded Imagination preview — 2026-11-11
 
 - **Source / author:** [Matthias Heyrman, `media/course.gif`](https://github.com/leggedrobotics/terrain-grounded-imagination/blob/8d71d8fa6734088b8ba4f3c846b09aa909e29816/media/course.gif), revision `8d71d8fa6734088b8ba4f3c846b09aa909e29816`. Embedded directly from the pinned upstream revision at 480 pixels wide, preserving aspect ratio, frame order and timing; no local copy or re-encoding.

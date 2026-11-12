@@ -37,8 +37,8 @@ Start with the original work below, then choose an implementation by framework a
 ## Contents
 
 - [Original SuperMimic](#original-supermimic)
-- [Community projects (42)](#community-projects)
-  - 🔬 [Reproductions, methods & frameworks (18)](#reproductions-methods-and-training-frameworks)
+- [Community projects (43)](#community-projects)
+  - 🔬 [Reproductions, methods & frameworks (19)](#reproductions-methods-and-training-frameworks)
   - 👁️ [Perception & terrain (5)](#perception-terrain-and-quadrupeds)
   - 🦾 [Manipulation & hands (5)](#manipulation-and-dexterous-hands)
   - 💪 [Muscles & interaction (3)](#muscle-interaction-and-diagnostics)
@@ -89,7 +89,7 @@ The authors report surpassing SONIC's released-checkpoint return after **3 hours
 
 **Update** notes identify new versions or results and their review dates; historical results retain their original conditions and sources. [Review of all 41 projects](docs/project-review-2026-11-03.md).
 
-**42 projects in 7 categories, grouped by purpose.** Each project appears once; overlapping capabilities are described in its entry. The guide retains complementary starting points; ⭐ marks documented experiments, tools or learning examples.
+**43 projects in 7 categories, grouped by purpose.** Each project appears once; overlapping capabilities are described in its entry. The guide retains complementary starting points; ⭐ marks documented experiments, tools or learning examples.
 
 Within each category, **all projects are sorted by GitHub Stars, highest first** (2026-11-03 snapshot; ties by repository name), regardless of highlight status. The ⭐ marker identifies editorial highlights but does not change the order. The overview table retains category grouping and follows the same Stars order. Badges update dynamically; the order does not. Stars reflect repository popularity; results and demos are upstream reports.
 
@@ -101,7 +101,7 @@ Within each category, **all projects are sorted by GitHub Stars, highest first**
 <thead><tr><th align="left" width="32%">Explore</th><th align="left" width="40%">Project · Stars</th><th align="left" width="28%">Why it matters · evidence</th></tr></thead>
 <tbody>
 <tr>
-<td rowspan="9" valign="top"><a href="#reproductions-methods-and-training-frameworks">🔬&nbsp;Reproduction&nbsp;&amp;&nbsp;training&nbsp;(18)</a></td>
+<td rowspan="9" valign="top"><a href="#reproductions-methods-and-training-frameworks">🔬&nbsp;Reproduction&nbsp;&amp;&nbsp;training&nbsp;(19)</a></td>
 <td valign="top" nowrap="nowrap"><strong><a href="#supermimic_vibed">supermimic_vibed</a></strong>&nbsp;<a href="https://github.com/zita-ch/supermimic_vibed/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/zita-ch/supermimic_vibed.svg?style=social"></a><br>By Chong Zhang</td>
 <td valign="top"><strong>40/40 LAFAN1 motions in 1.47 hours!</strong> A ready-to-run Isaac Lab G1 reproduction on one RTX PRO 6000 Blackwell, with evaluation and rendering tools; note its disabled self-collisions and extra orientation input.</td>
 </tr>
@@ -483,6 +483,20 @@ Original-method reproductions, training acceleration, algorithm variants, shared
 - **Useful context:** This is a single training seed, and the extra anchor observations make it non-equivalent to the paper-observation protocol. The author highlights 40k as the preferred checkpoint but notes that 40k/44k/48k differences still require multiple seeds. [Source snapshot](https://github.com/rzc156/supermimic-rtx5080/blob/df967c61c29a2ed9ba6b188e1607ba59225fe8a7/README.md).
 
 <a href="https://github.com/rzc156/supermimic-rtx5080/blob/df967c61c29a2ed9ba6b188e1607ba59225fe8a7/results/lafan1_anchor/videos/index.html"><img src="https://raw.githubusercontent.com/rzc156/supermimic-rtx5080/df967c61c29a2ed9ba6b188e1607ba59225fe8a7/results/lafan1_anchor/gifs/walk1.gif" width="480" alt="Simulation · G1 walking with the RTX 5080 reproduction policy"></a><br><sub>Simulation · 40k checkpoint on a 15-second LAFAN1 walk clip; click for all seven videos</sub>
+
+<br>
+
+<a name="blinkmimic-2"></a>
+
+### BlinkMimic 2 [![GitHub stars](https://img.shields.io/github/stars/jyl681/blinkmimic2.svg?style=social)](https://github.com/jyl681/blinkmimic2/stargazers)
+
+[Repository](https://github.com/jyl681/blinkmimic2) · [Setup](https://github.com/jyl681/blinkmimic2/blob/850de91c4c26ed1337b36259391d2a4f21c89198/README.md#setup) · [Results](https://github.com/jyl681/blinkmimic2/blob/850de91c4c26ed1337b36259391d2a4f21c89198/README.md#results) · [Weights (v1.0.0)](https://github.com/jyl681/blinkmimic2/releases/tag/v1.0.0)
+
+- **By Jiayu Li.** Builds on BlinkMimic for G1 in mjlab and takes SuperMimic-style world-model training to the full BONES-SEED library. Its starting point: training usually practises 10-second pieces, but evaluation plays each clip from its first frame to its end, so small errors carry the robot into states it never practised. It adds **exams** (some robots play whole clips from the first frame, as the evaluation does, and imagined rollouts start from the states they reach), **practice at failures** (restarting 1 s before each exam failure) and **free exams** (clips played inside the learned world model, at no simulator cost).
+- **Upstream report:** One policy tracks all **129,491** BONES-SEED clips (one RTX 4090, mean of 3 seeds): after **15.5 minutes** of training, only **17** clips fail (99.987% tracked to the end), with tracking score **0.946**. In the same time, the learner without these changes fails about 55 clips.
+- **Useful context:** Time from program start, including compilation; evaluated in simulation on the training clips, with no hardware results. Weights and per-clip results of all three seeds are released (CC BY-NC 4.0). [Source snapshot](https://github.com/jyl681/blinkmimic2/blob/850de91c4c26ed1337b36259391d2a4f21c89198/README.md).
+
+<a href="https://github.com/jyl681/blinkmimic2/blob/850de91c4c26ed1337b36259391d2a4f21c89198/README.md"><img src="https://raw.githubusercontent.com/jyl681/blinkmimic2/850de91c4c26ed1337b36259391d2a4f21c89198/docs/media/hero.gif" width="480" alt="Simulation · one BlinkMimic 2 policy performing a backflip, hip-hop dance, high jump, and fall and get up"></a><br><sub>Upstream simulation · seed-1 policy after 15.6 minutes of training on one RTX 4090; backflip, hip-hop dance, high jump, fall and get up, each from its first frame; translucent blue: reference</sub>
 
 <br>
 

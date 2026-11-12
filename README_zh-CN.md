@@ -37,8 +37,8 @@
 ## 目录
 
 - [原始 SuperMimic](#原始-supermimic)
-- [社区项目（42）](#社区项目)
-  - 🔬 [复现、方法与训练框架（18）](#复现方法与训练框架)
+- [社区项目（43）](#社区项目)
+  - 🔬 [复现、方法与训练框架（19）](#复现方法与训练框架)
   - 👁️ [感知与地形（5）](#感知地形与四足任务)
   - 🦾 [操作与灵巧手（5）](#操作与灵巧手)
   - 💪 [肌肉与交互（3）](#肌肉驱动交互与诊断)
@@ -89,7 +89,7 @@ SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再
 
 **Update** 标注新版本或新结果及核查日期；历史结果保留原实验条件和来源。[本轮 41 个项目的核查记录](docs/project-review-2026-11-03.md)。
 
-**42 个项目，按用途分为 7 类。** 每个项目只收录一次，跨方向的能力在介绍中说明。下表保留各方向的推荐入口，⭐ 表示有值得阅读的实验、工具或示例。
+**43 个项目，按用途分为 7 类。** 每个项目只收录一次，跨方向的能力在介绍中说明。下表保留各方向的推荐入口，⭐ 表示有值得阅读的实验、工具或示例。
 
 各分类内，**所有项目统一按 GitHub Stars 降序排列**（2026-11-03 快照；同数按仓库名排序），⭐ 表示编辑推荐，不影响排序。汇总表仍按分类组织，并在分类内遵循相同顺序。徽章动态更新，排列顺序不会自动变化。Stars 体现仓库关注度；结果与演示为上游报告。
 
@@ -101,7 +101,7 @@ SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再
 <thead><tr><th align="left" width="32%">方向</th><th align="left" width="40%">项目 · Stars</th><th align="left" width="28%">技术价值 · 实验证据</th></tr></thead>
 <tbody>
 <tr>
-<td rowspan="9" valign="top"><a href="#复现方法与训练框架">🔬&nbsp;复现与训练（18）</a></td>
+<td rowspan="9" valign="top"><a href="#复现方法与训练框架">🔬&nbsp;复现与训练（19）</a></td>
 <td valign="top" nowrap="nowrap"><strong><a href="#supermimic_vibed">supermimic_vibed</a></strong>&nbsp;<a href="https://github.com/zita-ch/supermimic_vibed/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/zita-ch/supermimic_vibed.svg?style=social"></a><br>作者：Chong Zhang</td>
 <td valign="top"><strong>1.47 小时跑通 LAFAN1 全部 40 条动作！</strong> 单张 RTX PRO 6000 Blackwell 的 Isaac Lab G1 复现，配套完整评测与渲染；需注意关闭自碰撞、增加朝向观测。</td>
 </tr>
@@ -483,6 +483,20 @@ SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再
 - **选择时注意：** 只有单个训练 seed，且额外锚点观测使其不等价于论文观测口径。作者以 40k 为重点检查点，但 40k/44k/48k 的差异仍需多 seed 验证。 [核查版本](https://github.com/rzc156/supermimic-rtx5080/blob/df967c61c29a2ed9ba6b188e1607ba59225fe8a7/README.md)。
 
 <a href="https://github.com/rzc156/supermimic-rtx5080/blob/df967c61c29a2ed9ba6b188e1607ba59225fe8a7/results/lafan1_anchor/videos/index.html"><img src="https://raw.githubusercontent.com/rzc156/supermimic-rtx5080/df967c61c29a2ed9ba6b188e1607ba59225fe8a7/results/lafan1_anchor/gifs/walk1.gif" width="480" alt="仿真 · RTX 5080 复现策略执行 G1 行走"></a><br><sub>仿真 · 40k 检查点在 15 秒 LAFAN1 行走片段上的回放；点击查看全部七段视频</sub>
+
+<br>
+
+<a name="blinkmimic-2"></a>
+
+### BlinkMimic 2 [![GitHub stars](https://img.shields.io/github/stars/jyl681/blinkmimic2.svg?style=social)](https://github.com/jyl681/blinkmimic2/stargazers)
+
+[仓库](https://github.com/jyl681/blinkmimic2) · [安装](https://github.com/jyl681/blinkmimic2/blob/850de91c4c26ed1337b36259391d2a4f21c89198/README.md#setup) · [结果](https://github.com/jyl681/blinkmimic2/blob/850de91c4c26ed1337b36259391d2a4f21c89198/README.md#results) · [权重（v1.0.0）](https://github.com/jyl681/blinkmimic2/releases/tag/v1.0.0)
+
+- **作者：Jiayu Li。** 基于 BlinkMimic，在 mjlab 上实现 G1 跟踪，把 SuperMimic 的世界模型训练扩展到完整的 BONES-SEED。出发点：以往训练练的是 10 秒小段，评测却要从第一帧播到结尾，误差积累会让机器人走到从没练过的状态。为此加入**考试**（一部分机器人像评测一样把整段动作从头播到尾，想象轨迹从考试走到的状态出发）、**补练**（从考试摔倒前 1 秒重新开始练），以及**免费加考**（在学到的世界模型里播放动作，不占用仿真器）。
+- **上游报告：** 一个策略跟踪 BONES-SEED 全部 **129,491** 段动作（单张 RTX 4090，3 个种子平均）：训练 **15.5 分钟**，只有 **17** 段失败（99.987% 跟到结尾），跟踪分数 **0.946**。同样时间下，去掉这些改动约 55 段失败。
+- **选择时注意：** 时间从程序启动算起，含编译；评估在仿真中、针对训练动作，没有真机结果。公开三个种子的权重和逐段结果（CC BY-NC 4.0）。 [核查版本](https://github.com/jyl681/blinkmimic2/blob/850de91c4c26ed1337b36259391d2a4f21c89198/README.md)。
+
+<a href="https://github.com/jyl681/blinkmimic2/blob/850de91c4c26ed1337b36259391d2a4f21c89198/README.md"><img src="https://raw.githubusercontent.com/jyl681/blinkmimic2/850de91c4c26ed1337b36259391d2a4f21c89198/docs/media/hero.gif" width="480" alt="仿真 · 同一个 BlinkMimic 2 策略完成后空翻、街舞、跳高和摔倒再起身"></a><br><sub>上游仿真演示 · 种子 1 的策略，单张 RTX 4090 训练 15.6 分钟；后空翻、街舞、跳高、摔倒再起身，均从第一帧开始；半透明蓝色为参考动作</sub>
 
 <br>
 
