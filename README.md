@@ -37,9 +37,9 @@ Start with the original work below, then choose an implementation by framework a
 ## Contents
 
 - [Original SuperMimic](#original-supermimic)
-- [Community projects (43)](#community-projects)
-  - 🔬 [Reproductions, methods & frameworks (19)](#reproductions-methods-and-training-frameworks)
-  - 👁️ [Perception & terrain (5)](#perception-terrain-and-quadrupeds)
+- [Community projects (45)](#community-projects)
+  - 🔬 [Reproductions, methods & frameworks (20)](#reproductions-methods-and-training-frameworks)
+  - 👁️ [Perception & terrain (6)](#perception-terrain-and-quadrupeds)
   - 🦾 [Manipulation & hands (5)](#manipulation-and-dexterous-hands)
   - 💪 [Muscles & interaction (3)](#muscle-interaction-and-diagnostics)
   - 🤖 [Robot ports (7)](#robot-porting-and-retargeting)
@@ -91,7 +91,7 @@ On the same **129,514 training motions**, the SONIC checkpoint failed **179**, w
 
 **Update** notes identify new versions or results and their review dates; historical results retain their original conditions and sources. [Review of all 41 projects](docs/project-review-2026-11-03.md).
 
-**43 projects in 7 categories, grouped by purpose.** Each project appears once; overlapping capabilities are described in its entry. The guide retains complementary starting points; ⭐ marks documented experiments, tools or learning examples.
+**45 projects in 7 categories, grouped by purpose.** Each project appears once; overlapping capabilities are described in its entry. The guide retains complementary starting points; ⭐ marks documented experiments, tools or learning examples.
 
 Within each category, **all projects are sorted by GitHub Stars, highest first** (2026-11-03 snapshot; ties by repository name), regardless of highlight status. The ⭐ marker identifies editorial highlights but does not change the order. The overview table retains category grouping and follows the same Stars order. Badges update dynamically; the order does not. Stars reflect repository popularity; results and demos are upstream reports.
 
@@ -103,7 +103,7 @@ Within each category, **all projects are sorted by GitHub Stars, highest first**
 <thead><tr><th align="left" width="32%">Explore</th><th align="left" width="40%">Project · Stars</th><th align="left" width="28%">Why it matters · evidence</th></tr></thead>
 <tbody>
 <tr>
-<td rowspan="9" valign="top"><a href="#reproductions-methods-and-training-frameworks">🔬&nbsp;Reproduction&nbsp;&amp;&nbsp;training&nbsp;(19)</a></td>
+<td rowspan="9" valign="top"><a href="#reproductions-methods-and-training-frameworks">🔬&nbsp;Reproduction&nbsp;&amp;&nbsp;training&nbsp;(20)</a></td>
 <td valign="top" nowrap="nowrap"><strong><a href="#supermimic_vibed">supermimic_vibed</a></strong>&nbsp;<a href="https://github.com/zita-ch/supermimic_vibed/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/zita-ch/supermimic_vibed.svg?style=social"></a><br>By Chong Zhang</td>
 <td valign="top"><strong>40/40 LAFAN1 motions in 1.47 hours!</strong> A ready-to-run Isaac Lab G1 reproduction on one RTX PRO 6000 Blackwell, with evaluation and rendering tools; note its disabled self-collisions and extra orientation input.</td>
 </tr>
@@ -140,7 +140,7 @@ Within each category, **all projects are sorted by GitHub Stars, highest first**
 <td valign="top"><strong>From 0.60 to 0.85 return, with the ablations to explain why!</strong> Actor/critic normalization, orientation anchors, world-model normalization and LR fixes are documented step by step; checkpoints released.</td>
 </tr>
 <tr>
-<td rowspan="3" valign="top"><a href="#perception-terrain-and-quadrupeds">👁️&nbsp;Perception&nbsp;&amp;&nbsp;terrain&nbsp;(5)</a></td>
+<td rowspan="3" valign="top"><a href="#perception-terrain-and-quadrupeds">👁️&nbsp;Perception&nbsp;&amp;&nbsp;terrain&nbsp;(6)</a></td>
 <td valign="top" nowrap="nowrap"><strong><a href="#instinctmj--supermimic">InstinctMJ</a></strong>&nbsp;<a href="https://github.com/project-instinct/InstinctMJ/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/project-instinct/InstinctMJ.svg?style=social"></a><br>By Project Instinct</td>
 <td valign="top"><strong>G1 learns to track over terrain with depth perception!</strong> Reports 94.9% success across 10 motions after ~2.7 h on one RTX 3090; one training seed, not a broad generalization benchmark.</td>
 </tr>
@@ -325,6 +325,20 @@ Original-method reproductions, training acceleration, algorithm variants, shared
 - **Useful context:** Training wall-clock on an otherwise idle GPU, excluding start-up and offline evaluation; evaluated in simulation on the training clips. [Source snapshot](https://github.com/fuyichen0725/blinkmimic/blob/d264658d6c9ce61fb52f9f0f8985a369f3ccc409/README.md).
 
 <a href="https://github.com/fuyichen0725/blinkmimic/blob/d264658d6c9ce61fb52f9f0f8985a369f3ccc409/docs/static/hero.gif"><img src="assets/community/blinkmimic-demo.gif" width="480" alt="Simulation · BlinkMimic tracking a fall-and-get-up motion after 3.1 minutes of training"></a><br><sub>Upstream simulation · after 3.1 minutes of training on one RTX 4090, fall-and-get-up motion; blue: reference. Click for the three-method comparison</sub>
+
+<br>
+
+<a name="xmimic"></a>
+
+### XMimic [![GitHub stars](https://img.shields.io/github/stars/nico-bohlinger/xmimic.svg?style=social)](https://github.com/nico-bohlinger/xmimic/stargazers)
+
+[Repository](https://github.com/nico-bohlinger/xmimic) · [Setup](https://github.com/nico-bohlinger/xmimic/blob/54860e100251fa80143627565568d5e6b0ff2c2b/README.md#how-to-run) · [Results](https://github.com/nico-bohlinger/xmimic/blob/54860e100251fa80143627565568d5e6b0ff2c2b/README.md#results) · [Paper](https://nico-bohlinger.github.io/papers/2026_xmimic_xsoma.pdf)
+
+- **By Nico Bohlinger and Jan Peters (TU Darmstadt).** Rebuilds BlinkMimic's G1 trainer in JAX with the same algorithm and hyperparameters. The MuJoCo Warp simulator (through MJX), the replay buffer, the world model, the policy and the critic compile into XLA programs, so the GPU never waits for Python. On up to four GPUs, an actor collects data while a world-model learner and a policy learner train on the previous iteration's results, and a fourth GPU runs the clip evaluations behind BlinkMimic's resets at failure points.
+- **Upstream report:** On H100 NVL GPUs, BlinkMimic's target (return ≥ 0.82 with 0 / 40 failed LAFAN1 clips, held for three checkpoints) takes **0.86 minutes on four H100s** (mean of 4 runs, 0.77–0.95), against **3.19 minutes for BlinkMimic on one** (5 runs), **3.7× faster**. On one H100, XMimic takes **2.47 minutes** (8 runs), 1.3× faster than BlinkMimic and InstantTrack v1.3 (3.31 minutes, 2 runs). All methods end at about the same return.
+- **Useful context:** BlinkMimic `d264658` and InstantTrack v1.3 ran unmodified on the same cluster. Times exclude start-up and compilation. XMimic compiles before its clock starts (about 20 seconds from a warm cache, 2–3 minutes cold), and the baselines' in-loop compilation is subtracted from their logs. The four GPUs use slightly more GPU time in total than BlinkMimic (3.4 vs 3.2 GPU-minutes), and the multi-GPU layouts collect with a policy one iteration old and imagine with a world model one or two iterations old. Training simulates with 256 instead of 500 constraint rows per world, evaluation with 500. Simulation on the 40 training clips, no hardware results. MIT license. [Source snapshot](https://github.com/nico-bohlinger/xmimic/blob/54860e100251fa80143627565568d5e6b0ff2c2b/README.md).
+
+<a href="https://github.com/nico-bohlinger/xmimic/blob/54860e100251fa80143627565568d5e6b0ff2c2b/README.md"><img src="https://raw.githubusercontent.com/nico-bohlinger/xmimic/54860e100251fa80143627565568d5e6b0ff2c2b/figures/xmimic.gif" width="480" alt="Simulation · an XMimic policy after 54 seconds of training on four H100s dancing a LAFAN1 clip, next to its time to BlinkMimic's target"></a><br><sub>Upstream simulation · policy after 54 seconds of training on four H100s (the target checkpoint of a four-GPU run of the first release), dancing a LAFAN1 clip, replayed in MuJoCo · left panel: the reported times</sub>
 
 <br>
 
@@ -565,6 +579,20 @@ Vision, height-scan, terrain and quadruped task adaptations.
 - **Useful context:** The PHP motion bundles are not distributed with the repository and must be supplied separately. This is one upstream demonstration and training-time claim, not an independent benchmark against PPO or SuperMimic. [Source snapshot](https://github.com/yhx1203/supermimic_parkour/blob/f398519453a25b3f10722626b7356266d8b7f875/README.md).
 
 <a href="https://github.com/yhx1203/supermimic_parkour/blob/f398519453a25b3f10722626b7356266d8b7f875/doc/%E5%BD%95%E5%B1%8F%202026%E5%B9%B410%E6%9C%8826%E6%97%A5%2016%E6%97%B641%E5%88%8626%E7%A7%92.gif"><img src="https://raw.githubusercontent.com/yhx1203/supermimic_parkour/f398519453a25b3f10722626b7356266d8b7f875/doc/%E5%BD%95%E5%B1%8F%202026%E5%B9%B410%E6%9C%8826%E6%97%A5%2016%E6%97%B641%E5%88%8626%E7%A7%92.gif" width="720" alt="Simulation · G1 clearing a 130 cm parkour obstacle"></a><br><sub>Simulation · five-skill PHP parkour policy; 11.5-second upstream demo</sub>
+
+<br>
+
+<a name="xsoma"></a>
+
+### XSoma [![GitHub stars](https://img.shields.io/github/stars/nico-bohlinger/xsoma.svg?style=social)](https://github.com/nico-bohlinger/xsoma/stargazers)
+
+[Repository](https://github.com/nico-bohlinger/xsoma) · [Setup](https://github.com/nico-bohlinger/xsoma/blob/835410a2646c224addd536b3fb857ca84260ff7a/README.md#how-to-run) · [Results](https://github.com/nico-bohlinger/xsoma/blob/835410a2646c224addd536b3fb857ca84260ff7a/README.md#results) · [Paper](https://nico-bohlinger.github.io/papers/2026_xmimic_xsoma.pdf)
+
+- **By Nico Bohlinger and Jan Peters (TU Darmstadt).** Brings XMimic's JAX training to locomotion and learns the G1 velocity-tracking task of Holosoma (Amazon FAR) on rough terrain. Holosoma's rewards, terminations, commands, randomization, pushes and terrain are rewritten in JAX and tested against Holosoma's own environment. The world model predicts only the robot's dynamics. Imagined steps are scored with Holosoma's reward and terminations, using the exact terrain height under the feet as in Terrain-Grounded Imagination, over a one-second horizon and without a critic. On several GPUs, one collects data and fits the world model while each of the others computes a policy gradient, and all of them apply these gradients one after another.
+- **Upstream report:** On H100s, Holosoma's own tracking bar for FastSAC (linear-velocity tracking ≥ 0.95 and yaw-rate tracking ≥ 0.8, held for three checkpoints, evaluated on 2048 robots with mean actions) takes **0.77 minutes on four H100s** (each of 8 runs) and **2.50 minutes on one** (5 runs), against **9.44 minutes for Holosoma's FastSAC on one** (8 runs), **12.3×** and **3.8× faster**, with 5 M instead of 40 M environment steps. Holosoma's PPO does not reach the bar within 60 minutes (4 runs). After 15 minutes, the velocity error is 0.33 m/s on one GPU against 0.49 m/s for FastSAC, and both fall in under 1% of episodes.
+- **Useful context:** Velocity-commanded locomotion with Holosoma's blind observations, not motion tracking. Both baselines ran unmodified on Holosoma's MuJoCo Warp backend, on the half-size terrain that Holosoma recommends for it, not on its default Isaac Sim. XSoma's simulator builds one heightfield per terrain tile, as MuJoCo Warp's collision with one large heightfield breaks down far from its center. Times exclude start-up and compilation. Simulation only, no hardware results. MIT license, with the Holosoma-derived parts under Apache-2.0. [Source snapshot](https://github.com/nico-bohlinger/xsoma/blob/835410a2646c224addd536b3fb857ca84260ff7a/README.md).
+
+<a href="https://github.com/nico-bohlinger/xsoma/blob/835410a2646c224addd536b3fb857ca84260ff7a/README.md"><img src="https://raw.githubusercontent.com/nico-bohlinger/xsoma/835410a2646c224addd536b3fb857ca84260ff7a/figures/xsoma.gif" width="480" alt="Simulation · an XSoma policy after 46 seconds of training on four H100s walking over rough ground and pits, next to its time to Holosoma's tracking bar"></a><br><sub>Upstream simulation · policy after 46 seconds of training on four H100s, following a sequence of velocity commands over Holosoma's rough ground and pits, replayed in MuJoCo · left panel: the reported times</sub>
 
 <br>
 

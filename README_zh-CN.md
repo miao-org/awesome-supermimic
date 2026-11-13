@@ -37,9 +37,9 @@
 ## 目录
 
 - [原始 SuperMimic](#原始-supermimic)
-- [社区项目（43）](#社区项目)
-  - 🔬 [复现、方法与训练框架（19）](#复现方法与训练框架)
-  - 👁️ [感知与地形（5）](#感知地形与四足任务)
+- [社区项目（45）](#社区项目)
+  - 🔬 [复现、方法与训练框架（20）](#复现方法与训练框架)
+  - 👁️ [感知与地形（6）](#感知地形与四足任务)
   - 🦾 [操作与灵巧手（5）](#操作与灵巧手)
   - 💪 [肌肉与交互（3）](#肌肉驱动交互与诊断)
   - 🤖 [本体移植（7）](#机器人移植与重定向)
@@ -91,7 +91,7 @@ SONIC 用 **128 张 NVIDIA L40 训练 7 天**，累计约 **21,000 GPU 小时**�
 
 **Update** 标注新版本或新结果及核查日期；历史结果保留原实验条件和来源。[本轮 41 个项目的核查记录](docs/project-review-2026-11-03.md)。
 
-**43 个项目，按用途分为 7 类。** 每个项目只收录一次，跨方向的能力在介绍中说明。下表保留各方向的推荐入口，⭐ 表示有值得阅读的实验、工具或示例。
+**45 个项目，按用途分为 7 类。** 每个项目只收录一次，跨方向的能力在介绍中说明。下表保留各方向的推荐入口，⭐ 表示有值得阅读的实验、工具或示例。
 
 各分类内，**所有项目统一按 GitHub Stars 降序排列**（2026-11-03 快照；同数按仓库名排序），⭐ 表示编辑推荐，不影响排序。汇总表仍按分类组织，并在分类内遵循相同顺序。徽章动态更新，排列顺序不会自动变化。Stars 体现仓库关注度；结果与演示为上游报告。
 
@@ -103,7 +103,7 @@ SONIC 用 **128 张 NVIDIA L40 训练 7 天**，累计约 **21,000 GPU 小时**�
 <thead><tr><th align="left" width="32%">方向</th><th align="left" width="40%">项目 · Stars</th><th align="left" width="28%">技术价值 · 实验证据</th></tr></thead>
 <tbody>
 <tr>
-<td rowspan="9" valign="top"><a href="#复现方法与训练框架">🔬&nbsp;复现与训练（19）</a></td>
+<td rowspan="9" valign="top"><a href="#复现方法与训练框架">🔬&nbsp;复现与训练（20）</a></td>
 <td valign="top" nowrap="nowrap"><strong><a href="#supermimic_vibed">supermimic_vibed</a></strong>&nbsp;<a href="https://github.com/zita-ch/supermimic_vibed/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/zita-ch/supermimic_vibed.svg?style=social"></a><br>作者：Chong Zhang</td>
 <td valign="top"><strong>1.47 小时跑通 LAFAN1 全部 40 条动作！</strong> 单张 RTX PRO 6000 Blackwell 的 Isaac Lab G1 复现，配套完整评测与渲染；需注意关闭自碰撞、增加朝向观测。</td>
 </tr>
@@ -140,7 +140,7 @@ SONIC 用 **128 张 NVIDIA L40 训练 7 天**，累计约 **21,000 GPU 小时**�
 <td valign="top"><strong>回报从 0.60 提升到 0.85，且每一步都有消融！</strong> 逐项验证 Actor/Critic 归一化、朝向锚点、模型归一化和学习率修正，公开策略与世界模型权重。</td>
 </tr>
 <tr>
-<td rowspan="3" valign="top"><a href="#感知地形与四足任务">👁️&nbsp;感知与地形（5）</a></td>
+<td rowspan="3" valign="top"><a href="#感知地形与四足任务">👁️&nbsp;感知与地形（6）</a></td>
 <td valign="top" nowrap="nowrap"><strong><a href="#instinctmj--supermimic">InstinctMJ</a></strong>&nbsp;<a href="https://github.com/project-instinct/InstinctMJ/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/project-instinct/InstinctMJ.svg?style=social"></a><br>团队：Project Instinct</td>
 <td valign="top"><strong>让 G1 带着深度视觉走复杂地形！</strong> 单张 RTX 3090 约 2.7 小时，10 条动作成功率 94.9%；仅一个训练种子，尚非大规模泛化验证。</td>
 </tr>
@@ -325,6 +325,20 @@ SONIC 用 **128 张 NVIDIA L40 训练 7 天**，累计约 **21,000 GPU 小时**�
 - **选择时注意：** 时间为 GPU 无其他任务时的训练耗时，不含进程启动和离线评估；评估在仿真中、针对训练动作。 [核查版本](https://github.com/fuyichen0725/blinkmimic/blob/d264658d6c9ce61fb52f9f0f8985a369f3ccc409/README.md)。
 
 <a href="https://github.com/fuyichen0725/blinkmimic/blob/d264658d6c9ce61fb52f9f0f8985a369f3ccc409/docs/static/hero.gif"><img src="assets/community/blinkmimic-demo.gif" width="480" alt="仿真 · 训练 3.1 分钟后的 BlinkMimic 跟踪倒地起身动作"></a><br><sub>上游仿真演示 · 单张 RTX 4090 训练 3.1 分钟，倒地起身动作，蓝色为参考动作；点击查看三种方法的对比</sub>
+
+<br>
+
+<a name="xmimic"></a>
+
+### XMimic [![GitHub stars](https://img.shields.io/github/stars/nico-bohlinger/xmimic.svg?style=social)](https://github.com/nico-bohlinger/xmimic/stargazers)
+
+[仓库](https://github.com/nico-bohlinger/xmimic) · [安装](https://github.com/nico-bohlinger/xmimic/blob/54860e100251fa80143627565568d5e6b0ff2c2b/README.md#how-to-run) · [结果](https://github.com/nico-bohlinger/xmimic/blob/54860e100251fa80143627565568d5e6b0ff2c2b/README.md#results) · [论文](https://nico-bohlinger.github.io/papers/2026_xmimic_xsoma.pdf)
+
+- **作者：Nico Bohlinger、Jan Peters（TU Darmstadt）。** 用 JAX 重写 BlinkMimic 的 G1 训练器，算法和超参数保持不变。MuJoCo Warp 仿真器（经由 MJX）、回放缓冲区、世界模型、策略和 critic 都编译成 XLA 程序，GPU 不必等待 Python。最多用四张 GPU 时，一张卡采集数据，世界模型学习器和策略学习器同时基于上一轮迭代的结果训练，第四张卡负责 BlinkMimic 在失败处重置所需的全动作评测。
+- **上游报告：** 在 H100 NVL 上，达到 BlinkMimic 的目标（回报 ≥ 0.82 且 40 条 LAFAN1 动作 0 失败，连续三个检查点保持），四张 H100 只需 **0.86 分钟**（4 次运行平均，0.77–0.95），BlinkMimic 单卡需 **3.19 分钟**（5 次运行），快 **3.7 倍**。单张 H100 上 XMimic 需 **2.47 分钟**（8 次运行），比 BlinkMimic 和 InstantTrack v1.3（3.31 分钟，2 次运行）快 1.3 倍。各方法最终回报基本相同。
+- **选择时注意：** BlinkMimic `d264658` 与 InstantTrack v1.3 未经修改，在同一集群上运行。时间不含启动和编译。XMimic 在计时开始前完成编译（有缓存时约 20 秒，首次 2–3 分钟），基线在训练循环内的编译时间已根据其日志扣除。四张卡合计的 GPU 时间略多于 BlinkMimic（3.4 对 3.2 GPU·分钟），多卡模式采集时用的策略落后一轮迭代，想象时用的世界模型落后一到两轮。训练时每个环境使用 256 行约束（BlinkMimic 为 500），评测仍用 500。结果为 40 条训练动作上的仿真结果，没有真机结果。MIT 许可。 [核查版本](https://github.com/nico-bohlinger/xmimic/blob/54860e100251fa80143627565568d5e6b0ff2c2b/README.md)。
+
+<a href="https://github.com/nico-bohlinger/xmimic/blob/54860e100251fa80143627565568d5e6b0ff2c2b/README.md"><img src="https://raw.githubusercontent.com/nico-bohlinger/xmimic/54860e100251fa80143627565568d5e6b0ff2c2b/figures/xmimic.gif" width="480" alt="仿真 · 在四张 H100 上训练 54 秒后的 XMimic 策略跳一段 LAFAN1 舞蹈，旁边是达到 BlinkMimic 目标的用时"></a><br><sub>上游仿真演示 · 四张 H100 训练 54 秒后的策略（首个发布版本中一次四卡运行达标时的检查点），跳一段 LAFAN1 舞蹈，在 MuJoCo 中回放 · 左侧为报告的用时</sub>
 
 <br>
 
@@ -565,6 +579,20 @@ SONIC 用 **128 张 NVIDIA L40 训练 7 天**，累计约 **21,000 GPU 小时**�
 - **选择时注意：** PHP 动作包未随仓库分发，需要另行提供。这是上游单项演示与训练耗时报告，不是与 PPO 或 SuperMimic 的独立基准比较。 [核查版本](https://github.com/yhx1203/supermimic_parkour/blob/f398519453a25b3f10722626b7356266d8b7f875/README.md)。
 
 <a href="https://github.com/yhx1203/supermimic_parkour/blob/f398519453a25b3f10722626b7356266d8b7f875/doc/%E5%BD%95%E5%B1%8F%202026%E5%B9%B410%E6%9C%8826%E6%97%A5%2016%E6%97%B641%E5%88%8626%E7%A7%92.gif"><img src="https://raw.githubusercontent.com/yhx1203/supermimic_parkour/f398519453a25b3f10722626b7356266d8b7f875/doc/%E5%BD%95%E5%B1%8F%202026%E5%B9%B410%E6%9C%8826%E6%97%A5%2016%E6%97%B641%E5%88%8626%E7%A7%92.gif" width="720" alt="仿真 · G1 跨越 130 cm 跑酷障碍"></a><br><sub>仿真 · 五项技能 PHP 跑酷策略，11.5 秒上游演示</sub>
+
+<br>
+
+<a name="xsoma"></a>
+
+### XSoma [![GitHub stars](https://img.shields.io/github/stars/nico-bohlinger/xsoma.svg?style=social)](https://github.com/nico-bohlinger/xsoma/stargazers)
+
+[仓库](https://github.com/nico-bohlinger/xsoma) · [安装](https://github.com/nico-bohlinger/xsoma/blob/835410a2646c224addd536b3fb857ca84260ff7a/README.md#how-to-run) · [结果](https://github.com/nico-bohlinger/xsoma/blob/835410a2646c224addd536b3fb857ca84260ff7a/README.md#results) · [论文](https://nico-bohlinger.github.io/papers/2026_xmimic_xsoma.pdf)
+
+- **作者：Nico Bohlinger、Jan Peters（TU Darmstadt）。** 把 XMimic 的 JAX 训练用于行走，学习 Holosoma（Amazon FAR）的 G1 崎岖地形速度跟踪任务。Holosoma 的奖励、终止条件、指令、随机化、推扰和地形都用 JAX 重写，并与 Holosoma 自身的环境对照测试。世界模型只预测机器人自身的动力学。想象步用 Holosoma 原有的奖励和终止条件打分，并像 Terrain-Grounded Imagination 一样读取脚下的精确地形高度，想象时域为一秒，不使用 critic。多卡时一张卡采集数据并训练世界模型，其余每张卡各算一个策略梯度，所有卡依次应用这些梯度。
+- **上游报告：** 在 H100 上，达到 Holosoma 为 FastSAC 设定的跟踪门槛（线速度跟踪 ≥ 0.95、偏航角速度跟踪 ≥ 0.8，连续三个检查点保持，用 2048 个机器人和确定性动作评测），四张 H100 用 **0.77 分钟**（8 次运行均如此），单卡 **2.50 分钟**（5 次运行），而 Holosoma 的 FastSAC 单卡需 **9.44 分钟**（8 次运行），分别快 **12.3 倍**和 **3.8 倍**，环境步数为 500 万对 4000 万。Holosoma 的 PPO 在 60 分钟内未达到门槛（4 次运行）。训练 15 分钟后，单卡 XSoma 的速度误差为 0.33 m/s，FastSAC 为 0.49 m/s，两者摔倒的回合都不到 1%。
+- **选择时注意：** 任务是速度指令行走，不是动作跟踪，策略使用 Holosoma 的盲走观测。两个基线未经修改，运行在 Holosoma 的 MuJoCo Warp 后端和 Holosoma 为该后端推荐的半尺寸地形上，而不是其默认的 Isaac Sim。XSoma 的仿真器为每块地形单独建一个高度场，因为 MuJoCo Warp 与单个大高度场的碰撞在远离中心处会失效。时间不含启动和编译。仅有仿真结果，没有真机结果。MIT 许可，源自 Holosoma 的部分为 Apache-2.0。 [核查版本](https://github.com/nico-bohlinger/xsoma/blob/835410a2646c224addd536b3fb857ca84260ff7a/README.md)。
+
+<a href="https://github.com/nico-bohlinger/xsoma/blob/835410a2646c224addd536b3fb857ca84260ff7a/README.md"><img src="https://raw.githubusercontent.com/nico-bohlinger/xsoma/835410a2646c224addd536b3fb857ca84260ff7a/figures/xsoma.gif" width="480" alt="仿真 · 在四张 H100 上训练 46 秒后的 XSoma 策略走过起伏地面和浅坑，旁边是达到 Holosoma 跟踪门槛的用时"></a><br><sub>上游仿真演示 · 四张 H100 训练 46 秒后的策略，按一串速度指令走过 Holosoma 的起伏地面和浅坑，在 MuJoCo 中回放 · 左侧为报告的用时</sub>
 
 <br>
 
