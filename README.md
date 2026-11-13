@@ -73,7 +73,9 @@ SuperMimic learns shared humanoid dynamics from simulator transitions and improv
 
 The world model is fit on **8-step replay windows**; the policy and critic learn from **32-step imagined rollouts**. During the policy update, model weights stay fixed while gradients pass through the model to the policy. Blue dashed arrows show gradients; ❄️ marks frozen weights and 🔥 marks weights being trained in that phase.
 
-The authors report surpassing SONIC's released-checkpoint return after **3 hours on one H100**, with **25 / 129,514 failed motions**, and **0 / 129,514** after 9.8 hours on two H100s. These are training-motion coverage results, with different training hardware and data from SONIC. See the [official results and compute accounting](https://supermimic.github.io/#compute).
+SONIC trained for **7 days on 128 NVIDIA L40 GPUs** (about **21,000 GPU-hours**). The SuperMimic authors report surpassing the normalized return (**0.90**) of SONIC's released checkpoint after **3 hours on one H100**. Across those runs, SONIC took **over 50× as long** and used **over 1,000× as many GPU-hours**. The runs used different GPUs and training data: SONIC's full dataset and the public BONES-SEED subset for SuperMimic. [SONIC paper](https://arxiv.org/html/2511.07820v4#S2.SS1) · [Official compute accounting](https://supermimic.github.io/#compute).
+
+On the same **129,514 training motions**, the SONIC checkpoint failed **179**, while SuperMimic failed **25** after **3 hours on one H100** and **0** after **9.8 hours on two H100s**. [Official motion coverage results](https://supermimic.github.io/#failures).
 
 **Official implementation — released 2026-11-10:** [HybridRobotics/supermimic](https://github.com/HybridRobotics/supermimic) is the project's public implementation repository, released under Apache-2.0. It provides G1 world-model and policy training plus playback scripts built on the sibling `mjlab_research` repository. See the [setup and usage guide](https://github.com/HybridRobotics/supermimic/blob/5efbf114e11f725c31d83e217be987c13c0e4ce2/README.md#setup). The projects below remain separately maintained community implementations and extensions.
 

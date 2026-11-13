@@ -73,7 +73,9 @@ SuperMimic 从仿真状态转移中学习一个共享的可微世界模型，再
 
 世界模型使用 **8 步回放窗口**拟合，策略和 critic 通过 **32 步想象轨迹**学习。更新策略时，世界模型的权重固定，但梯度仍经过模型传回策略。图中蓝色虚线表示梯度，❄️ 表示该阶段权重冻结，🔥 表示该阶段权重参与训练。
 
-作者报告：**单张 H100 训练 3 小时**超过 SONIC 已发布 checkpoint 的回报，**129,514 个动作中失败 25 个**；两张 H100 训练 9.8 小时后失败数为 0。这是训练动作覆盖结果，且两者训练硬件与数据规模不同。[原始结果与计算量口径](https://supermimic.github.io/#compute)。
+SONIC 用 **128 张 NVIDIA L40 训练 7 天**，累计约 **21,000 GPU 小时**。SuperMimic 作者报告，**单张 H100 训练 3 小时**就超过了 SONIC 已发布 checkpoint 的归一化回报（**0.90**）。在这两次训练中，SONIC 的实际耗时是 SuperMimic 的 **50 倍以上**，累计 GPU 小时是 **1,000 倍以上**。两者使用的 GPU 和训练数据不同，SONIC 使用完整数据集，SuperMimic 使用公开子集 BONES-SEED。[SONIC 论文](https://arxiv.org/html/2511.07820v4#S2.SS1) · [官方算力统计](https://supermimic.github.io/#compute)。
+
+在同一批 **129,514 条训练动作**上，SONIC checkpoint 失败 **179 条**，SuperMimic **单张 H100 训练 3 小时**后失败 **25 条**，**两张 H100 训练 9.8 小时**后失败 **0 条**。[官方动作覆盖结果](https://supermimic.github.io/#failures)。
 
 **官方实现（2026-11-10 开源）：** [HybridRobotics/supermimic](https://github.com/HybridRobotics/supermimic) 是项目公开的实现仓库，采用 Apache-2.0 许可，提供基于同级 `mjlab_research` 仓库的 G1 世界模型与策略训练、回放脚本。详见[安装与使用说明](https://github.com/HybridRobotics/supermimic/blob/5efbf114e11f725c31d83e217be987c13c0e4ce2/README.md#setup)。下列条目仍为独立维护的社区实现与扩展。
 
