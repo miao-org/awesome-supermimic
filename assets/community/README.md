@@ -1,5 +1,20 @@
 # Community media credits
 
+## Bumi simulation preview — 2026-11-16
+
+- **Source / author:** [xiaohu97, `demo/langzi_bumi_sim.mp4`](https://github.com/xiaohu97/Bumi-imitation-learning-supermimic/blob/5b26bc910ef76fdb9422433b9ea6d63fbee08323/demo/langzi_bumi_sim.mp4), revision `5b26bc910ef76fdb9422433b9ea6d63fbee08323`.
+- **Local excerpt:** [bumi-simulation.gif](bumi-simulation.gif) shows seconds 10–18 of the 74.6-second video. The right-hand simulation panel is cropped from the 1920 × 1080 source (`crop=960:1080:960:0`), scaled to 480 × 540, sampled at 10 fps and quantized to at most 96 colors. The 80 frames preserve their order and original playback speed; no interpolation or generated content. The original-video / human-overlay panels and audio are not included. The README links to the full upstream comparison video.
+- **Context:** The author's Isaac Lab rollout of the 40k-iteration Bumi policy on a video-derived nine-dance example excluded from LAFAN1 training, rendered in MuJoCo. This is a selected simulation excerpt, not real-robot control, a MuJoCo closed-loop test, a broad held-out benchmark or an independent rerun. The complete example's [result summary](https://github.com/xiaohu97/Bumi-imitation-learning-supermimic/blob/5b26bc910ef76fdb9422433b9ea6d63fbee08323/examples/langzi/traj_040000_summary.json) reports 74.64 seconds, normalized return 0.7915 and no terminations.
+- **Rights:** Contributed by the project owner for this listing. The upstream repository excludes `demo/` and `examples/langzi/` from its MIT code license; source footage, derived motion and robot assets retain their respective rights. This preview is excluded from the collection's CC0 dedication. See the [upstream license notes](https://github.com/xiaohu97/Bumi-imitation-learning-supermimic/blob/5b26bc910ef76fdb9422433b9ea6d63fbee08323/README.md#许可证).
+
+Conversion (FFmpeg 8.1.2):
+
+```sh
+ffmpeg -ss 10 -t 8 -i langzi_bumi_sim.mp4 -filter_complex \
+  "crop=960:1080:960:0,fps=10,scale=480:540:flags=lanczos,setsar=1,split[a][b];[a]palettegen=max_colors=96[p];[b][p]paletteuse=dither=bayer:bayer_scale=4" \
+  -an -loop 0 bumi-simulation.gif
+```
+
 ## BlinkMimic 2 preview — 2026-11-12
 
 - **Source / author:** [Jiayu Li, `docs/media/hero.gif`](https://github.com/jyl681/blinkmimic2/blob/850de91c4c26ed1337b36259391d2a4f21c89198/docs/media/hero.gif), revision `850de91c4c26ed1337b36259391d2a4f21c89198`. Embedded directly from the pinned upstream revision at 480 pixels wide, preserving aspect ratio, frame order and timing; no local copy or re-encoding.
