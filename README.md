@@ -103,7 +103,7 @@ Within each category, **all projects are sorted by GitHub Stars, highest first**
 <thead><tr><th align="left" width="32%">Explore</th><th align="left" width="40%">Project · Stars</th><th align="left" width="28%">Why it matters · evidence</th></tr></thead>
 <tbody>
 <tr>
-<td rowspan="9" valign="top"><a href="#reproductions-methods-and-training-frameworks">🔬&nbsp;Reproduction&nbsp;&amp;&nbsp;training&nbsp;(20)</a></td>
+<td rowspan="10" valign="top"><a href="#reproductions-methods-and-training-frameworks">🔬&nbsp;Reproduction&nbsp;&amp;&nbsp;training&nbsp;(20)</a></td>
 <td valign="top" nowrap="nowrap"><strong><a href="#supermimic_vibed">supermimic_vibed</a></strong>&nbsp;<a href="https://github.com/zita-ch/supermimic_vibed/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/zita-ch/supermimic_vibed.svg?style=social"></a><br>By Chong Zhang</td>
 <td valign="top"><strong>40/40 LAFAN1 motions in 1.47 hours!</strong> A ready-to-run Isaac Lab G1 reproduction on one RTX PRO 6000 Blackwell, with evaluation and rendering tools; note its disabled self-collisions and extra orientation input.</td>
 </tr>
@@ -128,6 +128,10 @@ Within each category, **all projects are sorted by GitHub Stars, highest first**
 <td valign="top"><strong>One policy tracks all 40 motions in ~3.4 minutes!</strong> One RTX 4090, mean of 3 seeds, return ≥ 0.82 and 0/40 failures held for three checkpoints; includes a same-GPU InstantTrack v1.2 comparison, on training motions in simulation.</td>
 </tr>
 <tr>
+<td valign="top" nowrap="nowrap"><strong><a href="#xmimic">XMimic</a></strong>&nbsp;<a href="https://github.com/nico-bohlinger/xmimic/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/nico-bohlinger/xmimic.svg?style=social"></a><br>By Nico Bohlinger and Jan Peters</td>
+<td valign="top"><strong>All 40 LAFAN1 motions in under a minute!</strong> BlinkMimic rebuilt in JAX, with the training iteration split across up to four H100s, reaches BlinkMimic's target after 0.86 minutes (4 runs, compilation excluded), 3.7× faster than BlinkMimic on one H100, in simulation.</td>
+</tr>
+<tr>
 <td valign="top" nowrap="nowrap"><strong><a href="#allmimic">allmimic</a></strong>&nbsp;<a href="https://github.com/Shimingyi/allmimic/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/Shimingyi/allmimic.svg?style=social"></a><br>By Shimingyi</td>
 <td valign="top"><strong>0/40 failures and 0.91 return in 50 minutes!</strong> A 4090 G1 recipe combining residual upper-body / absolute leg actions, balanced sampling and weighted world-model losses; evaluation time excluded.</td>
 </tr>
@@ -140,7 +144,7 @@ Within each category, **all projects are sorted by GitHub Stars, highest first**
 <td valign="top"><strong>From 0.60 to 0.85 return, with the ablations to explain why!</strong> Actor/critic normalization, orientation anchors, world-model normalization and LR fixes are documented step by step; checkpoints released.</td>
 </tr>
 <tr>
-<td rowspan="3" valign="top"><a href="#perception-terrain-and-quadrupeds">👁️&nbsp;Perception&nbsp;&amp;&nbsp;terrain&nbsp;(6)</a></td>
+<td rowspan="4" valign="top"><a href="#perception-terrain-and-quadrupeds">👁️&nbsp;Perception&nbsp;&amp;&nbsp;terrain&nbsp;(6)</a></td>
 <td valign="top" nowrap="nowrap"><strong><a href="#instinctmj--supermimic">InstinctMJ</a></strong>&nbsp;<a href="https://github.com/project-instinct/InstinctMJ/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/project-instinct/InstinctMJ.svg?style=social"></a><br>By Project Instinct</td>
 <td valign="top"><strong>G1 learns to track over terrain with depth perception!</strong> Reports 94.9% success across 10 motions after ~2.7 h on one RTX 3090; one training seed, not a broad generalization benchmark.</td>
 </tr>
@@ -151,6 +155,10 @@ Within each category, **all projects are sorted by GitHub Stars, highest first**
 <tr>
 <td valign="top" nowrap="nowrap"><strong><a href="#terrain-grounded-imagination">Terrain-Grounded Imagination</a></strong>&nbsp;<a href="https://github.com/leggedrobotics/terrain-grounded-imagination/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/leggedrobotics/terrain-grounded-imagination.svg?style=social"></a><br>By Matthias Heyrman</td>
 <td valign="top"><strong>Learns perceptive locomotion over sparse and rough terrain</strong>, matching PPO in sim performance but 6.2× faster, training to 40k iterations in 5.4 hours on one RTX 4090; tested on hardware.</td>
+</tr>
+<tr>
+<td valign="top" nowrap="nowrap"><strong><a href="#xsoma">XSoma</a></strong>&nbsp;<a href="https://github.com/nico-bohlinger/xsoma/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/nico-bohlinger/xsoma.svg?style=social"></a><br>By Nico Bohlinger and Jan Peters</td>
+<td valign="top"><strong>Locomotion on rough terrain in under a minute!</strong> Learns Holosoma's G1 velocity-tracking task with a world model in JAX and reaches Holosoma's FastSAC bar after 0.77 minutes on four H100s (8 runs), 12.3× faster than FastSAC on one H100, in simulation.</td>
 </tr>
 <tr>
 <td rowspan="4" valign="top"><a href="#manipulation-and-dexterous-hands">🦾&nbsp;Manipulation&nbsp;&amp;&nbsp;hands&nbsp;(5)</a></td>
@@ -330,7 +338,9 @@ Original-method reproductions, training acceleration, algorithm variants, shared
 
 <a name="xmimic"></a>
 
-### XMimic [![GitHub stars](https://img.shields.io/github/stars/nico-bohlinger/xmimic.svg?style=social)](https://github.com/nico-bohlinger/xmimic/stargazers)
+<a name="-xmimic"></a>
+
+### ⭐ XMimic [![GitHub stars](https://img.shields.io/github/stars/nico-bohlinger/xmimic.svg?style=social)](https://github.com/nico-bohlinger/xmimic/stargazers)
 
 [Repository](https://github.com/nico-bohlinger/xmimic) · [Setup](https://github.com/nico-bohlinger/xmimic/blob/54860e100251fa80143627565568d5e6b0ff2c2b/README.md#how-to-run) · [Results](https://github.com/nico-bohlinger/xmimic/blob/54860e100251fa80143627565568d5e6b0ff2c2b/README.md#results) · [Paper](https://nico-bohlinger.github.io/papers/2026_xmimic_xsoma.pdf)
 
@@ -584,7 +594,9 @@ Vision, height-scan, terrain and quadruped task adaptations.
 
 <a name="xsoma"></a>
 
-### XSoma [![GitHub stars](https://img.shields.io/github/stars/nico-bohlinger/xsoma.svg?style=social)](https://github.com/nico-bohlinger/xsoma/stargazers)
+<a name="-xsoma"></a>
+
+### ⭐ XSoma [![GitHub stars](https://img.shields.io/github/stars/nico-bohlinger/xsoma.svg?style=social)](https://github.com/nico-bohlinger/xsoma/stargazers)
 
 [Repository](https://github.com/nico-bohlinger/xsoma) · [Setup](https://github.com/nico-bohlinger/xsoma/blob/835410a2646c224addd536b3fb857ca84260ff7a/README.md#how-to-run) · [Results](https://github.com/nico-bohlinger/xsoma/blob/835410a2646c224addd536b3fb857ca84260ff7a/README.md#results) · [Paper](https://nico-bohlinger.github.io/papers/2026_xmimic_xsoma.pdf)
 

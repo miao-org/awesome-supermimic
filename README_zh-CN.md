@@ -103,7 +103,7 @@ SONIC 用 **128 张 NVIDIA L40 训练 7 天**，累计约 **21,000 GPU 小时**�
 <thead><tr><th align="left" width="32%">方向</th><th align="left" width="40%">项目 · Stars</th><th align="left" width="28%">技术价值 · 实验证据</th></tr></thead>
 <tbody>
 <tr>
-<td rowspan="9" valign="top"><a href="#复现方法与训练框架">🔬&nbsp;复现与训练（20）</a></td>
+<td rowspan="10" valign="top"><a href="#复现方法与训练框架">🔬&nbsp;复现与训练（20）</a></td>
 <td valign="top" nowrap="nowrap"><strong><a href="#supermimic_vibed">supermimic_vibed</a></strong>&nbsp;<a href="https://github.com/zita-ch/supermimic_vibed/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/zita-ch/supermimic_vibed.svg?style=social"></a><br>作者：Chong Zhang</td>
 <td valign="top"><strong>1.47 小时跑通 LAFAN1 全部 40 条动作！</strong> 单张 RTX PRO 6000 Blackwell 的 Isaac Lab G1 复现，配套完整评测与渲染；需注意关闭自碰撞、增加朝向观测。</td>
 </tr>
@@ -128,6 +128,10 @@ SONIC 用 **128 张 NVIDIA L40 训练 7 天**，累计约 **21,000 GPU 小时**�
 <td valign="top"><strong>约 3.4 分钟，一套策略跟踪全部 40 条动作！</strong> 单张 RTX 4090，3 个种子平均，回报 ≥ 0.82 且连续三个检查点 0/40 失败；附同机 InstantTrack v1.2 对照，仅仿真训练动作。</td>
 </tr>
 <tr>
+<td valign="top" nowrap="nowrap"><strong><a href="#xmimic">XMimic</a></strong>&nbsp;<a href="https://github.com/nico-bohlinger/xmimic/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/nico-bohlinger/xmimic.svg?style=social"></a><br>作者：Nico Bohlinger、Jan Peters</td>
+<td valign="top"><strong>不到一分钟跟踪全部 40 条 LAFAN1 动作！</strong> 用 JAX 重写 BlinkMimic，把训练迭代拆分到最多四张 H100 上，0.86 分钟达到 BlinkMimic 的目标（4 次运行，不含编译），比单张 H100 上的 BlinkMimic 快 3.7 倍，仅仿真。</td>
+</tr>
+<tr>
 <td valign="top" nowrap="nowrap"><strong><a href="#allmimic">allmimic</a></strong>&nbsp;<a href="https://github.com/Shimingyi/allmimic/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/Shimingyi/allmimic.svg?style=social"></a><br>作者：Shimingyi</td>
 <td valign="top"><strong>约 50 分钟，LAFAN1 零失败、回报 0.91！</strong> 单张 RTX 4090，混合上肢残差与腿部绝对动作，配合均衡采样和加权世界模型损失；不含评测耗时。</td>
 </tr>
@@ -140,7 +144,7 @@ SONIC 用 **128 张 NVIDIA L40 训练 7 天**，累计约 **21,000 GPU 小时**�
 <td valign="top"><strong>回报从 0.60 提升到 0.85，且每一步都有消融！</strong> 逐项验证 Actor/Critic 归一化、朝向锚点、模型归一化和学习率修正，公开策略与世界模型权重。</td>
 </tr>
 <tr>
-<td rowspan="3" valign="top"><a href="#感知地形与四足任务">👁️&nbsp;感知与地形（6）</a></td>
+<td rowspan="4" valign="top"><a href="#感知地形与四足任务">👁️&nbsp;感知与地形（6）</a></td>
 <td valign="top" nowrap="nowrap"><strong><a href="#instinctmj--supermimic">InstinctMJ</a></strong>&nbsp;<a href="https://github.com/project-instinct/InstinctMJ/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/project-instinct/InstinctMJ.svg?style=social"></a><br>团队：Project Instinct</td>
 <td valign="top"><strong>让 G1 带着深度视觉走复杂地形！</strong> 单张 RTX 3090 约 2.7 小时，10 条动作成功率 94.9%；仅一个训练种子，尚非大规模泛化验证。</td>
 </tr>
@@ -151,6 +155,10 @@ SONIC 用 **128 张 NVIDIA L40 训练 7 天**，累计约 **21,000 GPU 小时**�
 <tr>
 <td valign="top" nowrap="nowrap"><strong><a href="#terrain-grounded-imagination">Terrain-Grounded Imagination</a></strong>&nbsp;<a href="https://github.com/leggedrobotics/terrain-grounded-imagination/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/leggedrobotics/terrain-grounded-imagination.svg?style=social"></a><br>作者：Matthias Heyrman</td>
 <td valign="top"><strong>学会在稀疏和崎岖地形上的感知式行走</strong>，仿真性能与 PPO 相当，但训练快 6.2 倍：单张 RTX 4090 上 4 万次迭代只需 5.4 小时；已在真机上测试。</td>
+</tr>
+<tr>
+<td valign="top" nowrap="nowrap"><strong><a href="#xsoma">XSoma</a></strong>&nbsp;<a href="https://github.com/nico-bohlinger/xsoma/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/nico-bohlinger/xsoma.svg?style=social"></a><br>作者：Nico Bohlinger、Jan Peters</td>
+<td valign="top"><strong>不到一分钟学会崎岖地形行走！</strong> 用 JAX 和世界模型学习 Holosoma 的 G1 速度跟踪任务，四张 H100 上 0.77 分钟达到 Holosoma 为 FastSAC 设定的门槛（8 次运行），比单张 H100 上的 FastSAC 快 12.3 倍，仅仿真。</td>
 </tr>
 <tr>
 <td rowspan="4" valign="top"><a href="#操作与灵巧手">🦾&nbsp;操作与灵巧手（5）</a></td>
@@ -330,7 +338,9 @@ SONIC 用 **128 张 NVIDIA L40 训练 7 天**，累计约 **21,000 GPU 小时**�
 
 <a name="xmimic"></a>
 
-### XMimic [![GitHub stars](https://img.shields.io/github/stars/nico-bohlinger/xmimic.svg?style=social)](https://github.com/nico-bohlinger/xmimic/stargazers)
+<a name="-xmimic"></a>
+
+### ⭐ XMimic [![GitHub stars](https://img.shields.io/github/stars/nico-bohlinger/xmimic.svg?style=social)](https://github.com/nico-bohlinger/xmimic/stargazers)
 
 [仓库](https://github.com/nico-bohlinger/xmimic) · [安装](https://github.com/nico-bohlinger/xmimic/blob/54860e100251fa80143627565568d5e6b0ff2c2b/README.md#how-to-run) · [结果](https://github.com/nico-bohlinger/xmimic/blob/54860e100251fa80143627565568d5e6b0ff2c2b/README.md#results) · [论文](https://nico-bohlinger.github.io/papers/2026_xmimic_xsoma.pdf)
 
@@ -584,7 +594,9 @@ SONIC 用 **128 张 NVIDIA L40 训练 7 天**，累计约 **21,000 GPU 小时**�
 
 <a name="xsoma"></a>
 
-### XSoma [![GitHub stars](https://img.shields.io/github/stars/nico-bohlinger/xsoma.svg?style=social)](https://github.com/nico-bohlinger/xsoma/stargazers)
+<a name="-xsoma"></a>
+
+### ⭐ XSoma [![GitHub stars](https://img.shields.io/github/stars/nico-bohlinger/xsoma.svg?style=social)](https://github.com/nico-bohlinger/xsoma/stargazers)
 
 [仓库](https://github.com/nico-bohlinger/xsoma) · [安装](https://github.com/nico-bohlinger/xsoma/blob/835410a2646c224addd536b3fb857ca84260ff7a/README.md#how-to-run) · [结果](https://github.com/nico-bohlinger/xsoma/blob/835410a2646c224addd536b3fb857ca84260ff7a/README.md#results) · [论文](https://nico-bohlinger.github.io/papers/2026_xmimic_xsoma.pdf)
 
