@@ -37,12 +37,12 @@
 ## 目录
 
 - [原始 SuperMimic](#原始-supermimic)
-- [社区项目（43）](#社区项目)
+- [社区项目（44）](#社区项目)
   - 🔬 [复现、方法与训练框架（19）](#复现方法与训练框架)
   - 👁️ [感知与地形（5）](#感知地形与四足任务)
   - 🦾 [操作与灵巧手（5）](#操作与灵巧手)
   - 💪 [肌肉与交互（3）](#肌肉驱动交互与诊断)
-  - 🤖 [本体移植（7）](#机器人移植与重定向)
+  - 🤖 [本体移植（8）](#机器人移植与重定向)
   - 🚀 [真机部署（2）](#真机部署与-sim2real)
   - 💡 [直观学习（2）](#方法借鉴与探索)
 - [相关方法与基线](#相关方法与基线)
@@ -91,9 +91,9 @@ SONIC 用 **128 张 NVIDIA L40 训练 7 天**，累计约 **21,000 GPU 小时**�
 
 **Update** 标注新版本或新结果及核查日期；历史结果保留原实验条件和来源。[本轮 41 个项目的核查记录](docs/project-review-2026-11-03.md)。
 
-**43 个项目，按用途分为 7 类。** 每个项目只收录一次，跨方向的能力在介绍中说明。下表保留各方向的推荐入口，⭐ 表示有值得阅读的实验、工具或示例。
+**44 个项目，按用途分为 7 类。** 每个项目只收录一次，跨方向的能力在介绍中说明。下表保留各方向的推荐入口，⭐ 表示有值得阅读的实验、工具或示例。
 
-各分类内，**所有项目统一按 GitHub Stars 降序排列**（2026-11-03 快照；同数按仓库名排序），⭐ 表示编辑推荐，不影响排序。汇总表仍按分类组织，并在分类内遵循相同顺序。徽章动态更新，排列顺序不会自动变化。Stars 体现仓库关注度；结果与演示为上游报告。
+各分类内，**所有项目统一按 GitHub Stars 降序排列**（2026-11-03 快照，本体移植分类更新至 2026-11-16；同数按仓库名排序），⭐ 表示编辑推荐，不影响排序。汇总表仍按分类组织，并在分类内遵循相同顺序。徽章动态更新，排列顺序不会自动变化。Stars 体现仓库关注度；结果与演示为上游报告。
 
 <a name="精选项目"></a>
 
@@ -175,7 +175,7 @@ SONIC 用 **128 张 NVIDIA L40 训练 7 天**，累计约 **21,000 GPU 小时**�
 <td valign="top"><strong>Update · MyoFullBody 完成 108/108 条留出动作。</strong> 单张 RTX 5090，16k 迭代 / 9.6 小时，回报 0.90；另有 700 肌肉 MS-Human-700，两个本体均已发布 10k/16k 权重。</td>
 </tr>
 <tr>
-<td rowspan="1" valign="top"><a href="#机器人移植与重定向">🤖&nbsp;本体移植（7）</a></td>
+<td rowspan="1" valign="top"><a href="#机器人移植与重定向">🤖&nbsp;本体移植（8）</a></td>
 <td valign="top" nowrap="nowrap"><strong><a href="#supermimic-retargeted">SuperMimic Retargeted</a></strong>&nbsp;<a href="https://github.com/tianshuwu/supermimic-retargeted/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/tianshuwu/supermimic-retargeted.svg?style=social"></a><br>作者：tianshuwu</td>
 <td valign="top"><strong>一套动作处理流程适配三种机器人！</strong> 为 G1、A3、X2 Ultra 提供 SOMA 重定向、坐标修正和足部接触校验；这是数据工具，不含训练权重。</td>
 </tr>
@@ -748,6 +748,22 @@ SONIC 用 **128 张 NVIDIA L40 训练 7 天**，累计约 **21,000 GPU 小时**�
 
 面向机器人本体、仿真器或硬件平台的移植，以及动作重定向工具。
 
+本分类的 Stars 排序于 **2026-11-16** 更新。
+
+<a name="supermimic-quadruped"></a>
+
+### SuperMimic-Quadruped [![GitHub stars](https://img.shields.io/github/stars/Houserz/supermimic-quadruped.svg?style=social)](https://github.com/Houserz/supermimic-quadruped/stargazers)
+
+[仓库](https://github.com/Houserz/supermimic-quadruped) · [快速开始](https://github.com/Houserz/supermimic-quadruped/blob/46a81c248f4eff8eb595e63ac2d3d84d1e30e444/README.zh-CN.md#快速开始) · [结果](https://github.com/Houserz/supermimic-quadruped/blob/46a81c248f4eff8eb595e63ac2d3d84d1e30e444/README.zh-CN.md#结果) · [摇杆规划器](https://github.com/Houserz/supermimic-quadruped/blob/46a81c248f4eff8eb595e63ac2d3d84d1e30e444/docs/PLANNER.zh-CN.md) · [预训练模型](https://github.com/Houserz/supermimic-quadruped/releases/tag/v0.2.0)
+
+- **作者：Houserz。** 基于 CuboiLeo 复现，在 mjlab / MuJoCo Warp 中把 SuperMimic 动作跟踪移植到 12 自由度的越疆 Rover X1 四足机器人，并加入 SONIC 风格的摇杆行走：运动学规划器把键盘输入实时生成参考动作，由同一个跟踪策略执行。公开狗动捕可重定向到任何用一个 YAML 描述的 12 自由度四足。
+- **上游报告：** 一个策略跟踪动作库全部 **665 段**，**0 段失败**（train / `hard` / 留出集平均归一化回报 **0.937 / 0.854 / 0.891**；确定性策略、无噪声；5 万次迭代，单张 H200 约 4.6 小时）。规划器 + 跟踪器在随机摇杆下 125 台 × 60 秒，有无域随机化均 **0 次摔倒**；无随机化时机器人速度达到摇杆的 **0.97 / 0.99 / 0.98**（vx / vy / 偏航角速度）。
+- **选择时注意：** 结果均在仿真中取得。跟踪器和规划器权重以及 99 段额外训练片段已发布，仅限非商业研究；其余 566 段由脚本按固定版本下载公开数据源重建。 [核查版本](https://github.com/Houserz/supermimic-quadruped/blob/46a81c248f4eff8eb595e63ac2d3d84d1e30e444/README.zh-CN.md)。
+
+<a href="https://github.com/Houserz/supermimic-quadruped"><img src="https://raw.githubusercontent.com/Houserz/supermimic-quadruped/46a81c248f4eff8eb595e63ac2d3d84d1e30e444/assets/showcase/joystick.gif" width="480" alt="仿真 · 键盘操控 Rover X1，蓝色为机器狗旁边的规划器输出"></a> <a href="https://github.com/Houserz/supermimic-quadruped"><img src="https://raw.githubusercontent.com/Houserz/supermimic-quadruped/46a81c248f4eff8eb595e63ac2d3d84d1e30e444/assets/showcase/zigzag.gif" width="480" alt="仿真 · Rover X1 跟踪狗动捕的之字形急转"></a><br><sub>仿真 · Rover X1：键盘摇杆 → 规划器（蓝色，画在机器狗旁边）→ 跟踪器；跟踪狗动捕的之字形急转（蓝色表示与参考动作的偏差）</sub>
+
+<br>
+
 <a name="supermimic-mujoco"></a>
 
 ### SuperMimic-MuJoCo [![GitHub stars](https://img.shields.io/github/stars/panhainan2020/SuperMimic-MuJoCo.svg?style=social)](https://github.com/panhainan2020/SuperMimic-MuJoCo/stargazers)
@@ -779,20 +795,6 @@ SONIC 用 **128 张 NVIDIA L40 训练 7 天**，累计约 **21,000 GPU 小时**�
 
 <br>
 
-<a name="supermimic-quadruped"></a>
-
-### SuperMimic-Quadruped [![GitHub stars](https://img.shields.io/github/stars/Houserz/supermimic-quadruped.svg?style=social)](https://github.com/Houserz/supermimic-quadruped/stargazers)
-
-[仓库](https://github.com/Houserz/supermimic-quadruped) · [快速开始](https://github.com/Houserz/supermimic-quadruped/blob/46a81c248f4eff8eb595e63ac2d3d84d1e30e444/README.zh-CN.md#快速开始) · [结果](https://github.com/Houserz/supermimic-quadruped/blob/46a81c248f4eff8eb595e63ac2d3d84d1e30e444/README.zh-CN.md#结果) · [摇杆规划器](https://github.com/Houserz/supermimic-quadruped/blob/46a81c248f4eff8eb595e63ac2d3d84d1e30e444/docs/PLANNER.zh-CN.md) · [预训练模型](https://github.com/Houserz/supermimic-quadruped/releases/tag/v0.2.0)
-
-- **作者：Houserz。** 基于 CuboiLeo 复现，在 mjlab / MuJoCo Warp 中把 SuperMimic 动作跟踪移植到 12 自由度的越疆 Rover X1 四足机器人，并加入 SONIC 风格的摇杆行走：运动学规划器把键盘输入实时生成参考动作，由同一个跟踪策略执行。公开狗动捕可重定向到任何用一个 YAML 描述的 12 自由度四足。
-- **上游报告：** 一个策略跟踪动作库全部 **665 段**，**0 段失败**（train / `hard` / 留出集平均归一化回报 **0.937 / 0.854 / 0.891**；确定性策略、无噪声；5 万次迭代，单张 H200 约 4.6 小时）。规划器 + 跟踪器在随机摇杆下 125 台 × 60 秒，有无域随机化均 **0 次摔倒**；无随机化时机器人速度达到摇杆的 **0.97 / 0.99 / 0.98**（vx / vy / 偏航角速度）。
-- **选择时注意：** 结果均在仿真中取得。跟踪器和规划器权重以及 99 段额外训练片段已发布，仅限非商业研究；其余 566 段由脚本按固定版本下载公开数据源重建。 [核查版本](https://github.com/Houserz/supermimic-quadruped/blob/46a81c248f4eff8eb595e63ac2d3d84d1e30e444/README.zh-CN.md)。
-
-<a href="https://github.com/Houserz/supermimic-quadruped"><img src="https://raw.githubusercontent.com/Houserz/supermimic-quadruped/46a81c248f4eff8eb595e63ac2d3d84d1e30e444/assets/showcase/joystick.gif" width="480" alt="仿真 · 键盘操控 Rover X1，蓝色为机器狗旁边的规划器输出"></a> <a href="https://github.com/Houserz/supermimic-quadruped"><img src="https://raw.githubusercontent.com/Houserz/supermimic-quadruped/46a81c248f4eff8eb595e63ac2d3d84d1e30e444/assets/showcase/zigzag.gif" width="480" alt="仿真 · Rover X1 跟踪狗动捕的之字形急转"></a><br><sub>仿真 · Rover X1：键盘摇杆 → 规划器（蓝色，画在机器狗旁边）→ 跟踪器；跟踪狗动捕的之字形急转（蓝色表示与参考动作的偏差）</sub>
-
-<br>
-
 <a name="supermimic-retargeted"></a>
 
 <a name="-supermimic-retargeted"></a>
@@ -806,20 +808,6 @@ SONIC 用 **128 张 NVIDIA L40 训练 7 天**，累计约 **21,000 GPU 小时**�
 - **选择时注意：** 已报告策略增加了从仿真真值计算的锚点相对观测，真机需有对应的状态估计；尚未完成实机验证。 [核查版本](https://github.com/tianshuwu/supermimic-retargeted/blob/ff69a0e5305126eb5b80b323bcd815805bc3df4e/README.md)。
 
 <a href="https://github.com/tianshuwu/supermimic-retargeted/blob/ff69a0e5305126eb5b80b323bcd815805bc3df4e/media/demo.mp4"><img src="https://raw.githubusercontent.com/tianshuwu/supermimic-retargeted/ff69a0e5305126eb5b80b323bcd815805bc3df4e/media/demo-preview.gif" width="480" alt="仿真 · G1 / X2 Ultra / A3"></a><br><sub>仿真 · G1 / X2 Ultra / A3</sub>
-
-<br>
-
-<a name="supermimic-e1"></a>
-
-### SuperMimic E1 [![GitHub stars](https://img.shields.io/github/stars/wenconggan/SuperMimic_e1.svg?style=social)](https://github.com/wenconggan/SuperMimic_e1/stargazers)
-
-[仓库](https://github.com/wenconggan/SuperMimic_e1) · [安装与资源](https://github.com/wenconggan/SuperMimic_e1/blob/d5fbe8f219c438b84633130652c5e6e74beff628/README.md#安装与资源) · [结果](https://github.com/wenconggan/SuperMimic_e1/blob/d5fbe8f219c438b84633130652c5e6e74beff628/README.md#已测结果)
-
-- **作者：wenconggan。** 将 Isaac Lab 3 实现适配到 21 自由度 DroidUp E1，提供独立的原生 MuJoCo sim-to-sim 回放与评估。
-- **上游报告：** 164k 检查点在 Isaac Lab 中完成 **40 / 40 条训练动作**，回报 **0.8559**；另一个 168k 检查点在原生 MuJoCo 中完成 **10 / 10 个抽样的 8 秒片段**。
-- **选择时注意：** 完整动作评测与独立初始化短片段采用不同协议，两者都不代表未见动作泛化或真机迁移。 [核查版本](https://github.com/wenconggan/SuperMimic_e1/blob/d5fbe8f219c438b84633130652c5e6e74beff628/README.md)。
-
-<a href="https://github.com/wenconggan/SuperMimic_e1/blob/d5fbe8f219c438b84633130652c5e6e74beff628/docs/assets/e1_random10_80s.mp4"><img src="https://raw.githubusercontent.com/wenconggan/SuperMimic_e1/d5fbe8f219c438b84633130652c5e6e74beff628/docs/assets/e1_preview.gif" width="480" alt="E1 sim2sim · 原生 MuJoCo"></a><br><sub>E1 sim2sim · 原生 MuJoCo</sub>
 
 <br>
 
@@ -837,6 +825,20 @@ SONIC 用 **128 张 NVIDIA L40 训练 7 天**，累计约 **21,000 GPU 小时**�
 
 <br>
 
+<a name="supermimic-e1"></a>
+
+### SuperMimic E1 [![GitHub stars](https://img.shields.io/github/stars/wenconggan/SuperMimic_e1.svg?style=social)](https://github.com/wenconggan/SuperMimic_e1/stargazers)
+
+[仓库](https://github.com/wenconggan/SuperMimic_e1) · [安装与资源](https://github.com/wenconggan/SuperMimic_e1/blob/d5fbe8f219c438b84633130652c5e6e74beff628/README.md#安装与资源) · [结果](https://github.com/wenconggan/SuperMimic_e1/blob/d5fbe8f219c438b84633130652c5e6e74beff628/README.md#已测结果)
+
+- **作者：wenconggan。** 将 Isaac Lab 3 实现适配到 21 自由度 DroidUp E1，提供独立的原生 MuJoCo sim-to-sim 回放与评估。
+- **上游报告：** 164k 检查点在 Isaac Lab 中完成 **40 / 40 条训练动作**，回报 **0.8559**；另一个 168k 检查点在原生 MuJoCo 中完成 **10 / 10 个抽样的 8 秒片段**。
+- **选择时注意：** 完整动作评测与独立初始化短片段采用不同协议，两者都不代表未见动作泛化或真机迁移。 [核查版本](https://github.com/wenconggan/SuperMimic_e1/blob/d5fbe8f219c438b84633130652c5e6e74beff628/README.md)。
+
+<a href="https://github.com/wenconggan/SuperMimic_e1/blob/d5fbe8f219c438b84633130652c5e6e74beff628/docs/assets/e1_random10_80s.mp4"><img src="https://raw.githubusercontent.com/wenconggan/SuperMimic_e1/d5fbe8f219c438b84633130652c5e6e74beff628/docs/assets/e1_preview.gif" width="480" alt="E1 sim2sim · 原生 MuJoCo"></a><br><sub>E1 sim2sim · 原生 MuJoCo</sub>
+
+<br>
+
 <a name="supermimic-on-apple-m5"></a>
 
 ### SuperMimic on Apple M5 [![GitHub stars](https://img.shields.io/github/stars/WXyuany/supermimic-m5.svg?style=social)](https://github.com/WXyuany/supermimic-m5/stargazers)
@@ -848,6 +850,20 @@ SONIC 用 **128 张 NVIDIA L40 训练 7 天**，累计约 **21,000 GPU 小时**�
 - **选择时注意：** 回报按已执行步数归一化，失败后的剩余帧不补零，actor 额外使用 9 维锚点观测；需结合完成率阅读，未测试未见动作泛化。 [核查版本](https://github.com/WXyuany/supermimic-m5/blob/42451591718e1a9a5ec601366997f47c0ad180a3/README.md)。
 
 <a href="https://github.com/WXyuany/supermimic-m5/blob/42451591718e1a9a5ec601366997f47c0ad180a3/assets/videos/walk1_subject1.mp4"><img src="https://raw.githubusercontent.com/WXyuany/supermimic-m5/42451591718e1a9a5ec601366997f47c0ad180a3/assets/images/walk-preview.gif" width="480" alt="仿真 · Apple M5 上的 G1 行走"></a><br><sub>仿真 · Apple M5 上的 G1 行走</sub>
+
+<br>
+
+<a name="bumi-imitation-learning-supermimic"></a>
+
+### Bumi Imitation Learning · SuperMimic [![GitHub stars](https://img.shields.io/github/stars/xiaohu97/Bumi-imitation-learning-supermimic.svg?style=social)](https://github.com/xiaohu97/Bumi-imitation-learning-supermimic/stargazers)
+
+[仓库](https://github.com/xiaohu97/Bumi-imitation-learning-supermimic) · [安装](https://github.com/xiaohu97/Bumi-imitation-learning-supermimic/blob/5b26bc910ef76fdb9422433b9ea6d63fbee08323/README.md#环境) · [结果](https://github.com/xiaohu97/Bumi-imitation-learning-supermimic/blob/5b26bc910ef76fdb9422433b9ea6d63fbee08323/README.md#结果) · [PICO 遥操与部署](https://github.com/xiaohu97/Bumi-imitation-learning-supermimic/blob/5b26bc910ef76fdb9422433b9ea6d63fbee08323/deploy/README.md)
+
+- **作者：xiaohu97。** 基于 supermimic_vibed，将 SuperMimic 适配到 Isaac Lab 中的 **Noetix Bumi 21 自由度机器人**，提供 SMPL-X / LAFAN1 重定向、贴地处理、训练、评估及动作跟踪演示流程。人体姿态估计由外部工具完成，不包含在本仓库中。
+- **上游报告（2026-11-16 核查）：** 在 **40 段 LAFAN1 动作上训练 40,000 次迭代**，完成 **40 / 40 条训练动作**，归一化回报 **0.816**。另一个未参与训练、包含 **9 段舞蹈的 74.6 秒视频动作示例**在 Isaac Lab 中 **0 次摔倒**，回报 **0.7915**。评估使用确定性策略、无随机化、摩擦 1、指令延迟 2 个物理步；未报告训练 GPU 型号及耗时。 [演示结果摘要](https://github.com/xiaohu97/Bumi-imitation-learning-supermimic/blob/5b26bc910ef76fdb9422433b9ea6d63fbee08323/examples/langzi/traj_040000_summary.json)。
+- **选择时注意：** 提供 PICO 全身遥操、MuJoCo sim2sim 和 Jetson Orin 部署工具；全身控制已完成仿真与板上假 SDK 测试，尚未驱动真机电机。预训练权重未发布。该演示是单个示例，并非大规模留出测试；仍有抬脚偏低和位置漂移，且两条在 Isaac Lab 中完成的动作在 MuJoCo 中会摔倒。 [核查版本](https://github.com/xiaohu97/Bumi-imitation-learning-supermimic/blob/5b26bc910ef76fdb9422433b9ea6d63fbee08323/README.md) · [部署状态](https://github.com/xiaohu97/Bumi-imitation-learning-supermimic/blob/5b26bc910ef76fdb9422433b9ea6d63fbee08323/deploy/README.md)。
+
+<a href="https://github.com/xiaohu97/Bumi-imitation-learning-supermimic/blob/5b26bc910ef76fdb9422433b9ea6d63fbee08323/demo/langzi_bumi_sim.mp4"><img src="assets/community/bumi-simulation.gif" width="480" alt="Bumi 仿真 · 视频动作示例第 10–18 秒，仅保留机器人画面"></a><br><sub>仿真 · 74.6 秒示例中的 8 秒片段，仅保留机器人画面，原速播放；点击查看完整对比视频。</sub>
 
 <br>
 
