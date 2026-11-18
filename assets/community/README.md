@@ -15,6 +15,18 @@ ffmpeg -ss 10 -t 8 -i langzi_bumi_sim.mp4 -filter_complex \
   -an -loop 0 bumi-simulation.gif
 ```
 
+## XMimic preview — 2026-11-12
+
+- **Source / author:** [Nico Bohlinger, `figures/xmimic.gif`](https://github.com/nico-bohlinger/xmimic/blob/54860e100251fa80143627565568d5e6b0ff2c2b/figures/xmimic.gif), revision `54860e100251fa80143627565568d5e6b0ff2c2b`. Embedded directly from the pinned upstream revision at 480 pixels wide, preserving aspect ratio, frame order and timing, with no local copy or re-encoding.
+- **Context:** An XMimic policy after 54 seconds of training on four H100s (the target checkpoint of a four-GPU run of the first release) on a LAFAN1 dance clip, replayed in MuJoCo on a CPU. The left panel repeats the reported times to BlinkMimic's target. This is one demonstration, not the 40-clip evaluation or an experiment rerun by this collection.
+- **Rights:** Derived from LAFAN1 (Ubisoft La Forge, CC BY-NC-ND 4.0), so it is excluded from the upstream MIT License and for non-commercial use only. Rights remain with the source owners, and this preview is excluded from this collection's CC0 dedication. See the [upstream terms](https://github.com/nico-bohlinger/xmimic/blob/54860e100251fa80143627565568d5e6b0ff2c2b/README.md#license).
+
+## XSoma preview — 2026-11-12
+
+- **Source / author:** [Nico Bohlinger, `figures/xsoma.gif`](https://github.com/nico-bohlinger/xsoma/blob/835410a2646c224addd536b3fb857ca84260ff7a/figures/xsoma.gif), revision `835410a2646c224addd536b3fb857ca84260ff7a`. Embedded directly from the pinned upstream revision at 480 pixels wide, preserving aspect ratio, frame order and timing, with no local copy or re-encoding.
+- **Context:** An XSoma policy after 46 seconds of training on four H100s, following a sequence of velocity commands over Holosoma's rough ground and pits, replayed in MuJoCo. The left panel repeats the reported times to Holosoma's tracking bar. This is one demonstration, not the 2048-episode evaluation or an experiment rerun by this collection.
+- **Rights:** Rendered by the author from the MIT-licensed repository, whose G1 model derives from Holosoma (Apache-2.0) and Unitree's description (BSD-3-Clause). Rights remain with the source owners, and this preview is excluded from this collection's CC0 dedication. See the [upstream license](https://github.com/nico-bohlinger/xsoma/blob/835410a2646c224addd536b3fb857ca84260ff7a/README.md#license).
+
 ## BlinkMimic 2 preview — 2026-11-12
 
 - **Source / author:** [Jiayu Li, `docs/media/hero.gif`](https://github.com/jyl681/blinkmimic2/blob/850de91c4c26ed1337b36259391d2a4f21c89198/docs/media/hero.gif), revision `850de91c4c26ed1337b36259391d2a4f21c89198`. Embedded directly from the pinned upstream revision at 480 pixels wide, preserving aspect ratio, frame order and timing; no local copy or re-encoding.
